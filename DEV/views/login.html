@@ -1,0 +1,9 @@
+<section ng-repeat="testItem in testArray" ng-show="testItem.show >1">
+  <h4>{{testItem.name}}</h4>
+  <img ng-src="{{testItem.bild}}" alt="<kein Bild>" />
+  <p>
+    {{testItem.eigenschaft}}
+    <br>
+    {{date | date: 'dd.MM.yyyy - HH:mm'}}
+  </p>
+</section>

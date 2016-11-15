@@ -1,0 +1,89 @@
+.navbar{
+  background-color: #001a3a;
+}
+#header{
+  height: 60px;
+  padding-top:10px;
+  background-image: url(../images/Check.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 140px;
+}
+#chapter-overview{
+  background-image: url(../img/chapterOverview-inactive.png);
+}
+
+#educational-plan{
+  background-image: url(../img/educationalPlan-inactive.png);
+}
+#achieved-competences{
+  background-image: url(../img/achievedCompetences-inactive.png);
+}
+
+#profile{
+  background-image: url(../img/student/superhero-robin-active.png);
+}
+
+#class-profile{
+  background-image: url(../img/student/superhero-robin-active.png);
+}
+
+#faq{
+  background-image: url(../img/student/superhero-robin-active.png);
+}
+#logout{
+  background-image: url(../img/student/superhero-robin-active.png);
+}
+#school-profile{
+  background-image: url(../img/student/superhero-robin-active.png);
+}
+
+#footer{
+  height: 50px;
+  color: #4565ad;
+  text-align: center;
+}
+
+.split{
+  display: inline-block;
+  height: 30px;
+  width: 1px;
+  margin:0px 3px -15px 3px;
+  padding: 0px;
+  border-left: solid #4565ad 1px;
+}
+.bubble{
+  background-image: url(../images/bubble.svg);
+}
+.content{
+  margin-top: 40px;
+  padding: 0px;
+  height= calc(100%-10px);
+  background-color: #658bc8;
+}
+
+.nav-item{
+  background-color: #353635;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  margin: 2px 1px;
+  transition: width 200ms, height 200ms, margin 200ms;
+}
+.nav-item:hover{
+  width: 42px;
+  height: 42px;
+  margin: 0px ;
+  filter: brightness(85%);
+}
+
+.show{
+  background-color: #0F0;
+}
+
+.rotate{
+  transform: rotate(360deg);
+  transition: 2s;
+}
