@@ -1,25 +1,72 @@
 <nav class="navbar" id="header">
   <section class="container-fluid">
-    <section class="row flex-items-xs-between">
-      <section class="col-xs-2">
-        <button type="button" class="nav-item" id="chapter-overview"></button>
-        <button type="button" class="nav-item" id="educational-plan"></button>
-        <button type="button" class="nav-item" id="achieved-competences"></button>
-      </section>
-      <section class="col-xs-3 float-xs-right text-xs-right">
-        <button type="button" class="nav-item" id="profile"></button>
-        <button type="button" class="nav-item" id="school-profile"></button>
-        <button type="button" class="nav-item" id="study-group-profile"></button>
+      <section class="row flex-items-xs-between">
 
-        <div class="split">
-        </div>
+        <!-- Buttons links -->
+        <section class="col-xs-2">
+          <div class="dropdown">
 
-        <button type="button" class="nav-item" id="help"></button>
-        <button type="button" class="nav-item" id="logout"></button>
+            <!-- Button Kapitelübersicht + Dropdown-Menu -->
+            <button type="button" class="nav-item " id="chapter-overview"></button>
+
+            <!-- Button Förderplan + Dropdown-Menu -->
+            <button type="button" class="nav-item " id="educational-plan"></button>
+
+            <!-- Button Das kann ich + Dropdown-Menu -->
+            <button type="button" class="nav-item " id="achieved-competences"></button>
+          </div>
+        </section>
+        <section class="col-xs-3 float-xs-right text-xs-right">
+
+          <!-- Buttons rechts 1 -->
+          <div class="dropdown">
+
+            <!-- Button Profil + Dropdown-Menu -->
+            <button type="button" class="nav-item " id="profile"></button>
+            <div class="dropdown-content">
+              <section class="dropdown-header">
+                <section class="row">
+                  <img src="/img/student/superhero-robin-big-active.png" class="col-xs-5 dd-header-picture" />
+                  <p class="col-xs-7 dd-header-text-1">
+                    Schüler<br/>Name
+                  </p>
+                </section>
+                <section class="dd-header-text-2">
+                20. September 2008
+                </section>
+              </section>
+              <a href="#">Mein Profilbild ändern</a>
+              <a href="#">Mein Passwort ändern</a>
+              <a href="#">Mein Profil löschen</a>
+            </div>
+          </div>
+
+          <!-- Button Schule + Dropdown-Menu -->
+          <button type="button" class="nav-item" id="school-profile"></button>
+
+          <!-- Button Klasse + Dropdown-Menu -->
+          <button type="button" class="nav-item" id="study-group-profile"></button>
+
+          <!-- Trennung der rechten Buttons -->
+          <div class="split">
+          </div>
+
+          <!-- Buttons rechts 2 -->
+          <div class="dropdown">
+
+            <!-- Button Help + Dropdown-Menu -->
+            <button type="button" class="nav-item" id="help"></button>
+
+            <!-- Button Logout + Dropdown-Menu -->
+            <button type="button" class="nav-item" id="logout"></button>
+
+          </div>
+        </section>
       </section>
-    </section>
   </section>
 </nav>
+
+
 <section class="row" id="content">
   <section class="col-sm-4 hidden-md-down text-sm-center" id="content-left"></section>
   <section class="col-sm-4 text-xs-center">

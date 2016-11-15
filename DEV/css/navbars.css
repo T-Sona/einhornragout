@@ -2,6 +2,78 @@
   background-color: #001a3a;
 }
 
+.dropdown {
+  z-index: 1;
+    position: relative;
+    display: inline-block;
+}
+
+/* definiert gesamtes Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: fixed;
+    right: 227px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+/* definiert die unteren Dropdown-Menu Felder */
+.dropdown-content a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+/* definiert Dropdown-Header */
+.dropdown-header {
+    background-color: #001a3a;
+    min-height: 125px;
+}
+
+/* passt Bild im Dropdown-Header an */
+.dd-header-picture {
+  height: 70px;
+  width: 70px;
+  margin-top: 7px;
+  margin-left: -7px;
+}
+
+/* passt Text im Dropdown-Header an */
+.dd-header-text-1 {
+  text-align: left;
+  font-size: 13pt;
+  color: #4565ad;
+  position: fixed;
+  right: 20px;
+}
+
+.dd-header-text-2 {
+  font-size: 13pt;
+  color: white;
+  font-family: roboto-thin;
+}
+
+/* bewirkt dass Dropdown-Menu erst beim Hovern sichtbar wird */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Effekt der beim Hovern über ein unteres Dropdown-Menu Feld eintritt*/
+.dropdown-content a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
 #header{
   border-radius: 0px;
   height: 60px;
