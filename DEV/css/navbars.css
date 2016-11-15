@@ -1,0 +1,87 @@
+.navbar{
+  background-color: #001a3a;
+}
+
+#header{
+  height: 60px;
+  padding-top:10px;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 140px;
+}
+
+#chapter-overview{
+  background-image: url(../img/chapterOverview-inactive.png);
+}
+
+#chapter-overview:hover{
+  background-image: url(../img/chapterOverview-active.png);
+}
+
+#educational-plan{
+  background-image: url(../img/educationalPlan-inactive.png);
+}
+
+#educational-plan:hover{
+  background-image: url(../img/educationalPlan-active.png);
+}
+
+#achieved-competences{
+  background-image: url(../img/achievedCompetences-inactive.png);
+}
+
+#achieved-competences:hover{
+  background-image: url(../img/achievedCompetences-active.png);
+}
+
+#profile{
+  background-image: url(../img/student/superhero-robin-active.png);
+  filter: contrast(60%);
+  filter: brightness(80%);
+}
+
+#profile:hover{
+  background-image: url(../img/student/superhero-robin-active.png);
+    filter: contrast(100%);
+    filter: brightness(100%);
+}
+
+#school-profile{
+  background-image: url(../img/school/school-inactive.png);
+}
+
+#school-profile:hover{
+  background-image: url(../img/school/school-rose-active.png);
+}
+
+#study-group-profile{
+  background-image: url(../img/studyGroup/studyGroup_2b_inactive.png);
+}
+
+#study-group-profile:hover{
+  background-image: url(../img/studyGroup/studyGroup_2b_active.png);
+}
+
+#help{
+  background-image: url(../img/help-inactive.png);
+}
+
+#help:hover{
+  background-image: url(../img/help-active.png);
+}
+
+#logout{
+  background-image: url(../img/logout-inactive.png);
+}
+
+#logout:hover{
+  background-image: url(../img/logout-active.png);
+}
+
+
+#footer{
+  height: 50px;
+  color: #4565ad;
+  text-align: center;
+}
