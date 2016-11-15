@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top" id="header">
+<nav class="navbar" id="header">
   <section class="container-fluid">
     <section class="row flex-items-xs-between">
       <section class="col-xs-2">
@@ -6,13 +6,12 @@
         <button type="button" class="nav-item" id="educational-plan"></button>
         <button type="button" class="nav-item" id="achieved-competences"></button>
       </section>
-      <section class="col-xs-3 pull-right text-right">
+      <section class="col-xs-3 float-xs-right text-xs-right">
         <button type="button" class="nav-item" id="profile"></button>
         <button type="button" class="nav-item" id="school-profile"></button>
         <button type="button" class="nav-item" id="study-group-profile"></button>
 
         <div class="split">
-
         </div>
 
         <button type="button" class="nav-item" id="help"></button>
@@ -21,14 +20,24 @@
     </section>
   </section>
 </nav>
-<section class="content">
-  <section>
-
+<section class="row" id="content">
+  <section class="col-sm-4 hidden-md-down text-sm-center" id="content-left"></section>
+  <section class="col-sm-4 text-xs-center">
+    <section class="bubble" ng-repeat="testItem in testData">
+      <section class="bubble-text col-xs-12">
+        <p>
+          {{testItem.text}}
+        </p>
+      </section>
+      <img ng-src="{{testItem.img}}" alt="bild" class="bubble-img" />
+    </section>
   </section>
+  <section class="col-sm-4 hidden-md-down text-md-center" id="content-right"></section>
 </section>
 <section class="navbar navbar-fixed-bottom" id="footer">
-  <section class="container-fluid text-center">
-      <strong>CHECK!</strong><br>
-      www.raupundritter.com
+  <section class="container-fluid text-xs-center">
+      <strong>CHECK!</strong>
+      <p>www.raupundritter.com</p>
+
   </section>
 </section>

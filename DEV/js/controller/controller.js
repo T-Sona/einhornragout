@@ -3,27 +3,33 @@ app.controller("homeController",function($scope){
 
   $scope.date = testDate;
 
-  $scope.testArray = [{
-    name: "Martin",
-    eigenschaft: "cool",
-    bild: "img/test/0.png",
-    show: 1
+  $scope.testData = [{
+    text: "01 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
   },
   {
-    name: "Johannes",
-    eigenschaft: "auch sehr geil",
-    bild: "img/test/1.png",
-    show: 1
+    text: "02 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
   },
   {
-    name: "Timo",
-    eigenschaft: "das größte Opfer aller Zeiten",
-    bild: "img/test/2.png",
-    show: 2
+    text: "03 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
   },
   {
-    name: "Dennis",
-    eigenschaft: "Kevin 2015",
-    show: 0
-  }];
+    text: "04 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
+  },
+  {
+    text: "05 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
+  },
+  {
+    text: "06 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
+  },
+  {
+    text: "07 - ja, es kann mehrere Förderpläne für einen Schüler geben, auch gleichzeitig. So soll er bspw. in Mathe einen Förderplan durcharbeiten und in Deutsch einen anderen.",
+    img: "img/chapter06/competenceUndone.png"
+  }
+];
 });
