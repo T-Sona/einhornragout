@@ -1,0 +1,48 @@
+#footerLogin {
+      position:fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+}
+
+#inputLogin {
+      border-radius: 8px;
+      border:solid 1px black;
+      padding:3px;
+  }
+
+#divCenter {
+      text-align: center;
+}
+
+.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.inputfield {
+  margin-top: 10px;
+}
+
+.buttonLogin {
+    background-color: #001a3a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    margin-top: auto;
+    text-align: center;
+    font-size: 13px;
+    height: 40px;
+    width: 150px;
+}
+
+.footerLoginFlieder {
+  font-size: 9px;
+  color: #8da6d6;
+}
+
+.footerLoginNacht {
+  font-size: 9px;
+  color: #001a3a;
+}

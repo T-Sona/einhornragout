@@ -1,9 +1,29 @@
-<section ng-repeat="testItem in testArray" ng-show="testItem.show >1">
-  <h4>{{testItem.name}}</h4>
-  <img ng-src="{{testItem.bild}}" alt="<kein Bild>" />
-  <p>
-    {{testItem.eigenschaft}}
-    <br>
-    {{date | date: 'dd.MM.yyyy - HH:mm'}}
-  </p>
-</section>
+
+<img src="img/login/header.png" alt="BILD" class="displayed"/>
+
+<br>
+
+<div id="divCenter">
+  <input type="text" size="30" maxlength="30" placeholder="Benutzername" align="center" class="inputfield" id="inputLogin">
+  <br/>
+  <input type="password" size="30" maxlength="30" placeholder="Passwort" align="center" class="inputfield" id="inputLogin">
+</div>
+
+<br>
+
+<div id="divCenter">
+    <button type="submit" class="buttonLogin">LOS!</button>
+</div>
+
+<br>
+
+<footer id="footerLogin">
+  <img src="img/login/footer.png" alt="BILD" class="displayed"/>
+    <p class="footerLoginNacht">
+        edition 2016 dark night blue 1.0
+      </p>
+      <p class="footerLoginFlieder">
+        CHECK! und CHECK! Lehrerzimmer sind Produkte des Raup &amp; Ritter Verlag und der OnWerk Softwareagentur Mannheim <br>
+        www.raupundritter.com - Kontakt - Impressum - Preise - Hilfe
+      </p>
+</footer>
