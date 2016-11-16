@@ -31,11 +31,13 @@
 }
 
 #content{
+  overflow: scroll;
   position: fixed;
   width: 100%;
   background-color: #fff3d8;
   margin: 0px;
   padding: 5px;
+  padding-bottom: 50px;
   height: 100%;
 }
 
