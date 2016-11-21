@@ -1,15 +1,55 @@
-.navbar{
-  background-color: #001a3a;
-}
-
 .dropdown {
   z-index: 1;
     position: relative;
     display: inline-block;
 }
 
-/* definiert gesamtes Dropdown Menu */
-.dropdown-content {
+.dropdown-logout {
+  z-index: 1;
+    position: relative;
+    display: inline-block;
+}
+
+/*bestimmt Hintergrundfarbe der oberen Leiste*/
+.navbar{
+  background-color: #001a3a;
+}
+
+/* definiert gesamtes Dropdown Menu der Buttons */
+.dropdown-content-chapter-overview {
+    display: none;
+    position: fixed;
+    left: 32px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+.dropdown-content-educational-plan {
+    display: none;
+    position: fixed;
+    left: 78px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+.dropdown-content-achieved-competences {
+    display: none;
+    position: fixed;
+    left: 122px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+.dropdown-content-profile {
     display: none;
     position: fixed;
     right: 227px;
@@ -20,8 +60,52 @@
     width:250px;
 }
 
-/* definiert die unteren Dropdown-Menu Felder */
-.dropdown-content a{
+.dropdown-content-school-profile {
+    display: none;
+    position: fixed;
+    right: 180px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+.dropdown-content-study-group-profile {
+    display: none;
+    position: fixed;
+    right: 132px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+.dropdown-content-help {
+    display: none;
+    position: fixed;
+    right: 75px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+.dropdown-content-logout {
+    display: none;
+    position: fixed;
+    right: 30px;
+    background-color: white;
+    min-width: 160px;
+    border:solid white 2px;
+    border-radius: 2px;
+    width:250px;
+}
+
+/* definiert die unteren Dropdown-Menu Felder der Buttons */
+.dropdown-content-chapter-overview a{
     text-align: left;
     font-size: 13pt;
     color: #4565ad;
@@ -33,13 +117,179 @@
     border-radius: 2px;
 }
 
-/* definiert Dropdown-Header */
+.dropdown-content-educational-plan a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+.dropdown-content-achieved-competences a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+.dropdown-content-profile a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+.dropdown-content-school-profile a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+.dropdown-content-study-group-profile a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+.dropdown-content-help a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+.dropdown-content-logout a{
+    text-align: left;
+    font-size: 13pt;
+    color: #4565ad;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #001a3a;
+    margin: 2px 0px;
+    border-radius: 2px;
+}
+
+/* bewirkt dass die Dropdown-Menu der Buttons erst beim Hovern sichtbar wird */
+.dropdown:hover .dropdown-content-chapter-overview {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-educational-plan {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-achieved-competences {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-profile {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-school-profile {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-study-group-profile {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content-help {
+    display: block;
+}
+
+.dropdown-logout:hover .dropdown-content-logout {
+    display: block;
+}
+
+/* Effekt der beim Hovern über ein unteres Dropdown-Menu Feld der Buttons eintritt (außer bei "Kompetenzliste" und "Das kann ich")*/
+.dropdown-content-chapter-overview a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-educational-plan a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-achieved-competences a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-profile a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-school-profile a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-study-group-profile a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-help a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content-logout a:hover {
+  background-color: #8da6d6;
+  color: white;
+  text-decoration: none;
+}
+
+/* definiert die Dropdown-Header */
 .dropdown-header {
     background-color: #001a3a;
     min-height: 125px;
 }
 
-/* passt Bild im Dropdown-Header an */
+/* passt die Bilder im Dropdown-Header an */
 .dd-header-picture {
   height: 70px;
   width: 70px;
@@ -47,7 +297,7 @@
   margin-left: -7px;
 }
 
-/* passt Text im Dropdown-Header an */
+/* passt die beiden Textfelder im Dropdown-Header an */
 .dd-header-text-1 {
   text-align: left;
   font-size: 13pt;
@@ -62,18 +312,7 @@
   font-family: roboto-thin;
 }
 
-/* bewirkt dass Dropdown-Menu erst beim Hovern sichtbar wird */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Effekt der beim Hovern über ein unteres Dropdown-Menu Feld eintritt*/
-.dropdown-content a:hover {
-  background-color: #8da6d6;
-  color: white;
-  text-decoration: none;
-}
-
+/* definiert Größe der Buttonleiste*/
 #header{
   border-radius: 0px;
   height: 60px;
@@ -84,6 +323,7 @@
   background-size: 140px;
 }
 
+/*Ordnet den Buttons Bilder zu und bewirkt den Hover-Effekt*/
 #chapter-overview{
   background-image: url(../img/chapterOverview-inactive.png);
 }
@@ -152,9 +392,173 @@
   background-image: url(../img/logout-active.png);
 }
 
-
 #footer{
   height: 50px;
   color: #4565ad;
   padding: 0px;
+}
+
+/* Farben in den Dropdown-Menus "Kompetenzliste" und "Das kann ich" */
+#ch00{
+  color: white;
+}
+
+#ch01{
+  background-color: #79ab2e;
+  color: white;
+}
+
+#ch01:hover{
+  background-color: #a1c153;
+  color: white;
+}
+
+#ch02{
+  background-color: #c6d54f;
+  color: white;
+}
+
+#ch02:hover{
+  background-color: #dbe283;
+  color: white;
+}
+
+#ch03{
+  background-color: #94c122;
+  color: white;
+}
+
+#ch03:hover{
+  background-color: #bad151;
+  color: white;
+}
+
+#ch04{
+  background-color: #44b284;
+  color: white;
+}
+
+#ch04:hover{
+  background-color: #7cc3a3;
+  color: white;
+}
+
+#ch05{
+  background-color: #ffdd00;
+  color: white;
+}
+
+#ch05:hover{
+  background-color: #ffea64;
+  color: white;
+}
+
+#ch06{
+  background-color: #ffed98;
+  color: white;
+}
+
+#ch06:hover{
+  background-color: #fff3d8;
+  color: white;
+}
+
+#ch07{
+  background-color: #fbb900;
+  color: white;
+}
+
+#ch07:hover{
+  background-color: #ffcf53;
+  color: white;
+}
+
+#ch08{
+  background-color: #ef7d25;
+  color: white;
+}
+
+#ch08:hover{
+  background-color: #f5a04c;
+  color: white;
+}
+
+#ch09{
+  background-color: #d60d66;
+  color: white;
+}
+
+#ch09:hover{
+  background-color: #e35184;
+  color: white;
+}
+
+#ch10{
+  background-color: #ea518d;
+  color: white;
+}
+
+#ch10:hover{
+  background-color: #ee7ba9;
+  color: white;
+}
+
+#ch11{
+  background-color: #f29db7;
+  color: white;
+}
+
+#ch11:hover{
+  background-color: #f7bed2;
+  color: white;
+}
+
+#ch12{
+  background-color: #a62068;
+  color: white;
+}
+
+#ch12:hover{
+  background-color: #c9427e;
+  color: white;
+}
+
+#ch13{
+  background-color: #008fc8;
+  color: white;
+}
+
+#ch13:hover{
+  background-color: #4fa8da;
+  color: white;
+}
+
+#ch14{
+  background-color: #62c2d0;
+  color: white;
+}
+
+#ch14:hover{
+  background-color: #94d3e5;
+  color: white;
+}
+
+#ch15{
+  background-color: #004077;
+  color: white;
+}
+
+#ch15:hover{
+  background-color: #005daa;
+  color: white;
+}
+
+#ch16{
+  background-color: #3873b9;
+  color: white;
+}
+
+#ch16:hover{
+  background-color: #658bc8;
+  color: white;
 }
