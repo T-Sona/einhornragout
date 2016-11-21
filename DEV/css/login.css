@@ -1,3 +1,7 @@
+/* importiert Schriftart "roboto-thin" */
+@font-face { font-family: "roboto-thin"; src: url("../resources/ttf/Roboto-Thin.ttf") format("truetype"); }
+
+/*ID für Footer*/
 #footerLogin {
       position:fixed;
       bottom: 10px;
@@ -5,31 +9,34 @@
       text-align: center;
 }
 
+/*Festlegen der Input-Fields auf der Login-Seite*/
 #inputLogin {
       border-radius: 8px;
-      border:solid 1px black;
       padding:3px;
+      height: 40px;
+      text-align: left;
+      margin-top: 10px;
+      font-size: 13px;
+      align-self: center;
   }
 
-#divCenter {
+/*Zentrieren der einzelne Div-Elemente auf der Login-Seite*/
+#divCenterLogin {
       text-align: center;
 }
 
+/*Zentrierung des Bildes*/
 .displayed {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
 
-.inputfield {
-  margin-top: 10px;
-}
-
+/*Definition Login Button*/
 .buttonLogin {
     background-color: #001a3a;
     border: none;
     border-radius: 8px;
-    color: white;
     margin-top: 20px;
     text-align: center;
     font-size: 13px;
@@ -37,12 +44,27 @@
     width: 150px;
 }
 
+/*Footerfarbe Flieder*/
 .footerLoginFlieder {
   font-size: 9px;
   color: #8da6d6;
 }
 
+/*Footerfarbe Nacht*/
 .footerLoginNacht {
   font-size: 9px;
   color: #001a3a;
+}
+
+/*Aktivrand Definition*/
+.glowing-border {
+    border: 2px solid #8da6d6;
+    border-radius: 7px;
+}
+
+/*Hervorhebung des Randes wenn das Feld aktiv ist*/
+.glowing-border:focus {
+    outline: none;
+    border-color: #8da6d6;
+    box-shadow: 0 0 10px #8da6d6;
 }
