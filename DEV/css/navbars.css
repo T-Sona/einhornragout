@@ -40,9 +40,7 @@
 }
 
 #profile{
-  background-image: url(../img/student/superhero-robin-active.png);
-  filter: contrast(60%);
-  filter: brightness(80%);
+  background-image: url(../img/student/superhero-robin-inactive.png);
 }
 
 #profile:hover{

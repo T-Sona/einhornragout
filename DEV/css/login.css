@@ -57,14 +57,12 @@
 }
 
 /*Aktivrand Definition*/
-.glowing-border {
-    border: 2px solid #8da6d6;
+.field-border {
+    border: 3px solid #d3ddf2;
     border-radius: 7px;
 }
 
 /*Hervorhebung des Randes wenn das Feld aktiv ist*/
-.glowing-border:focus {
-    outline: none;
+.field-border:focus {
     border-color: #8da6d6;
-    box-shadow: 0 0 10px #8da6d6;
 }
