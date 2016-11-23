@@ -11,9 +11,10 @@
 }
 
 /*Festlegen der Input-Fields auf der Login-Seite*/
-#inputLogin {
+.inputLogin {
       border-radius: 8px;
       padding:3px;
+      margin: auto;
       height: 40px;
       text-align: left;
       margin-top: 10px;
@@ -24,6 +25,18 @@
 /*Zentrieren der einzelne Div-Elemente auf der Login-Seite*/
 #divCenterLogin {
       text-align: center;
+}
+
+#LoginInputUser {
+  width: 300px !important;
+  color: grey;
+  font-family: Widolte_Regular;
+}
+
+#LoginInputPassword {
+  width: 300px !important;
+  color: #001a3a;
+  font-family: roboto-thin;
 }
 
 /*Zentrierung des Bildes*/
@@ -46,13 +59,13 @@
 }
 
 /*Footerfarbe Flieder*/
-.footerLoginFlieder {
+#footerLoginFlieder {
   font-size: 9px;
   color: #8da6d6;
 }
 
 /*Footerfarbe Nacht*/
-.footerLoginNacht {
+#footerLoginNacht {
   font-size: 9px;
   color: #001a3a;
 }
