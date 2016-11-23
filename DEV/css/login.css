@@ -1,5 +1,6 @@
 /* importiert Schriftart "roboto-thin" */
 @font-face { font-family: "roboto-thin"; src: url("../resources/ttf/Roboto-Thin.ttf") format("truetype"); }
+@font-face { font-family: "widolte_regular" ; src: url("../resources/ttf/Widolte_Regular.otf") format("opentype");}
 
 /*ID für Footer*/
 #footerLogin {
