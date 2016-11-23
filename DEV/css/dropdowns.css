@@ -13,14 +13,19 @@
   border:solid white 2px;
   border-radius: 2px;
   width:250px;
+  overflow: hidden; /* Versteckt die Scrollbar der inneren Section der Dropdown Menüs */
 }
 
-.max-height{
-height: calc(100% - 120px) !important;
+/* Legt die Höhe des gesamten Dropdown Menüs fest */
+.dd-height{
+  height: calc(100% - 120px) !important;
 }
 
+/* Macht das Dropdown Menü scrollable */
 .dd-scrollable{
-overflow: scroll;
+  max-height: calc(100% - 115px);
+  overflow: auto;
+  margin-right: -20px;
 }
 
 #dd-chapter-overview{
