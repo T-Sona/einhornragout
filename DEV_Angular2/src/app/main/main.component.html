@@ -1,13 +1,6 @@
-<p>
-  main works!
-</p>
-
-
 <nav class="navbar" id="header">
   <section class="container-fluid">
     <section class="row flex-items-xs-between">
-
-      <!-- Buttons links -->
       <section class="col-xs-2">
 
 
@@ -17,9 +10,10 @@
           <div class="dd-content dd-height"id="dd-chapter-overview">
             <section class="dd-header">
               <section class="row">
-                <img src="../../img/confirmation.png" class="col-xs-5 dd-header-picture" />
+                <img src="../../img/confirmation.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-                  CHECK!KOMPETENZLISTE
+                  CHECK!
+                  KOMPETENZLISTE
                 </p>
               </section>
             </section>
@@ -52,7 +46,7 @@
               <section class="row">
                 <img src="../../img/educationalPlan-big.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  FÖRDERPLAN</br>MATHE ZR BIS 10
+                  FÖRDERPLAN MATHE ZR BIS 10
                 </p>
               </section>
             </section>
@@ -70,7 +64,7 @@
               <section class="row">
                 <img src="../../img/achievedCompetences-big.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  CHECK!</br>KOMPETENZLISTE
+                  CHECK! KOMPETENZLISTE
                 </p>
               </section>
             </section>
@@ -108,7 +102,7 @@
               <section class="row">
                 <img src="../../img/student/superhero-robin-big-active.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  Schüler<br/>Name
+                  Schüler Name
                 </p>
               </section>
               <section class="dd-header-text-2">
@@ -129,11 +123,11 @@
               <section class="row">
                 <img src="../../img/school/school-rose-big-active.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  ASTRID<br/>LINDGREN<br/>SCHULE
+                  ASTRID LINDGREN SCHULE
                 </p>
               </section>
               <section class="dd-header-text-2">
-                STRASSE NUMMER<br/>PLZ ORT<br/>LAND<br/>EMAIL<br/>TELEFON<br/>
+                STRASSE NUMMER PLZ ORT LAND EMAIL TELEFON
               </section>
             </section>
           </div>
@@ -147,11 +141,11 @@
               <section class="row">
                 <img src="../../img/studyGroup/studyGroup_2a_active-big.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  KLASSE<br/>2B
+                  KLASSE 2B
                 </p>
               </section>
               <section class="dd-header-text-2">
-                KLASSENLEHRER*IN<br/>Valerie Wildemann
+                KLASSENLEHRER*IN Valerie Wildemann
               </section>
             </section>
           </div>
@@ -170,7 +164,7 @@
               <section class="row">
                 <img src="../../img/help-big.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  BRAUCHST<br/>DU HILFE?
+                  BRAUCHST DU HILFE?
                 </p>
               </section>
             </section>
@@ -189,7 +183,7 @@
               <section class="row">
                 <img src="../../img/logout-big.png" class="col-xs-5 dd-header-picture" />
                 <p class="col-xs-7 dd-header-text-1">
-                  MÖCHTEST DU<br/>CHECK!<br/>VERLASSEN?
+                  MÖCHTEST DU CHECK! VERLASSEN?
                 </p>
               </section>
             </section>
@@ -202,3 +196,25 @@
     </section>
   </section>
 </nav>
+
+<section class=row id="content">
+  <section class="col-xs-4 col-centered">
+
+    <div *ngFor='let value of bubbles' class="bubble-img">
+      {{ bubbles }}
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+  </section>
+</section>
+<section class="navbar navbar-fixed-bottom" id="footer">
+  <section class="container-fluid text-xs-center">
+    <strong>CHECK!</strong>
+    <p>www.raupundritter.com</p>
+
+  </section>
+</section>
+
