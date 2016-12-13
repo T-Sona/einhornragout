@@ -12,6 +12,4 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  bubbles: number[] = [1, 2, 3];
-
 }
