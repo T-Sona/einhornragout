@@ -1,0 +1,9 @@
+diff a/DEV_Angular2/src/app/main/body/body.component.html b/DEV_Angular2/src/app/main/body/body.component.html	(rejected hunks)
+@@ -1,4 +1,7 @@
+ <section id="content">
++
++  <button [routerLink]="['']">Home</button>
++
+   testFirst <br>test <br>test <br>
+   test <br>test <br>test <br>
+   test <br>test <br>test <br>

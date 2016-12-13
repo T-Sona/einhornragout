@@ -1,18 +1,17 @@
-<section id="content">
-  testFirst <br>test <br>test <br>
-  test <br>test <br>test <br>
-  test <br>test <br>test <br>
-  test <br>test <br>test <br>
-  test <br>test <br>test <br>
-    test <br>test <br>test <br>
-    test <br>test <br>test <br>
-    test <br>test <br>test <br>
-    test <br>test <br>test <br>
-    test <br>test <br>test <br>
-      test <br>test <br>test <br>
-      test <br>test <br>test <br>
-      test <br>test <br>test <br>
-      test <br>test <br>test <br>
-      test <br>test <br>testLast <br>
+<section class="row"id="content">
+  <section class="col-xs-4">
+    
+  </section>
+  <section class="col-xs-4 col-centered" >
+    <section class="bubble" *ngFor="let cont of siteContent">
+      <section class="bubble-text col-xs-12">
+        <p>
+          {{cont.studentText}}
+        </p>
+      </section>
+    </section>
+  </section>
+  <section class="col-xs-4">
 
+  </section>
 </section>
