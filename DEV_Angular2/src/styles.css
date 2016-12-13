@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/pink-bluegrey.css';
 
+/* importiert Schriftart "roboto-thin" */
+@font-face { font-family: "roboto-thin"; src: url("/src/ttf/Roboto-Thin.ttf") format("truetype"); }
+@font-face { font-family: "widolte_regular" ; src: url("/src/ttf/Widolte_Regular.otf") format("opentype");}
+
 body {
   margin: 0;
-  background-color: #fafafa;
+  background-color: white;
 }
 
 md-card {

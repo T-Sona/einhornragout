@@ -1,0 +1,22 @@
+
+/*ID für Footer*/
+#footerLogin {
+  position:fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/*Footerfarbe Flieder*/
+.footerLoginFlieder {
+  font-size: 9px;
+  color: #8da6d6;
+}
+
+/*Footerfarbe Nacht*/
+#footerLoginNacht {
+  font-size: 9px;
+  color: #001a3a;
+}
+
+
