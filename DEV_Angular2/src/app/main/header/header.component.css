@@ -188,7 +188,7 @@
   text-align: left;
   font-size: 13pt;
   color: #4565ad;
-  position: fixed;
+  margin-left: 10px;
   right: 20px;
 }
 
@@ -347,7 +347,7 @@
   display: inline-block;
   height: 30px;
   width: 1px;
-  margin: 0px 3px -15px 3px;
+  margin: 0px 3px 0px 3px;
   padding: 0px;
   border-left: solid #4565ad 1px;
 }
