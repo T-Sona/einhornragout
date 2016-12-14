@@ -1,12 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class ApiCommunicatorService {
+  private testUrl = 'http://46.101.204.215:1337/api/V1/studentcompetence';
 
-  constructor() { }
-  static getCompApi(){
+  constructor(private http: Http) {}
 
-  }
+  getCompApi(){
+      var authHeader = new Headers();
+      authHeader.append('Authorization', 'Bearer jfjztjtzj');
+
+      console.log(authHeader);
+
+      return this.http.get(this.testUrl, {
+      headers: authHeader
+    }).map((res: Response) =>  res.json());
+  };
+
+
 
   static getCompetences(){
   return [{
