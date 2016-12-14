@@ -13,6 +13,9 @@ import { FooterComponent } from './main/footer/footer.component';
 import { BodyComponent } from './main/body/body.component';
 import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { HomeFooterComponent } from './home/home-footer/home-footer.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePictureComponent } from './change-picture/change-picture.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { HomeFooterComponent } from './home/home-footer/home-footer.component';
     FooterComponent,
     BodyComponent,
     HomeBodyComponent,
-    HomeFooterComponent
+    HomeFooterComponent,
+    DeleteAccountComponent,
+    ChangePasswordComponent,
+    ChangePictureComponent
   ],
   imports: [
     BrowserModule,
