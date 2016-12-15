@@ -10,14 +10,14 @@ import {Http, Headers} from '@angular/http';
 })
 export class BodyComponent implements OnInit {
   public siteContent= [];
-  public newSiteContent = [];
 
   constructor(private apiCommunicatorService: ApiCommunicatorService) {
   }
 
   ngOnInit() {
-    this.siteContent = ApiCommunicatorService.getCompetences();
-    this.apiCommunicatorService.getCompApi().subscribe((comp: Array<Object>) => this.newSiteContent = comp);
+    this.apiCommunicatorService.getCompetences(false,1).subscribe((comp: Array<Object>) => this.siteContent = comp);
+    console.log("Login:");
+    this.apiCommunicatorService.studentLogin();
   }
 
 }
