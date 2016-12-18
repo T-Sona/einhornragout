@@ -8,8 +8,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiCommunicatorService {
   private server = 'http://46.101.204.215:1337/api/V1'
-  private studentCompetences = '/studentcompetence';
-  private chapterIllustrations ="/chapterillustrations/";
+  private ApiStudentCompetences = '/studentcompetence';
+  private ApiChapterIllustrations ="/chapterillustrations/";
+  private ApiAvatars = "/avatar";
   private token= "";
 
 
@@ -18,8 +19,8 @@ export class ApiCommunicatorService {
   private getJsonFromApi(url){
 
     var authHeader = new Headers();
-    authHeader.append('Authorization', 'Bearer jfjztjtzj');
-
+    authHeader.append('Authorization', 'asdafasgd');
+    console.log(this.server+url);
     return this.http.get(this.server+url, {headers: authHeader})
                     .map((res: Response) =>  res.json());
   }
@@ -34,14 +35,23 @@ export class ApiCommunicatorService {
     let myToken = this.put("/login", credentials);
   }
 
+  getAvatars(){
+    return this.getJsonFromApi(this.ApiAvatars);
+  }
+
+  getChapterIllustrations(chapterID){
+    let postfix = "";
+    postfix = (chapterID !== "All" ? (":"+chapterID) : postfix);
+    return this.getJsonFromApi(this.ApiChapterIllustrations+postfix);
+  }
+
   getCompetences(checked,chapterID){
-      var postfix = "";
-      postfix = (checked === true || checked === false ?
-        ("?checked='"+checked+"'") : postfix);
+      let postfix = "";
+      postfix = (checked !== "All" ? ("?checked='"+checked+"'") : postfix);
       postfix = (chapterID !== "All" ?
         (postfix !== "" ? postfix+"&chapterId='"+chapterID+"'" : "?chapterId='"+chapterID+"'"): postfix);
-      console.log("log: "+postfix);
-      return this.getJsonFromApi(this.studentCompetences+postfix);
+
+      return this.getJsonFromApi(this.ApiStudentCompetences+postfix);
   }
 
 

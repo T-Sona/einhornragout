@@ -2,7 +2,7 @@
   border-radius: 0px;
   height: 60px;
   padding-top: 10px;
-  background-image: url(../../../img/logo.png);
+  background-image: url(../../../images/logo.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 140px;
@@ -15,69 +15,69 @@
 
 /*Ordnet den Buttons Bilder zu und bewirkt den Hover-Effekt*/
 #chapter-overview {
-  background-image: url(../../../img/chapterOverview-inactive.png);
+  background-image: url(../../../images/chapterOverview-inactive.png);
 }
 
 #chapter-overview:hover {
-  background-image: url(../../../img/chapterOverview-active.png);
+  background-image: url(../../../images/chapterOverview-active.png);
 }
 
 #educational-plan {
-  background-image: url(../../../img/educationalPlan-inactive.png);
+  background-image: url(../../../images/educationalPlan-inactive.png);
 }
 
 #educational-plan:hover {
-  background-image: url(../../../img/educationalPlan-active.png);
+  background-image: url(../../../images/educationalPlan-active.png);
 }
 
 #achieved-competences {
-  background-image: url(../../../img/achievedCompetences-inactive.png);
+  background-image: url(../../../images/achievedCompetences-inactive.png);
 }
 
 #achieved-competences:hover {
-  background-image: url(../../../img/achievedCompetences-active.png);
+  background-image: url(../../../images/achievedCompetences-active.png);
 }
 
 #profile {
-  background-image: url(../../../img/student/superhero-robin-inactive.png);
+  background-image: url(../../../images/student/superhero-robin-inactive.png);
 }
 
 #profile:hover {
-  background-image: url(../../../img/student/superhero-robin-active.png);
+  background-image: url(../../../images/student/superhero-robin-active.png);
   filter: contrast(100%);
   filter: brightness(100%);
 }
 
 #school-profile {
-  background-image: url(../../../img/school/school-inactive.png);
+  background-image: url(../../../images/school/school-inactive.png);
 }
 
 #school-profile:hover {
-  background-image: url(../../../img/school/school-rose-active.png);
+  background-image: url(../../../images/school/school-rose-active.png);
 }
 
 #study-group-profile {
-  background-image: url(../../../img/studyGroup/studyGroup_2b_inactive.png);
+  background-image: url(../../../images/studyGroup/studyGroup_2b_inactive.png);
 }
 
 #study-group-profile:hover {
-  background-image: url(../../../img/studyGroup/studyGroup_2b_active.png);
+  background-image: url(../../../images/studyGroup/studyGroup_2b_active.png);
 }
 
 #help {
-  background-image: url(../../../img/help-inactive.png);
+  background-image: url(../../../images/help-inactive.png);
 }
 
 #help:hover {
-  background-image: url(../../../img/help-active.png);
+  background-image: url(../../../images/help-active.png);
 }
 
 #logout {
-  background-image: url(../../../img/logout-inactive.png);
+  background-image: url(../../../images/logout-inactive.png);
 }
 
 #logout:hover {
-  background-image: url(../../../img/logout-active.png);
+  background-image: url(../../../images/logout-active.png);
 }
 
 .dd {

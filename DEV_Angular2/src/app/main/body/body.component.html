@@ -1,6 +1,6 @@
 <section class="row"id="content">
   <section class="col-xs-4">
-    
+    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationLeft" class="illustration-left" />
   </section>
   <section class="col-xs-4 col-centered" >
     <section class="bubble" *ngFor="let cont of siteContent">
@@ -12,6 +12,6 @@
     </section>
   </section>
   <section class="col-xs-4">
-
+    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationRight" class="illustration-right" />
   </section>
 </section>

@@ -10,14 +10,26 @@ import {Http, Headers} from '@angular/http';
 })
 export class BodyComponent implements OnInit {
   public siteContent= [];
+  public siteIllustrations = [];
 
   constructor(private apiCommunicatorService: ApiCommunicatorService) {
   }
 
   ngOnInit() {
-    this.apiCommunicatorService.getCompetences(false,1).subscribe((comp: Array<Object>) => this.siteContent = comp);
-    console.log("Login:");
     this.apiCommunicatorService.studentLogin();
+    this.getAllCompetences();
+    this.getAllIllustrations();
+    console.log(this.siteIllustrations);
+  }
+
+  private getAllCompetences(){
+    this.apiCommunicatorService.getCompetences("All","All")
+        .subscribe((competence: Array<Object>) => this.siteContent = competence);
+  }
+
+  private getAllIllustrations(){
+    this.apiCommunicatorService.getChapterIllustrations("All")
+        .subscribe((illustration: Array<Object>) => this.siteIllustrations = illustration);
   }
 
 }

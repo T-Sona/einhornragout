@@ -12,7 +12,7 @@
 .bubble{
   width:369px;
   height: 120px;
-  background: url(../img/contentTextBubble.png) no-repeat top left;
+  background: url(../images/contentTextBubble.png) no-repeat top left;
   background-size: contain;
   margin: 5px;
 }
