@@ -1,13 +1,11 @@
 #header {
   border-radius: 0px;
   height: 60px;
-  padding-top: 10px;
   background-image: url(../../../images/logo.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 140px;
 }
-
 /*bestimmt Hintergrundfarbe der oberen Leiste*/
 .navbar {
   background-color: #001a3a;
@@ -339,15 +337,13 @@
   height: 40px;
   border: none;
   border-radius: 50%;
-  padding: 4px;
-  margin: 2px 1px;
+  margin: 0px 1px;
 }
 
 .split {
   display: inline-block;
   height: 30px;
   width: 1px;
-  margin: 0px 3px 0px 3px;
-  padding: 0px;
+  margin: 0px 3px;
   border-left: solid #4565ad 1px;
 }
