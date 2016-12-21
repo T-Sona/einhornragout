@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiCommunicatorService } from '../api-communicator.service';
+import {Component, OnInit} from '@angular/core';
+import {ApiCommunicatorService} from '../api-communicator.service';
 
 @Component({
   selector: 'app-change-picture',
@@ -10,6 +10,7 @@ import { ApiCommunicatorService } from '../api-communicator.service';
 export class ChangePictureComponent implements OnInit {
 
   public avatarPictures = [];
+  public pictureCurrentUrl = '../../images/student/superhero-robin-big-active.png';
 
   constructor(private apiCommunicatorService: ApiCommunicatorService) {
   }
@@ -19,8 +20,12 @@ export class ChangePictureComponent implements OnInit {
     this.getAvatars();
   }
 
-  private getAvatars(){
+  private getAvatars() {
     this.apiCommunicatorService.getAvatars()
       .subscribe((avatar: Array<Object>) => this.avatarPictures = avatar);
+  }
+
+  changePictureCurrent(url) {
+    this.pictureCurrentUrl = url;
   }
 }
