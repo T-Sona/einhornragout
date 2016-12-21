@@ -40,18 +40,18 @@ export class ApiCommunicatorService {
   }
 
   getChapterIllustrations(chapterID){
-    let postfix = "";
-    postfix = (chapterID !== "All" ? (":"+chapterID) : postfix);
-    return this.getJsonFromApi(this.ApiChapterIllustrations+postfix);
+    let suffix = "";
+    suffix = (chapterID !== "All" ? (":"+chapterID) : suffix);
+    return this.getJsonFromApi(this.ApiChapterIllustrations+suffix);
   }
 
   getCompetences(checked,chapterID){
-      let postfix = "";
-      postfix = (checked !== "All" ? ("?checked='"+checked+"'") : postfix);
-      postfix = (chapterID !== "All" ?
-        (postfix !== "" ? postfix+"&chapterId='"+chapterID+"'" : "?chapterId='"+chapterID+"'"): postfix);
+      let suffix = "";
+      suffix = (checked !== "All" ? ("?checked='"+checked+"'") : suffix);
+      suffix = (chapterID !== "All" ?
+        (suffix !== "" ? suffix+"&chapterId='"+chapterID+"'" : "?chapterId='"+chapterID+"'"): suffix);
 
-      return this.getJsonFromApi(this.ApiStudentCompetences+postfix);
+      return this.getJsonFromApi(this.ApiStudentCompetences+suffix);
   }
 
 
