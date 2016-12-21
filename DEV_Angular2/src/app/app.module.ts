@@ -16,6 +16,9 @@ import { HomeFooterComponent } from './home/home-footer/home-footer.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChangePictureComponent } from './change-picture/change-picture.component';
+import { PopupErrorComponent } from './popup-error/popup-error.component';
+import { PopupGearComponent } from './popup-gear/popup-gear.component';
+import { PopupSuccessComponent } from './popup-success/popup-success.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ChangePictureComponent } from './change-picture/change-picture.componen
     HomeFooterComponent,
     DeleteAccountComponent,
     ChangePasswordComponent,
-    ChangePictureComponent
+    ChangePictureComponent,
+    PopupErrorComponent,
+    PopupGearComponent,
+    PopupSuccessComponent,
   ],
   imports: [
     BrowserModule,
