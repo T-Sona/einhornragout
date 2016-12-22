@@ -9,6 +9,26 @@
 
   <button type="submit" class="buttonLogin" style="color: white" [routerLink]="['/main']">LOS!</button><br>
 
+  <br>
+  <br>
+  <button (click)="showError = !showDialog" class="btn">showError</button> <br>
+
+  <br>
+
+  <button (click)="showSuccess = !showDialog" class="btn">showSuccess</button> <br>
+
+  <br>
+
+  <button (click)="showGear = !showDialog" class="btn">showGear</button> <br>
+
+
+  <app-modal-error [(visible)]="showError"></app-modal-error>
+
+  <app-modal-success [(visible)]="showSuccess"></app-modal-success>
+
+  <app-modal-gear [(visible)]="showGear"></app-modal-gear>
+
+
 </div>
 
-<app-popup-gear></app-popup-gear>
+

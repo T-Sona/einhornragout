@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { PopupGearComponent } from './popup-gear.component';
+import { ModalSuccessComponent } from './modal-success.component';
 
-describe('Component: PopupGear', () => {
+describe('Component: ModalSuccess', () => {
   it('should create an instance', () => {
-    let component = new PopupGearComponent();
+    let component = new ModalSuccessComponent();
     expect(component).toBeTruthy();
   });
 });

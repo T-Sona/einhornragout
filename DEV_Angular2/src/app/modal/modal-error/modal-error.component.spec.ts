@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { PopupErrorComponent } from './popup-error.component';
+import { ModalErrorComponent } from './modal-error.component';
 
-describe('Component: PopupError', () => {
+describe('Component: ModalError', () => {
   it('should create an instance', () => {
-    let component = new PopupErrorComponent();
+    let component = new ModalErrorComponent();
     expect(component).toBeTruthy();
   });
 });
