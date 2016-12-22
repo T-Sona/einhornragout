@@ -11,6 +11,9 @@ export class ApiCommunicatorService {
   private ApiStudentCompetences = '/studentcompetence';
   private ApiChapterIllustrations ="/chapterillustrations/";
   private ApiAvatars = "/avatar";
+  private ApiChapters = "/chapter";
+  private ApiEdPlan = "/educationalPlan";
+  private ApiStudent = "/student";
   private token= "";
 
 
@@ -35,8 +38,14 @@ export class ApiCommunicatorService {
     let myToken = this.put("/login", credentials);
   }
 
-  getAvatars(){
-    return this.getJsonFromApi(this.ApiAvatars);
+  getAvatar(avatarID){
+    let suffix = "";
+    suffix = (avatarID !== "All" ? ("/"+chapterID) : suffix);
+    return this.getJsonFromApi(this.ApiAvatars+suffix);
+  }
+
+  getStudent(){
+    return this.getJsonFromApi(this.ApiStudenet);
   }
 
   getChapterIllustrations(chapterID){
@@ -54,6 +63,17 @@ export class ApiCommunicatorService {
       return this.getJsonFromApi(this.ApiStudentCompetences+suffix);
   }
 
+  getChapter(info){
+    let suffix = "";
+    suffix = (info !== "About" ? ("/"+info) : suffix);
+    return this.getJsonFromApi(this.ApiChapters+suffix);
+  }
+
+  getEdPlan(info){
+    let suffix = "";
+    suffix = (info !== "About" ? ("/"+info) : suffix);
+    return this.getJsonFromApi(this.ApiEdPlan+suffix);
+  }
 
 
 }
