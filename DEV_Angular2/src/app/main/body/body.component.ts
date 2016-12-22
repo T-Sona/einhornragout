@@ -19,7 +19,6 @@ export class BodyComponent implements OnInit {
     this.apiCommunicatorService.studentLogin();
     this.getAllCompetences();
     this.getAllIllustrations();
-    console.log(this.siteIllustrations);
   }
 
   private getAllCompetences(){
