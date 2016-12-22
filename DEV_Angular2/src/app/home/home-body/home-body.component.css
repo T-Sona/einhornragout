@@ -20,7 +20,7 @@
 #LoginInputUser {
   width: 300px !important;
   color: grey;
-  font-family: Widolte_Regular;
+  font-family: widolte_regular;
 }
 
 #LoginInputPassword {
@@ -44,6 +44,7 @@
   margin-top: 20px;
   text-align: center;
   font-size: 13px;
+  font-family: widolte_regular;
   height: 40px;
   width: 150px;
 }

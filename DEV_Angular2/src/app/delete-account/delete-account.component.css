@@ -1,10 +1,12 @@
+/* importiert Schriftart "roboto-thin" */
+
 #picturePosition {
   margin: 100px 0px 12px 0px;
 }
 
 #siteTitle {
   font-size: 20pt;
-  font-family: Arial;
+  font-family: widolte_regular;
   margin-bottom: 20px;
 }
 
