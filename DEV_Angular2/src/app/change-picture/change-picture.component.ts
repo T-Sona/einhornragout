@@ -16,12 +16,12 @@ export class ChangePictureComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiCommunicatorService.getAvatars();
+    this.apiCommunicatorService.getAvatar("All");
     this.getAvatars();
   }
 
   private getAvatars() {
-    this.apiCommunicatorService.getAvatars()
+    this.apiCommunicatorService.getAvatar("All")
       .subscribe((avatar: Array<Object>) => this.avatarPictures = avatar);
   }
 

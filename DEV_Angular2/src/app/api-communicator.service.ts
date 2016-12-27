@@ -16,7 +16,6 @@ export class ApiCommunicatorService {
   private ApiStudent = "/student";
   private token= "";
 
-
   constructor(private http: Http) {}
 
   private getJsonFromApi(url){
@@ -40,12 +39,12 @@ export class ApiCommunicatorService {
 
   getAvatar(avatarID){
     let suffix = "";
-    suffix = (avatarID !== "All" ? ("/"+chapterID) : suffix);
+    suffix = (avatarID !== "All" ? ("/"+avatarID) : suffix);
     return this.getJsonFromApi(this.ApiAvatars+suffix);
   }
 
   getStudent(){
-    return this.getJsonFromApi(this.ApiStudenet);
+    return this.getJsonFromApi(this.ApiStudent);
   }
 
   getChapterIllustrations(chapterID){
