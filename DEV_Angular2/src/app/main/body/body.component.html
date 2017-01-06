@@ -1,20 +1,25 @@
-<section class="row"id="content">
-  <section class="col-xs-4">
-    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationLeft" class="illustration-left" />
+<section class="row" id="content">
+  <section class="col-xs-4" id="illustrationLeft">
+    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationLeft"
+         class="illustration-left"/>
   </section>
-  <section class="col-xs-4 col-centered" >
-    <section class="bubble" *ngFor="let cont of siteContent">
+  <div class="col-xs-4" align="center">
+    <div class="bubble" *ngFor="let cont of siteContent">
       <section class="bubble-text col-xs-12">
-        <p>
+        <p id="studentText">
           {{cont.studentText}}
         </p>
+        <p id="numberFont">
+          {{cont.number}}
+        </p>
       </section>
-    </section>
-  </section>
-  <section class="col-xs-4">
-    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationRight" class="illustration-right" />
+    </div>
+  </div>
+  <section class="col-xs-4" id="illustrationRight">
+    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationRight"
+         class="illustration-right"/>
   </section>
 </section>
 
-<img src="../../../images/chapter15/scrollUp.png" height="40" width="40" id="scrollButtonTop"/>
-<img src="../../../images/chapter15/scrollDown.png" height="40" width="40" id="scrollButtonBottom"/>
+<input type="submit" id="scrollButtonTop" onclick="scrollBy(0, -100)">
+<input type="submit" id="scrollButtonBottom" onclick="scrollBy(0, 100)">

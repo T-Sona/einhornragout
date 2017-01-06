@@ -74,5 +74,4 @@ export class ApiCommunicatorService {
     return this.getJsonFromApi(this.ApiEdPlan+suffix);
   }
 
-
 }

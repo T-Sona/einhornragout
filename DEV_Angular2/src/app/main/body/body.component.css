@@ -1,11 +1,9 @@
 #content {
   overflow-x: hidden;
-  overflow-y: scroll;
-  position: fixed;
-  top: 60px;
+  overflow-y: hidden;
+  margin-top: 60px;
   width: calc(100% + 15px);
   background-color: #fff3d8;
-  margin: 0px;
   padding: 5px;
   height: calc(100% - 110px);
 }
@@ -13,14 +11,13 @@
 .bubble {
   width: 369px;
   height: 120px;
-  background: url(../images/contentTextBubble.png) no-repeat top left;
+  background: url(../../../images/contentTextBubble.png) no-repeat top left;
   background-size: contain;
   margin: 5px;
 }
 
 .bubble-text {
-  margin-top: 15px;
-  font-size: 12px;
+  margin-top: 10px;
   max-width: 250px;
   height: 105px;
   text-align: left;
@@ -37,6 +34,11 @@
   z-index: 1;
   left: calc(100% - 60px);
   top: 80px;
+  background:url(../../../images/chapter15/scrollUp.png) no-repeat;
+  color: transparent;
+  border-color: transparent;
+  height: 45px;
+  width: 45px;
 }
 
 #scrollButtonBottom {
@@ -44,4 +46,34 @@
   z-index: 1;
   left: calc(100% - 60px);
   bottom: 70px;
+  background:url(../../../images/chapter15/scrollDown.png) no-repeat;
+  color: transparent;
+  border-color: transparent;
+  height: 45px;
+  width: 45px;
+}
+
+#illustrationRight {
+  text-align: left;
+  margin-top: 45px;
+}
+
+#illustrationLeft {
+  text-align: right;
+  margin-top: 45px;
+}
+
+#studentText {
+  font-family: dr-hh-el;
+  font-size: 18pt;
+  color: #001a3a;
+}
+
+#numberFont {
+  font-family: letteromatic;
+  font-size: 7.5pt;
+  text-align: left;
+  color: #d3ddf2;
+  padding-left: 5px;
+  padding-bottom: 5px;
 }

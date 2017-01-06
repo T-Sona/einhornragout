@@ -3,6 +3,8 @@
 
 @font-face { font-family: "roboto-thin"; src: url(ttf/Roboto-Thin.ttf)}
 @font-face { font-family: "widolte_regular"; src: url(ttf/Widolte_Regular.otf)}
+@font-face { font-family: "letteromatic"; src: url(ttf/ltromatic.ttf);}
+@font-face { font-family: "dr-hh-el"; src: url(ttf/dr-hh-el.ttf);}
 
 body {
   margin: 0;
