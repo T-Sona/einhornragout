@@ -22,12 +22,12 @@ export class ChangePasswordComponent implements OnInit {
     var newPW2 = (<HTMLInputElement>document.getElementById('newPW2')).value;
 
     if(newPW1 == newPW2 && oldPW != newPW1) {
-      console.log("Passwort richtig")
+      console.log("Passwort richtig");
+      return true;
     } else {
-      console.log("Passwort falsch")
+      console.log("Passwort falsch");
+      return false;
     }
 
-
   }
-
 }

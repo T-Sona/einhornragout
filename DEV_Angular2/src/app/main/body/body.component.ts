@@ -21,9 +21,9 @@ export class BodyComponent implements OnInit {
     this.getAllIllustrations();
   }
 
-  private getAllCompetences(){
-    this.apiCommunicatorService.getCompetences("All","All")
-        .subscribe((competence: Array<Object>) => this.siteContent = competence);
+  private getAllCompetences() {
+    this.apiCommunicatorService.getCompetences("All", "All")
+      .subscribe((competence: Array<Object>) => this.siteContent = competence);
   }
 
   private getAllIllustrations(){
