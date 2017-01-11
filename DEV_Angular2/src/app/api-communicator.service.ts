@@ -4,53 +4,46 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+const API_DATA = require('./api.json')
 
 @Injectable()
 export class ApiCommunicatorService {
-  private server = 'http://46.101.204.215:1337/api/V1'
-  private ApiStudentCompetences = '/studentcompetence';
-  private ApiChapterIllustrations ="/chapterillustrations/";
-  private ApiAvatars = "/avatar";
-  private ApiChapters = "/chapter";
-  private ApiEdPlan = "/educationalPlan";
-  private ApiStudent = "/student";
-  private token= "";
+  private token= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZmFyaW4ifQ.JkX7avKZDA52b_A-eg-l8rJCilmBZbkyuYCJS01Zlc4";
 
   constructor(private http: Http) {}
 
   private getJsonFromApi(url){
 
     var authHeader = new Headers();
-    authHeader.append('Authorization', 'asdafasgd');
-    console.log(this.server+url);
-    return this.http.get(this.server+url, {headers: authHeader})
+    authHeader.append('Authorization', this.token);
+    console.log(API_DATA.server+url);
+    return this.http.get(API_DATA["server"]+url, {headers: authHeader})
                     .map((res: Response) =>  res.json());
   }
 
-  private put(url, body){
-    let test= this.http.put(this.server+url, body).map((res:Response)=> res.json());
-    return test;
+  put(url, body){
+    return this.http.put(API_DATA.server+url,body).map((res:Response)=> res.json());
   }
 
   studentLogin(){
-    let credentials= JSON.stringify({ "username": "username", "password": "password" });
-    let myToken = this.put("/login", credentials);
+    let credentials= { "username": "farin", "password": "MKD" };
+    this.put("/login", credentials).subscribe((token: Array<Object>) => this.token = JSON.stringify(token["token"]));
   }
 
   getAvatar(avatarID){
     let suffix = "";
     suffix = (avatarID !== "All" ? ("/"+avatarID) : suffix);
-    return this.getJsonFromApi(this.ApiAvatars+suffix);
+    return this.getJsonFromApi(API_DATA.avatars+suffix);
   }
 
   getStudent(){
-    return this.getJsonFromApi(this.ApiStudent);
+    return this.getJsonFromApi(API_DATA.student);
   }
 
   getChapterIllustrations(chapterID){
     let suffix = "";
     suffix = (chapterID !== "All" ? (":"+chapterID) : suffix);
-    return this.getJsonFromApi(this.ApiChapterIllustrations+suffix);
+    return this.getJsonFromApi(API_DATA.illustrations+suffix);
   }
 
   getCompetences(checked,chapterID){
@@ -59,19 +52,19 @@ export class ApiCommunicatorService {
       suffix = (chapterID !== "All" ?
         (suffix !== "" ? suffix+"&chapterId='"+chapterID+"'" : "?chapterId='"+chapterID+"'"): suffix);
 
-      return this.getJsonFromApi(this.ApiStudentCompetences+suffix);
+      return this.getJsonFromApi(API_DATA.competences+suffix);
   }
 
   getChapter(info){
     let suffix = "";
     suffix = (info !== "About" ? ("/"+info) : suffix);
-    return this.getJsonFromApi(this.ApiChapters+suffix);
+    return this.getJsonFromApi(API_DATA.chapters+suffix);
   }
 
   getEdPlan(info){
     let suffix = "";
     suffix = (info !== "About" ? ("/"+info) : suffix);
-    return this.getJsonFromApi(this.ApiEdPlan+suffix);
+    return this.getJsonFromApi(API_DATA.edPlan+suffix);
   }
 
 }

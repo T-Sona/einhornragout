@@ -16,7 +16,6 @@ export class BodyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiCommunicatorService.studentLogin();
     this.getAllCompetences();
     this.getAllIllustrations();
   }
