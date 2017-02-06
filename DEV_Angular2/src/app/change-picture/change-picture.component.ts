@@ -28,4 +28,16 @@ export class ChangePictureComponent implements OnInit {
   changePictureCurrent(url) {
     this.pictureCurrentUrl = url;
   }
+
+  public showSuc = false;
+  public closable = true;
+
+  close() {
+    this.showSuc = false;
+  }
+
+  public openModalSuc () {
+    this.showSuc = true;
+  }
+
 }

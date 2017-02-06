@@ -12,4 +12,15 @@ export class DeleteAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  public showSuc = false;
+  public closable = true;
+
+  close() {
+    this.showSuc = false;
+  }
+
+  public openModalSuc () {
+    this.showSuc = true;
+  }
+
 }

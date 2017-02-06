@@ -19,8 +19,14 @@
 </div>
 
 <div class="divCenter">
-  <button type="submit" class="cancelButton">ABBRECHEN</button>
-  <button type="submit" class="saveButton">SPEICHERN</button>
+  <button type="submit" class="cancelButton" [routerLink]="['/main']">ABBRECHEN</button>
+  <button type="submit" class="saveButton" (click)="openModalSuc()">SPEICHERN</button>
+</div>
+
+<div *ngIf="showSuc" class="dialogSuc">
+  <img src="../../images/confirmation.png" height="70" width="70" class="displayed"/>
+  <p class="dialogText">Ihr Profilbild wurde erfolgreich geändert!</p>
+  <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog_close-btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 </div>
 
 <app-footer></app-footer>

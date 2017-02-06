@@ -20,7 +20,13 @@
 </table>
 
 <div class="divCenter">
-  <button type="submit" id="deleteButton">LÖSCHEN</button>
+  <button type="submit" id="deleteButton" (click)="openModalSuc()">LÖSCHEN</button>
+</div>
+
+<div *ngIf="showSuc" class="dialogSuc">
+  <img src="../../images/confirmation.png" height="70" width="70" class="displayed"/>
+  <p class="dialogText">Ihr Profil wurde erfolgreich gelöscht!</p>
+  <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog_close-btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 </div>
 
 <app-footer></app-footer>
