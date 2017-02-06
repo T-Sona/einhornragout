@@ -1,25 +1,28 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ApiCommunicatorService } from '../../api-communicator.service';
+import { LoginService } from '../../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-body',
   templateUrl: 'home-body.component.html',
   styleUrls: ['home-body.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [ApiCommunicatorService]
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeBodyComponent implements OnInit {
 
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService) {
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
+    console.log("LoggedIn:"+this.loginService.isLoggedIn());
+    if(this.loginService.isLoggedIn()){
+      this.router.navigate(["../main"]);
+    }
   }
 
   private login(){
-    let credentials= { "username": "farin", "password": "MKD" };
-    this.apiCommunicatorService.put("/login", credentials).subscribe((token: Array<Object>) => localStorage.setItem("token", JSON.stringify(token)));
+    this.loginService.login("farin","sdgf",false);
   }
 
   showDialog = false;

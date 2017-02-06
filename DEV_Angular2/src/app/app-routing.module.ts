@@ -8,8 +8,8 @@ import {ChangePictureComponent} from "./change-picture/change-picture.component"
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'main', component: MainComponent },
+  { path: 'home', component: HomeComponent, data: { title: 'Login' }},
+  { path: 'main', component: MainComponent, data: { title: 'Main' }},
   { path: 'deleteaccount', component: DeleteAccountComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
   { path: 'changepicture', component: ChangePictureComponent },

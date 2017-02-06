@@ -25,11 +25,6 @@ export class ApiCommunicatorService {
     return this.http.put(API_DATA.server+url,body).map((res:Response)=> res.json());
   }
 
-  studentLogin(){
-    let credentials= { "username": "farin", "password": "MKD" };
-    this.put("/login", credentials).subscribe((token: Array<Object>) => this.token = JSON.stringify(token["token"]));
-  }
-
   getAvatar(avatarID){
     let suffix = "";
     suffix = (avatarID !== "All" ? ("/"+avatarID) : suffix);
