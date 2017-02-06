@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomeBodyComponent implements OnInit {
 
 
+
   constructor(private loginService: LoginService, private router: Router) {
   }
 
@@ -21,8 +22,10 @@ export class HomeBodyComponent implements OnInit {
     }
   }
 
-  private login(){
-    this.loginService.login("farin","sdgf",false);
+  private login(username,password,savedLogin){
+    console.log("username: "+username+" | password: "+password+" | savedLogin:"+!!savedLogin);
+    let success = this.loginService.login(username,password,!!savedLogin);
+      this.router.navigate(["../main"]);
   }
 
   showDialog = false;
