@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiCommunicatorService } from '../../api-communicator.service';
+import {Component, OnInit} from '@angular/core';
+import {ApiCommunicatorService} from '../../api-communicator.service';
 import {Http, Headers} from '@angular/http';
+import {Router} from "@angular/router";
+import {LoginService} from "../../login.service";
 
 @Component({
   selector: 'app-body',
@@ -11,35 +13,22 @@ import {Http, Headers} from '@angular/http';
 
 
 export class BodyComponent implements OnInit {
-  public siteContent= [];
+  public siteContent = [];
   public siteIllustrations = [];
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService) {
+  constructor(private apiCommunicatorService: ApiCommunicatorService, private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
+    console.log("LoggedIn:" + this.loginService.isLoggedIn());
+    if (!this.loginService.isLoggedIn()) {
+      this.router.navigate(["../home"]);
+    }
+
     this.getAllCompetences();
     this.getAllIllustrations();
-    var elem = document.getElementById("scrollButtonBottom");
-    elem.addEventListener("mousedown", mouseDown);
-    elem.addEventListener("mouseup", mouseUp);
-    var scrollflag = false;
 
-    while (scrollflag) {
-      scrollBy(0, 10);
-    }
 
-    function mouseDown() {
-      scrollflag=true;
-      while (scrollflag) {
-        scrollBy(0, 10);
-      }
-
-    }
-
-    function mouseUp() {
-      scrollflag=false;
-    }
   }
 
   private getAllCompetences() {
@@ -47,11 +36,10 @@ export class BodyComponent implements OnInit {
       .subscribe((competence: Array<Object>) => this.siteContent = competence);
   }
 
-  private getAllIllustrations(){
+  private getAllIllustrations() {
     this.apiCommunicatorService.getChapterIllustrations("All")
-        .subscribe((illustration: Array<Object>) => this.siteIllustrations = illustration);
+      .subscribe((illustration: Array<Object>) => this.siteIllustrations = illustration);
   }
-
 
 }
 
