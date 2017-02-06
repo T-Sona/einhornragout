@@ -4,6 +4,7 @@ import { ApiCommunicatorService } from './api-communicator.service';
 @Injectable()
 export class LoginService {
   private loggedIn = false;
+  private matchPassword = false;
 
   constructor(private apiCommunicatorService:ApiCommunicatorService) {
     this.loggedIn = !!sessionStorage.getItem('auth_token');
@@ -12,20 +13,32 @@ export class LoginService {
     }
   }
 
- login(username,password,savedLogin) {
-    let credentials= { "username": username, "password": password };
+  login(username, password, savedLogin) {
+    let credentials = {"username": username, "password": password};
+    localStorage.setItem('username', username);
 
     return this.apiCommunicatorService.put("/login", credentials)
-        .subscribe((res: Array<Object>) => {
-          if(savedLogin){
-            localStorage.setItem('auth_token', JSON.stringify(res["token"]));
-          } else {
-            sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
-          }
-          this.loggedIn = true;
-          console.log("login Service: "+JSON.stringify(res["token"]));
-        });
- }
+      .subscribe((res: Array<Object>) => {
+        if (savedLogin) {
+          localStorage.setItem('auth_token', JSON.stringify(res["token"]));
+        } else {
+          sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
+        }
+        this.loggedIn = true;
+        console.log("login Service: " + JSON.stringify(res["token"]));
+      });
+  }
+
+  public testPassword (password) {
+    let credentials = {"username": localStorage.getItem('username'), "password": password};
+
+    this.apiCommunicatorService.put("/login", credentials).subscribe((res: Array<Object>) => {
+      if(JSON.stringify(res["token"])===localStorage.getItem('auth_token') || (JSON.stringify(res["token"])===sessionStorage.getItem('auth_token'))){
+        this.matchPassword = true;
+      }
+    });
+
+  }
 
   logout() {
     localStorage.removeItem('auth_token');
