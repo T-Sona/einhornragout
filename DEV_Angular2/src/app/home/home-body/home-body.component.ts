@@ -24,8 +24,7 @@ export class HomeBodyComponent implements OnInit {
 
   private login(username,password,savedLogin){
     console.log("username: "+username+" | password: "+password+" | savedLogin:"+!!savedLogin);
-    let success = this.loginService.login(username,password,!!savedLogin);
-      this.router.navigate(["../main"]);
+    this.loginService.login(username,password,!!savedLogin).subscribe(res => this.router.navigate(["../main"]));
   }
 
   showDialog = false;

@@ -18,14 +18,13 @@ export class LoginService {
     localStorage.setItem('username', username);
 
     return this.apiCommunicatorService.put("/login", credentials)
-      .subscribe((res: Array<Object>) => {
+      .map((res: Array<Object>) => {
         if (savedLogin) {
           localStorage.setItem('auth_token', JSON.stringify(res["token"]));
         } else {
           sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
         }
-        this.loggedIn = true;
-        console.log("login Service: " + JSON.stringify(res["token"]));
+        return this.loggedIn = true;
       });
   }
 
