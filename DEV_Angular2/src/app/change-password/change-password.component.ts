@@ -13,7 +13,9 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-  showDialog = false;
+  public showSuc = false;
+  public showError = false;
+  public closable = true;
 
   public checkPassword() {
 
@@ -23,11 +25,18 @@ export class ChangePasswordComponent implements OnInit {
 
     if(newPW1 == newPW2 && oldPW != newPW1) {
       console.log("Passwort richtig");
-      return true;
+      this.showSuc = true;
+      console.log("Wert:"+this.showSuc);
+      console.log("Wert:"+this.showError);
     } else {
       console.log("Passwort falsch");
-      return false;
+      this.showError = true;
     }
 
+  }
+
+  close() {
+    this.showSuc = false;
+    this.showError = false;
   }
 }
