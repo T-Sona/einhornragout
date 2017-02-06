@@ -8,6 +8,8 @@ import {Http, Headers} from '@angular/http';
   styleUrls: ['body.component.css'],
   providers: [ApiCommunicatorService]
 })
+
+
 export class BodyComponent implements OnInit {
   public siteContent= [];
   public siteIllustrations = [];
@@ -18,6 +20,26 @@ export class BodyComponent implements OnInit {
   ngOnInit() {
     this.getAllCompetences();
     this.getAllIllustrations();
+    var elem = document.getElementById("scrollButtonBottom");
+    elem.addEventListener("mousedown", mouseDown);
+    elem.addEventListener("mouseup", mouseUp);
+    var scrollflag = false;
+
+    while (scrollflag) {
+      scrollBy(0, 10);
+    }
+
+    function mouseDown() {
+      scrollflag=true;
+      while (scrollflag) {
+        scrollBy(0, 10);
+      }
+
+    }
+
+    function mouseUp() {
+      scrollflag=false;
+    }
   }
 
   private getAllCompetences() {
@@ -30,4 +52,6 @@ export class BodyComponent implements OnInit {
         .subscribe((illustration: Array<Object>) => this.siteIllustrations = illustration);
   }
 
+
 }
+
