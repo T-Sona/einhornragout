@@ -3,7 +3,6 @@
   overflow-y: hidden;
   margin-top: 60px;
   width: calc(100% + 15px);
-  background-color: #fff3d8;
   padding: 5px;
   height: calc(100% - 110px);
 }

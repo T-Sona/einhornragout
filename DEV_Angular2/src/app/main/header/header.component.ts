@@ -27,6 +27,9 @@ export class HeaderComponent implements OnInit {
 
   loadChapter(i){
     this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => this.bodyDynamics.changeBackground(res["weakcolor"]));
+    this.bodyDynamics.changeFlag(i);
+    this.bodyDynamics.changeButtonUp(i);
+    this.bodyDynamics.changeButtonDown(i);
   }
 
 }

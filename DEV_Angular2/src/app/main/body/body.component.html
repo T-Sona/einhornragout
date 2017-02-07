@@ -1,7 +1,7 @@
-<section class="row" [style.background]="bodyDynamics.ChapterColor" id="content">
+<section class="row" [style.background]="bodyDynamics.chapterColor" id="content">
 
   <section class="col-xs-4" id="illustrationLeft">
-    <img src="../../../images/chapter01/littleChapterFlag.png">
+    <img [src]="bodyDynamics.chapterFlag">
     <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationLeft"
          class="illustration-left"/>
   </section>
@@ -23,8 +23,8 @@
   </section>
 </section>
 
-<input type="submit" id="scrollButtonTop" onclick="scrollBy(0, -100)">
-<input type="submit" id="scrollButtonBottom" onclick="scrollBy(0, 100)">
+<input type="submit" [style.background-image]="'url('+bodyDynamics.buttonUp+')'" id="scrollButtonTop" onclick="scrollBy(0, -100)">
+<input type="submit" [style.background-image]="'url('+bodyDynamics.buttonDown+')'" id="scrollButtonBottom" onclick="scrollBy(0, 100)">
 
 
 
