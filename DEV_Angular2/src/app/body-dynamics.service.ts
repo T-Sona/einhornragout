@@ -7,6 +7,7 @@ export class BodyDynamicsService {
   public chapterFlag = "../../../images/chapter01/littleChapterFlag.png";
   public buttonUp = "../../../images/chapter01/scrollUp.png";
   public buttonDown = "../../../images/chapter01/scrollDown.png";
+  public ChapterBubbles = [];
 
   constructor() {
   }
@@ -37,6 +38,10 @@ export class BodyDynamicsService {
     } else {
       this.buttonDown = "../../../images/chapter" + i + "/scrollDown.png"
     }
+  }
+
+  changeChapterBubbles(i){
+    this.ChapterBubbles=i;
   }
 }
 

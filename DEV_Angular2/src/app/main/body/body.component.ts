@@ -34,7 +34,7 @@ export class BodyComponent implements OnInit {
   }
 
   private getAllCompetences() {
-    this.apiCommunicatorService.getCompetences("All", "All")
+    this.apiCommunicatorService.getCompetences("All", 1)
       .subscribe((competence: Array<Object>) => this.siteContent = competence);
   }
 

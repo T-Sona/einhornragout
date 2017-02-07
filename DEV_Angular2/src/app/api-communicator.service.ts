@@ -45,9 +45,9 @@ export class ApiCommunicatorService {
 
   getCompetences(checked,chapterID){
       let suffix = "";
-      suffix = (checked !== "All" ? ("?checked='"+checked+"'") : suffix);
+      suffix = (checked !== "All" ? ("?checked="+checked) : suffix);
       suffix = (chapterID !== "All" ?
-        (suffix !== "" ? suffix+"&chapterId='"+chapterID+"'" : "?chapterId='"+chapterID+"'"): suffix);
+        (suffix !== "" ? suffix+"&chapterId="+chapterID : "?chapterId="+chapterID): suffix);
 
       return this.getJsonFromApi(API_DATA.competences+suffix);
   }
