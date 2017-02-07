@@ -3,13 +3,18 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class BodyDynamicsService {
 
-  public chapterColor = "#a1c153";
-  public chapterFlag = "../../../images/chapter01/littleChapterFlag.png";
-  public buttonUp = "../../../images/chapter01/scrollUp.png";
-  public buttonDown = "../../../images/chapter01/scrollDown.png";
+  public chapterColor = "#8da6d6";
+  public chapterFlag = "../../../images/surprise.png";
+  public buttonUp = "../../../images/chapter15/scrollUp.png";
+  public buttonDown = "../../../images/chapter15/scrollDown.png";
   public ChapterBubbles = [];
+  public loadAllCompetences= true;
 
   constructor() {
+  }
+
+  changeLoadAllCompetences(i){
+    this.loadAllCompetences=i;
   }
 
   changeBackground(newColor) {
@@ -40,8 +45,9 @@ export class BodyDynamicsService {
     }
   }
 
-  changeChapterBubbles(i){
-    this.ChapterBubbles=i;
+  changeChapterBubbles(i) {
+    this.ChapterBubbles = i;
   }
+
 }
 

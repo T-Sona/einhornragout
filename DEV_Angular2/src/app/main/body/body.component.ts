@@ -26,13 +26,17 @@ export class BodyComponent implements OnInit {
       this.router.navigate(["../home"]);
     }
 
-    this.getFirstCompetences();
+    if (this.bodyDynamics.loadAllCompetences == true) {
+      this.getFirstCompetences();
+      this.bodyDynamics.changeLoadAllCompetences(false);
+    }
+
     this.getAllIllustrations();
 
   }
 
   private getFirstCompetences() {
-    this.apiCommunicatorService.getCompetences("All", 1)
+    this.apiCommunicatorService.getCompetences("true", "All")
       .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
   }
 

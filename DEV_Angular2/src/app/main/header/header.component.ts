@@ -29,15 +29,31 @@ export class HeaderComponent implements OnInit {
     }).subscribe(res => sessionStorage.setItem("avatarId", this.headerdaten['avatarId']));
   }
 
-  loadChapter(i){
+  loadChapter(i) {
+
     this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => this.bodyDynamics.changeBackground(res["weakcolor"]));
     this.bodyDynamics.changeFlag(i);
     this.bodyDynamics.changeButtonUp(i);
     this.bodyDynamics.changeButtonDown(i);
+    this.apiCommunicatorService.getCompetences("All", i)
+      .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
+
+    this.router.navigate(["../main"])
+  }
+
+  loadCompetences(i) {
+    this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => this.bodyDynamics.changeBackground(res["weakcolor"]));
+    this.bodyDynamics.changeFlag(i);
+    this.bodyDynamics.changeButtonUp(i);
+    this.bodyDynamics.changeButtonDown(i);
+    this.apiCommunicatorService.getCompetences("true", i)
+      .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
+
+    this.router.navigate(["../main"])
   }
 
 
-  logout(){
+  logout() {
     console.log("header");
     this.loginService.logout();
     this.router.navigate(["../home"]);
