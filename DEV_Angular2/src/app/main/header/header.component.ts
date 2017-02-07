@@ -23,8 +23,10 @@ export class HeaderComponent implements OnInit {
   }
 
   getStudentData() {
-    this.apiCommunicatorService.getStudent().subscribe(res => {this.headerdaten=res; console.log("Res"+JSON.stringify(res))});
-    console.log("Testdaten:"+JSON.stringify(this.headerdaten));
+    this.apiCommunicatorService.getStudent().map(res => {
+      this.headerdaten = res;
+      console.log("Res" + JSON.stringify(res))
+    }).subscribe(res => sessionStorage.setItem("avatarId", this.headerdaten['avatarId']));
   }
 
   loadChapter(i){

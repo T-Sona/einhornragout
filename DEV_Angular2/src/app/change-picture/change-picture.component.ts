@@ -34,7 +34,6 @@ export class ChangePictureComponent implements OnInit {
     this.picTopNew = true;
     this.pictureCurrentUrl = url;
     this.pictureID = index;
-    console.log("PictureID: "+index);
   }
 
   public showSuc = false;
