@@ -2,8 +2,11 @@
 
   <section class="col-xs-4" id="illustrationLeft">
     <img [src]="bodyDynamics.chapterFlag">
-    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationLeft"
-         class="illustration-left"/>
+    <div *ngFor="let illustration of siteIllustrations; let i=index">
+      <template [ngIf]="i<((bodyDynamics.ChapterBubbles.length)/5)"><img
+        [src]="'../../../'+illustration.illustrationLeft"
+        class="illustration-left"/></template>
+    </div>
   </section>
   <div class="col-xs-4" align="center">
     <div class="bubble" *ngFor="let cont of bodyDynamics.ChapterBubbles">
@@ -12,19 +15,24 @@
           {{cont.studentText}}
         </p>
       </section>
+      <img id="pictureInBubble" src="../../../images/chapter15/competenceDone.png" height="40" width="40"/>
       <p id="numberFont">
         {{cont.number}}
-      </p>
+
     </div>
   </div>
   <section class="col-xs-4" id="illustrationRight">
-    <img *ngFor="let illustration of siteIllustrations" [src]="'../../../'+illustration.illustrationRight"
-         class="illustration-right"/>
+    <div *ngFor="let illustration of siteIllustrations; let i=index">
+      <template [ngIf]="i<((bodyDynamics.ChapterBubbles.length)/5)"><img [src]="'../../../'+illustration.illustrationRight"
+                                  class="illustration-right"/></template>
+    </div>
   </section>
 </section>
 
-<input type="submit" [style.background-image]="'url('+bodyDynamics.buttonUp+')'" id="scrollButtonTop" onclick="scrollBy(0, -100)">
-<input type="submit" [style.background-image]="'url('+bodyDynamics.buttonDown+')'" id="scrollButtonBottom" onclick="scrollBy(0, 100)">
+<input type="submit" [style.background-image]="'url('+bodyDynamics.buttonUp+')'" id="scrollButtonTop"
+       onclick="scrollBy(0, -100)">
+<input type="submit" [style.background-image]="'url('+bodyDynamics.buttonDown+')'" id="scrollButtonBottom"
+       onclick="scrollBy(0, 100)">
 
 
 
