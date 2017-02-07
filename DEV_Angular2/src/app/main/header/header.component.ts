@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiCommunicatorService} from "../../api-communicator.service";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public headerdaten = {};
+
+  constructor(private apiCommunicatorService: ApiCommunicatorService) {
+  }
 
   ngOnInit() {
+
+    this.getStudentData();
+
+  }
+
+  getStudentData() {
+    this.apiCommunicatorService.getStudent().subscribe(res => {this.headerdaten=res; console.log("Res"+JSON.stringify(res))});
+    console.log("Testdaten:"+JSON.stringify(this.headerdaten));
   }
 
 }

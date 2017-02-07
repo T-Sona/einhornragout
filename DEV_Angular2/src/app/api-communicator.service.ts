@@ -62,4 +62,8 @@ export class ApiCommunicatorService {
     return this.getJsonFromApi(API_DATA.edPlan+suffix);
   }
 
+  putProfilePicture (id) {
+    this.put(API_DATA.avatars+"/:"+id,"");
+  }
+
 }
