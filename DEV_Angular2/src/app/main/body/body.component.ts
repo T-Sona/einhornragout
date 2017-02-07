@@ -14,11 +14,10 @@ import {BodyDynamicsService} from "../../body-dynamics.service";
 
 
 export class BodyComponent implements OnInit {
-  public siteContent = [];
   public siteIllustrations = [];
 
   constructor(private apiCommunicatorService: ApiCommunicatorService, private loginService: LoginService, private router: Router,
-  private bodyDynamics: BodyDynamicsService) {
+              private bodyDynamics: BodyDynamicsService) {
   }
 
   ngOnInit() {
@@ -27,22 +26,20 @@ export class BodyComponent implements OnInit {
       this.router.navigate(["../home"]);
     }
 
-    this.getAllCompetences();
+    this.getFirstCompetences();
     this.getAllIllustrations();
-
 
   }
 
-  private getAllCompetences() {
+  private getFirstCompetences() {
     this.apiCommunicatorService.getCompetences("All", 1)
-      .subscribe((competence: Array<Object>) => this.siteContent = competence);
+      .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
   }
 
   private getAllIllustrations() {
     this.apiCommunicatorService.getChapterIllustrations("All")
       .subscribe((illustration: Array<Object>) => this.siteIllustrations = illustration);
   }
-
 
 
 }
