@@ -11,8 +11,8 @@
 <p id="siteTitle" class="divCenter">PROFILBILD ÄNDERN</p>
 
 <div class="divCenter">
-  <button type="submit" class="cancelButton">ABBRECHEN</button>
-  <button type="submit" class="saveButton">SPEICHERN</button>
+  <button type="submit" class="cancelButton" [routerLink]="['/main']">ABBRECHEN</button>
+  <button type="submit" class="saveButton" (click)="openModalSuc()">SPEICHERN</button>
 </div>
 
 <div align="center">

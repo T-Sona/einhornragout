@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiCommunicatorService} from "../api-communicator.service";
 
 @Component({
   selector: 'app-delete-account',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteAccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiCommunicator: ApiCommunicatorService) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,7 @@ export class DeleteAccountComponent implements OnInit {
   }
 
   public openModalSuc () {
+    this.apiCommunicator.deleteStudent();
     this.showSuc = true;
   }
 
