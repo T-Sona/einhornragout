@@ -25,8 +25,8 @@ export class HomeBodyComponent implements OnInit {
   private login(username,password,savedLogin){
     console.log("username: "+username+" | password: "+password+" | savedLogin:"+!!savedLogin);
     this.loginService.login(username,password,!!savedLogin).subscribe(res => this.router.navigate(["../main"]), (err) => {
-          if (err === 'Unauthorized') { this.errorService.throwError("test");
-      }else{this.errorService.throwError("test2");}});
+          if (err === 'Unauthorized') { this.errorService.throwError("Ihre Eingaben sind nicht korrekt, bitte versuchen sie es erneut!");
+      }else{this.errorService.throwError("Es ist ein unbekannter Fehler aufgetreten, bitte versuchen sie es erneut!");}});
   }
 
   showDialog = false;
