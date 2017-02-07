@@ -23,6 +23,7 @@ import { ModalGearComponent } from './modal/modal-gear/modal-gear.component';
 import { LoginService } from './login.service';
 import { ErrorService } from './error.service';
 import { ApiCommunicatorService } from './api-communicator.service';
+import {BodyDynamicsService} from "./body-dynamics.service";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { ApiCommunicatorService } from './api-communicator.service';
     MaterialModule.forRoot(),
     RoutingModule
   ],
-  providers: [ApiCommunicatorService, LoginService, ErrorService],
+  providers: [ApiCommunicatorService, LoginService, ErrorService, BodyDynamicsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
