@@ -21,6 +21,7 @@ import { ModalSuccessComponent } from './modal/modal-success/modal-success.compo
 import { ModalGearComponent } from './modal/modal-gear/modal-gear.component';
 
 import { LoginService } from './login.service';
+import { ErrorService } from './error.service';
 import { ApiCommunicatorService } from './api-communicator.service';
 
 @NgModule({
@@ -47,7 +48,7 @@ import { ApiCommunicatorService } from './api-communicator.service';
     MaterialModule.forRoot(),
     RoutingModule
   ],
-  providers: [ApiCommunicatorService, LoginService],
+  providers: [ApiCommunicatorService, LoginService, ErrorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

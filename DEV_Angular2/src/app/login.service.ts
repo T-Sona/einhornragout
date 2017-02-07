@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiCommunicatorService } from './api-communicator.service';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class LoginService {
@@ -25,7 +26,7 @@ export class LoginService {
           sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
         }
         return this.loggedIn = true;
-      });
+      }).catch(e => {if (e.status === 401) {return Observable.throw('Unauthorized');}else{return Observable.throw('Whatever');}});
   }
 
   public testPassword (password) {

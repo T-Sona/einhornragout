@@ -3,6 +3,7 @@ import { Headers, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { ErrorService } from './error.service';
 
 const API_DATA = require('./api.json')
 
@@ -10,7 +11,7 @@ const API_DATA = require('./api.json')
 export class ApiCommunicatorService {
   private token= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZmFyaW4ifQ.JkX7avKZDA52b_A-eg-l8rJCilmBZbkyuYCJS01Zlc4";
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private errorService: ErrorService) {}
 
   private getJsonFromApi(url){
 
@@ -22,7 +23,8 @@ export class ApiCommunicatorService {
   }
 
   put(url, body){
-    return this.http.put(API_DATA.server+url,body).map((res:Response)=> res.json());
+    return this.http.put(API_DATA.server+url,body)
+              .map((res:Response)=> {let json = res.json(); return json;});
   }
 
   getAvatar(avatarID){

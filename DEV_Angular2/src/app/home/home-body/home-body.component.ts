@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LoginService } from '../../login.service';
+import { ErrorService } from '../../error.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,8 +12,7 @@ import { Router } from '@angular/router';
 export class HomeBodyComponent implements OnInit {
 
 
-
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: LoginService, private router: Router, private errorService: ErrorService) {
   }
 
   ngOnInit() {
@@ -24,7 +24,9 @@ export class HomeBodyComponent implements OnInit {
 
   private login(username,password,savedLogin){
     console.log("username: "+username+" | password: "+password+" | savedLogin:"+!!savedLogin);
-    this.loginService.login(username,password,!!savedLogin).subscribe(res => this.router.navigate(["../main"]));
+    this.loginService.login(username,password,!!savedLogin).subscribe(res => this.router.navigate(["../main"]), (err) => {
+          if (err === 'Unauthorized') { this.errorService.throwError("test");
+      }else{this.errorService.throwError("test2");}});
   }
 
   showDialog = false;
