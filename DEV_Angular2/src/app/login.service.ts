@@ -16,7 +16,7 @@ export class LoginService {
 
   login(username, password, savedLogin) {
     let credentials = {"username": username, "password": password};
-    localStorage.setItem('username', username);
+    sessionStorage.setItem('username', username);
 
     return this.apiCommunicatorService.put("/login", credentials)
       .map((res: Array<Object>) => {
@@ -26,11 +26,11 @@ export class LoginService {
           sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
         }
         return this.loggedIn = true;
-      }).catch(e => {if (e.status === 401) {return Observable.throw('Unauthorized');}else{return Observable.throw('Whatever');}});
+      }).catch(e => {if (e.status >= 227) {return Observable.throw('Error')}});
   }
 
   public testPassword (password) {
-    let credentials = {"username": localStorage.getItem('username'), "password": password};
+    let credentials = {"username": sessionStorage.getItem('username'), "password": password};
 
     this.apiCommunicatorService.put("/login", credentials).subscribe((res: Array<Object>) => {
       if(JSON.stringify(res["token"])===localStorage.getItem('auth_token') || (JSON.stringify(res["token"])===sessionStorage.getItem('auth_token'))){
@@ -41,8 +41,9 @@ export class LoginService {
   }
 
   logout() {
-    localStorage.removeItem('auth_token');
-    sessionStorage.removeItem('auth_token');
+    console.log("loginservice");
+    localStorage.clear();
+    sessionStorage.clear();
     this.loggedIn = false;
   }
 

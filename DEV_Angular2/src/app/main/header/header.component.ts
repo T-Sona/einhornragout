@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiCommunicatorService} from "../../api-communicator.service";
 import {BodyDynamicsService} from "../../body-dynamics.service";
+import {Router} from '@angular/router';
+import {LoginService} from '../../login.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   public headerdaten = {};
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService) {
+  constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
   }
 
   ngOnInit() {
@@ -30,6 +32,13 @@ export class HeaderComponent implements OnInit {
     this.bodyDynamics.changeFlag(i);
     this.bodyDynamics.changeButtonUp(i);
     this.bodyDynamics.changeButtonDown(i);
+  }
+
+
+  logout(){
+    console.log("header");
+    this.loginService.logout();
+    this.router.navigate(["../home"]);
   }
 
 }
