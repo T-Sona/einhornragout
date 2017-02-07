@@ -10,13 +10,17 @@ import {ApiCommunicatorService} from '../api-communicator.service';
 export class ChangePictureComponent implements OnInit {
 
   public avatarPictures = [];
-  public pictureCurrentUrl = '../../images/student/superhero-robin-big-active.png';
+  public pictureCurrentUrl = this.avatarPictures[this.currentPicture];
+  public currentPicture = sessionStorage.getItem("avatarId");
+  public picTopOld = true;
+  public picTopNew = false;
+  public pictureID;
+  public index;
 
   constructor(private apiCommunicatorService: ApiCommunicatorService) {
   }
 
   ngOnInit() {
-    this.apiCommunicatorService.getAvatar("All");
     this.getAvatars();
   }
 
@@ -25,8 +29,12 @@ export class ChangePictureComponent implements OnInit {
       .subscribe((avatar: Array<Object>) => this.avatarPictures = avatar);
   }
 
-  changePictureCurrent(url) {
+  changePictureCurrent(url, index) {
+    this.picTopOld = false;
+    this.picTopNew = true;
     this.pictureCurrentUrl = url;
+    this.pictureID = index;
+    console.log("PictureID: "+index);
   }
 
   public showSuc = false;
@@ -36,7 +44,9 @@ export class ChangePictureComponent implements OnInit {
     this.showSuc = false;
   }
 
-  public openModalSuc () {
+  public openModalSuc() {
+    this.apiCommunicatorService.putProfilePicture(this.pictureID);
+    sessionStorage.setItem("avatarId", this.pictureID);
     this.showSuc = true;
   }
 

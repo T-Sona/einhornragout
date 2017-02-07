@@ -6,11 +6,18 @@
   margin: 10px;
 }
 
-#pictureCurrent {
+#pictureCurrentOld {
   margin-top: 100px;
   margin-bottom: 12px;
   text-align: center;
 }
+
+#pictureCurrentNew {
+  margin-top: 100px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
 
 #siteTitle {
   font-size: 20pt;

@@ -1,7 +1,11 @@
 <app-header></app-header>
 
-<div id="pictureCurrent" class="divCenter">
-  <img [src]="pictureCurrentUrl" height="70" width="70" />
+<div id="pictureCurrentOld" class="divCenter" *ngIf="picTopOld">
+  <img [src]="'../../..'+avatarPictures[currentPicture]?.avatarBigUrl" height="70" width="70" />
+</div>
+
+<div id="pictureCurrentNew" class="divCenter" *ngIf="picTopNew">
+  <img [src]="'../../..'+pictureCurrentUrl" height="70" width="70" />
 </div>
 
 <p id="siteTitle" class="divCenter">PROFILBILD ÄNDERN</p>
@@ -13,8 +17,8 @@
 
 <div align="center">
   <div id="pictureContainer">
-    <img *ngFor="let avatar of avatarPictures" [src]="'../../../'+avatar.avatarBigUrl" height="70px" width="70px"
-         class="pictureRowMargin" (click)="changePictureCurrent('../../../'+avatar.avatarBigUrl)"/>
+    <img *ngFor="let avatar of avatarPictures, let i = index" [src]="'../../../'+avatar.avatarBigUrl" height="70px" width="70px"
+         class="pictureRowMargin" (click)="changePictureCurrent('../../..'+avatar.avatarBigUrl, i)"/>
   </div>
 </div>
 
