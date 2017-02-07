@@ -5,5 +5,7 @@
    "avatars" : "/avatar",
    "chapters" : "/chapter",
    "edPlan" : "/educationalPlan",
-   "student" : "/student"
+   "student" : "/student",
+   "login": "/login",
+   "chgPassword": "/requestPasswordRecovery"
 }

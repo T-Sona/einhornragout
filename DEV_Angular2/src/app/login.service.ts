@@ -16,14 +16,15 @@ export class LoginService {
 
   login(username, password, savedLogin) {
     let credentials = {"username": username, "password": password};
-    sessionStorage.setItem('username', username);
 
     return this.apiCommunicatorService.put("/login", credentials)
       .map((res: Array<Object>) => {
         if (savedLogin) {
           localStorage.setItem('auth_token', JSON.stringify(res["token"]));
+          localStorage.setItem('username', username);
         } else {
           sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
+          sessionStorage.setItem('username', username);
         }
         return this.loggedIn = true;
       }).catch(e => {if (e.status >= 227) {return Observable.throw('Error')}});

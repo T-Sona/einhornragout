@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import { ErrorService } from '../error.service';
+import { ApiCommunicatorService } from '../api-communicator.service';
+
+const API_DATA = require('../api.json')
 
 @Component({
   selector: 'app-change-password',
@@ -6,37 +10,44 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
+  private oldPW;
+  private newPW1;
+  private newPW2;
 
-  constructor() {
+  constructor(private errorService: ErrorService, private apiCommunicatorService:ApiCommunicatorService) {
   }
 
   ngOnInit() {
   }
 
-  public showSuc = false;
-  public showError = false;
-  public closable = true;
-
   public checkPassword() {
 
-    var oldPW = (<HTMLInputElement>document.getElementById('oldPW')).value;
-    var newPW1 = (<HTMLInputElement>document.getElementById('newPW1')).value;
-    var newPW2 = (<HTMLInputElement>document.getElementById('newPW2')).value;
+    this.oldPW = (<HTMLInputElement>document.getElementById('oldPW')).value;
+    this.newPW1 = (<HTMLInputElement>document.getElementById('newPW1')).value;
+    this.newPW2 = (<HTMLInputElement>document.getElementById('newPW2')).value;
 
-    if(newPW1 == newPW2 && oldPW != newPW1) {
-      console.log("Passwort richtig");
-      this.showSuc = true;
-      console.log("Wert:"+this.showSuc);
-      console.log("Wert:"+this.showError);
+
+    if (this.newPW1.length <7){
+      this.errorService.throwError("Das Passwort ist zu kurz, bitte versuchen Sie es erneut!");
+    } else if(this.newPW1 !== this.newPW2) {
+      this.errorService.throwError("Die Passwörter stimmen nicht überein, bitte versuchen Sie es erneut!");
+    } else if (this.oldPW === this.newPW1) {
+      this.errorService.throwError("Das alte Passwort darf nicht mit dem neuen übereinstimmen!");
     } else {
-      console.log("Passwort falsch");
-      this.showError = true;
+      let oldToken = (!!sessionStorage.getItem("auth_token"))? sessionStorage.getItem("auth_token") : localStorage.getItem("auth_token");
+      let username = (!!sessionStorage.getItem("username"))? sessionStorage.getItem("username") : localStorage.getItem("username");
+      let credentials = {"username": username, "password": this.oldPW};
+      this.apiCommunicatorService.put
+      this.apiCommunicatorService.put(API_DATA.login, credentials).subscribe((res: any) => {
+            if(oldToken === JSON.stringify(res["token"])){
+              console.log("token passt");
+              this.errorService.throwSuccess("Passwortänderung erfolgreich!");
+            } else{
+              this.errorService.throwError("Passworteingabe falsch, bitte versuchen Sie es erneut!");
+            }
+          });
+
     }
 
-  }
-
-  close() {
-    this.showSuc = false;
-    this.showError = false;
   }
 }
