@@ -1,15 +1,5 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
 .dialog {
-  z-index: 1000;
+  z-index: 1032;
   position: fixed;
   left: calc((100% - 300px) / 2);
   top: calc((100% - 200px) / 2);
@@ -46,4 +36,14 @@
   height: 80px;
   text-align: center;
   font-family: roboto-thin;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1031;
+  background-color: grey;
+  opacity: 0.5;
 }
