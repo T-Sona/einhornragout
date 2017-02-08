@@ -97,11 +97,11 @@
         <!-- Button Profil + Dropdown-Menu -->
         <div class="dd">
           <button (mouseover)="activateProfileBackgroundImage()" (mouseleave)="deactivateProfileBackgroundImage()"
-                  [style.backgroundImage]=profileBackgroundImage type="button" class="nav-button " id="profile"></button>
+                  [style.backgroundImage]="profileBackgroundImage" type="button" class="nav-button " id="profile"></button>
           <div class="dd-content" id="dd-profile">
             <section class="dd-header">
               <section class="row">
-                <img [src]="'../../..'+test" class="col-xs-5 dd-header-picture"/>
+                <img [src]="'../../..'+profileHeaderImage" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
                   {{headerdaten["forename"]}}<br>{{headerdaten["surname"]}}
                 </p>
@@ -119,7 +119,7 @@
         <!-- Button Schule + Dropdown-Menu -->
         <div class="dd">
           <button (mouseover)="activateSchoolBackgroundImage()" (mouseleave)="deactivateSchoolBackgroundImage()"
-                  [style.backgroundImage]=schoolBackgroundImage type="button" class="nav-button"></button>
+                  [style.backgroundImage]="schoolBackgroundImage" type="button" class="nav-button"></button>
           <div class="dd-content" id="dd-school-profile">
             <section class="dd-header">
               <section class="row">
@@ -142,7 +142,7 @@
         <!-- Button Klasse + Dropdown-Menu -->
         <div class="dd">
           <button (mouseover)="activateGroupBackgroundImage()" (mouseleave)="deactivateGroupBackgroundImage()"
-                  [style.backgroundImage]=groupBackgroundImage type="button" class="nav-button"></button>
+                  [style.backgroundImage]="groupBackgroundImage" type="button" class="nav-button"></button>
           <div class="dd-content" id="dd-study-group-profile">
             <section class="dd-header">
               <section class="row">

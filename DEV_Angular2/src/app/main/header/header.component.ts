@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   public groupBackgroundImage;
   public schoolBackgroundImage;
   public profileBackgroundImage;
-  public test;
+  public profileHeaderImage;
   public avatarID;
   public avatarPictures = [];
 
@@ -26,54 +26,27 @@ export class HeaderComponent implements OnInit {
   constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
   }
 
-  activateGroupBackgroundImage() {
-    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrl"] + ")";
-  }
-
-  deactivateGroupBackgroundImage() {
-    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
-  }
-
-  activateSchoolBackgroundImage() {
-    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrl"] + ")";
-  }
-
-  deactivateSchoolBackgroundImage() {
-    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
-  }
-
-  activateProfileBackgroundImage() {
-    this.profileBackgroundImage = "url(../../.." + (this.avatarPictures[this.avatarID])["avatarUrl"] + ")";
-  }
-
-  deactivateProfileBackgroundImage() {
-    this.profileBackgroundImage = "url(../../.." + (this.avatarPictures[this.avatarID])["avatarInactiveUrl"] + ")";
-  }
-
   ngOnInit() {
-    this.getStudentData();
     this.getEducationalPlan();
+    this.getStudentData();
   }
 
   getStudentData() {
     this.apiCommunicatorService.getAvatar("All")
-      .subscribe((avatar: Array<Object>) => this.avatarPictures = avatar);
-
-    this.apiCommunicatorService.getStudent().map(res => {
-      this.headerdaten = res;
-      this.studyGroup = res["studyGroups"];
-      this.school = res["school"];
-      this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
-      this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
-      this.avatarID = res["avatarId"];
-      this.test = this.avatarPictures[this.avatarID]["avatarBigUrl"];
-      this.profileBackgroundImage = (this.avatarPictures[this.avatarID])["avatarBigUrl"];
-
-
-
-    }).subscribe(res => sessionStorage.setItem("avatarId", this.headerdaten['avatarId']));
-
-
+          .map((avatar: Array<Object>) => this.avatarPictures = avatar )
+          .subscribe(() => this.apiCommunicatorService.getStudent().map(res => {
+                          this.headerdaten = res;
+                          this.studyGroup = res["studyGroups"];
+                          this.school = res["school"];
+                          this.avatarID = res["avatarId"];
+                        }).subscribe(() => {
+                              this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
+                              this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
+                              this.profileBackgroundImage = this.avatarPictures[this.avatarID]["avatarInactiveUrl"];
+                              this.profileHeaderImage = this.avatarPictures[this.avatarID]["avatarBigUrl"];
+                              console.log("Avatars: "+this.profileHeaderImage);
+                        })
+          );
   }
 
   loadChapter(i) {
@@ -110,5 +83,30 @@ export class HeaderComponent implements OnInit {
     this.apiCommunicatorService.getEdPlan("All")
       .subscribe((edPlan: Array<Object>) => this.educationalArray = edPlan);
   }
+
+  activateGroupBackgroundImage() {
+    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrl"] + ")";
+  }
+
+  deactivateGroupBackgroundImage() {
+    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
+  }
+
+  activateSchoolBackgroundImage() {
+    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrl"] + ")";
+  }
+
+  deactivateSchoolBackgroundImage() {
+    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
+  }
+
+  activateProfileBackgroundImage() {
+    this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarUrl"] + ")";
+  }
+
+  deactivateProfileBackgroundImage() {
+    this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarInactiveUrl"] + ")";
+  }
+
 
 }
