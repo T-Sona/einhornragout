@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
     this.bodyDynamics.changeButtonDown(i);
     this.apiCommunicatorService.getCompetences("All", i)
       .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
+    this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"])
   }
 
@@ -47,6 +48,7 @@ export class HeaderComponent implements OnInit {
     this.bodyDynamics.changeButtonDown(i);
     this.apiCommunicatorService.getCompetences("true", i)
       .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
+    this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"])
   }
 

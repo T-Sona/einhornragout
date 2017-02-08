@@ -28,7 +28,7 @@ export class BodyComponent implements OnInit {
 
     if (this.bodyDynamics.loadAllCompetences == true) {
       this.getFirstCompetences();
-      this.bodyDynamics.sortCompetenceArrayByDate();
+      this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
       this.bodyDynamics.changeLoadAllCompetences(false);
     }
 

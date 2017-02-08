@@ -9,20 +9,22 @@
     </div>
   </section>
   <div class="col-xs-4" align="center">
-    <div class="bubble" *ngFor="let cont of bodyDynamics.chapterBubbles; let i=index ">
+    <div class="bubble" *ngFor="let cont of bodyDynamics.chapterBubbles; let i=index">
       <section class="bubble-text col-xs-12">
         <p id="studentText">
           {{cont.studentText}}
         </p>
       </section>
 
-      <img (click)="bodyDynamics.changeShowBubbleSidetext()" id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
-      <section *ngIf="bodyDynamics.showBubbleSidetext" id="hoverTextBubbles">
-        Du hast diese Kompetenz am 25. Oktober 2016 erreicht!
+      <img (mouseover)="bodyDynamics.changeShowBubbleSidetext(i)" (mouseleave)="bodyDynamics.changeShowBubbleSidetext(i)" id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
+
+
+      <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" id="hoverTextBubbles">
+        Du hast diese Kompetenz am {{cont.fromDate}} erreicht!
       </section>
+
       <p id="numberFont">
         {{cont.number}}
-
     </div>
   </div>
   <section class="col-xs-4" id="illustrationRight">

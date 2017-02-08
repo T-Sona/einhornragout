@@ -10,16 +10,24 @@ export class BodyDynamicsService {
   public pictureInBubble = "../../../images/chapter15/competenceDone.png";
   public chapterBubbles = [];
   public loadAllCompetences = true;
-  public showBubbleSidetext = false;
+  public sideTextBooleanArray = [];
 
   constructor() {
   }
 
-  changeShowBubbleSidetext() {
-    if (this.showBubbleSidetext) {
-      this.showBubbleSidetext = false;
+  fillBooleanArray(j) {
+
+    for (let i = 0; i <= j; i++) {
+      this.sideTextBooleanArray[i] = false;
+    }
+
+  }
+
+  changeShowBubbleSidetext(i) {
+    if (!this.sideTextBooleanArray[i]) {
+      this.sideTextBooleanArray[i] = true;
     } else {
-      this.showBubbleSidetext = true;
+      this.sideTextBooleanArray[i] = false;
     }
   }
 
@@ -77,26 +85,6 @@ export class BodyDynamicsService {
       }
 
     }
-
-  }
-
-  sortCompetenceArrayByDate() {
-    console.log("Test 1");
-    this.chapterBubbles.sort(sortDate)
-
-    function sortDate(date1, date2) {
-
-      console.log("Test 2: " + date1.fromDate);
-
-      if (date1.fromDate < date2.fromDate) {
-        return -1;
-      } else if (date1.fromDate > date2.fromDate) {
-        return 1;
-      } else {
-        return 0;
-      }
-    }
-
 
   }
 }
