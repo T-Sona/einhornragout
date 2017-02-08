@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   public groupBackgroundImage;
   public schoolBackgroundImage;
   public profileBackgroundImage;
+  public test;
   public avatarID;
   public avatarPictures = [];
 
@@ -60,14 +61,14 @@ export class HeaderComponent implements OnInit {
 
     this.apiCommunicatorService.getStudent().map(res => {
       this.headerdaten = res;
-      console.log("Res" + JSON.stringify(res));
       this.studyGroup = res["studyGroups"];
       this.school = res["school"];
       this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
       this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
       this.avatarID = res["avatarId"];
+      this.test = this.avatarPictures[this.avatarID]["avatarBigUrl"];
       this.profileBackgroundImage = (this.avatarPictures[this.avatarID])["avatarBigUrl"];
-      console.log("Test 1:" + JSON.stringify(this.avatarPictures))
+
 
 
     }).subscribe(res => sessionStorage.setItem("avatarId", this.headerdaten['avatarId']));
