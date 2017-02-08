@@ -12,23 +12,67 @@ import {LoginService} from '../../login.service';
 export class HeaderComponent implements OnInit {
 
   public headerdaten = {};
-  public educationalArray=[];
+  public studyGroup = {};
+  public school = {};
+  public educationalArray = [];
+  public groupBackgroundImage;
+  public schoolBackgroundImage;
+  public profileBackgroundImage;
+  public avatarID;
+  public avatarPictures = [];
+
 
   constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
   }
 
-  ngOnInit() {
+  activateGroupBackgroundImage() {
+    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrl"] + ")";
+  }
 
+  deactivateGroupBackgroundImage() {
+    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
+  }
+
+  activateSchoolBackgroundImage() {
+    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrl"] + ")";
+  }
+
+  deactivateSchoolBackgroundImage() {
+    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
+  }
+
+  activateProfileBackgroundImage() {
+    this.profileBackgroundImage = "url(../../.." + (this.avatarPictures[this.avatarID])["avatarUrl"] + ")";
+  }
+
+  deactivateProfileBackgroundImage() {
+    this.profileBackgroundImage = "url(../../.." + (this.avatarPictures[this.avatarID])["avatarInactiveUrl"] + ")";
+  }
+
+  ngOnInit() {
     this.getStudentData();
     this.getEducationalPlan();
-
   }
 
   getStudentData() {
+    this.apiCommunicatorService.getAvatar("All")
+      .subscribe((avatar: Array<Object>) => this.avatarPictures = avatar);
+
     this.apiCommunicatorService.getStudent().map(res => {
       this.headerdaten = res;
-      console.log("Res" + JSON.stringify(res))
+      console.log("Res" + JSON.stringify(res));
+      this.studyGroup = res["studyGroups"];
+      this.school = res["school"];
+      this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
+      this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
+      this.avatarID = res["avatarId"];
+      this.profileBackgroundImage = (this.avatarPictures[this.avatarID])["avatarBigUrl"];
+      console.log("Test 1:" + JSON.stringify(this.avatarPictures))
+
+
     }).subscribe(res => sessionStorage.setItem("avatarId", this.headerdaten['avatarId']));
+
+
   }
 
   loadChapter(i) {
@@ -51,7 +95,7 @@ export class HeaderComponent implements OnInit {
     this.apiCommunicatorService.getCompetences("true", i)
       .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
     this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
-    this.router.navigate(["../main"])
+    this.router.navigate(["../main"]);
   }
 
 

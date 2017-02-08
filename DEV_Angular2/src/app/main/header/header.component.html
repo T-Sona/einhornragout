@@ -11,7 +11,7 @@
           <div class="dd-content dd-height" id="dd-chapter-overview">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/confirmation.png" class="col-xs-5 dd-header-picture" />
+                <img src="../../../images/confirmation.png" class="col-xs-5 dd-header-picture"/>
                 <p class="dd-header-text-1 col-xs-7">
                   CHECK!<br>KOMPETENZLISTE
                 </p>
@@ -46,7 +46,7 @@
           <div class="dd-content" id="dd-educational-plan">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/educationalPlan-big.png" class="col-xs-5 dd-header-picture" />
+                <img src="../../../images/educationalPlan-big.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
                   FÖRDERPLAN<br>MATHE ZR BIS 10
                 </p>
@@ -62,7 +62,7 @@
           <div class="dd-content dd-height" id="dd-achieved-competences">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/achievedCompetences-big.png" class="col-xs-5 dd-header-picture" />
+                <img src="../../../images/achievedCompetences-big.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
                   DAS<br>KANN<br>ICH!
                 </p>
@@ -96,11 +96,12 @@
 
         <!-- Button Profil + Dropdown-Menu -->
         <div class="dd">
-          <button type="button" class="nav-button " id="profile"></button>
+          <button (mouseover)="activateProfileBackgroundImage()" (mouseleave)="deactivateProfileBackgroundImage()"
+                  [style.backgroundImage]=profileBackgroundImage type="button" class="nav-button " id="profile"></button>
           <div class="dd-content" id="dd-profile">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/student/superhero-robin-big-active.png" class="col-xs-5 dd-header-picture" />
+                <img [src]="'../../..'+profileBackgroundImage" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
                   {{headerdaten["forename"]}}<br>{{headerdaten["surname"]}}
                 </p>
@@ -117,17 +118,22 @@
 
         <!-- Button Schule + Dropdown-Menu -->
         <div class="dd">
-          <button type="button" class="nav-button" id="school-profile"></button>
+          <button (mouseover)="activateSchoolBackgroundImage()" (mouseleave)="deactivateSchoolBackgroundImage()"
+                  [style.backgroundImage]=schoolBackgroundImage type="button" class="nav-button"></button>
           <div class="dd-content" id="dd-school-profile">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/school/school-rose-big-active.png" class="col-xs-5 dd-header-picture" />
+                <img [src]="'../../..'+school['imageUrlBig']" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-
+                  {{school["name"]}}
                 </p>
               </section>
               <section class="dd-header-text-2">
-                STRASSE NUMMER<br/>PLZ ORT<br/>LAND<br/>EMAIL<br/>TELEFON<br/>
+                <br/>{{school["address"]}}
+                <br/>{{school["country"]}}
+                <br/>
+                <br/>{{school["email"]}}
+                <br/>{{school["telefon"]}}
               </section>
             </section>
           </div>
@@ -135,17 +141,18 @@
 
         <!-- Button Klasse + Dropdown-Menu -->
         <div class="dd">
-          <button type="button" class="nav-button" id="study-group-profile"></button>
+          <button (mouseover)="activateGroupBackgroundImage()" (mouseleave)="deactivateGroupBackgroundImage()"
+                  [style.backgroundImage]=groupBackgroundImage type="button" class="nav-button"></button>
           <div class="dd-content" id="dd-study-group-profile">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/studyGroup/studyGroup_2a_active-big.png" class="col-xs-5 dd-header-picture" />
+                <img [src]='"../../../"+studyGroup["imageUrlBig"]' class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-                  KLASSE<br>2B
+                  KLASSE<br>{{studyGroup["class"]}}
                 </p>
               </section>
               <section class="dd-header-text-2">
-                KLASSENLEHRER*IN<br>Valerie Wildemann
+                KLASSENLEHRER*IN<br>{{headerdaten["formteacher"]}}
               </section>
             </section>
           </div>
@@ -162,7 +169,7 @@
           <div class="dd-content" id="dd-help">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/help-big.png" class="col-xs-5 dd-header-picture" />
+                <img src="../../../images/help-big.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
                   BRAUCHST<br>DU HILFE?
                 </p>
@@ -181,7 +188,7 @@
           <div class="dd-content" id="dd-logout">
             <section class="dd-header">
               <section class="row">
-                <img src="../../../images/logout-big.png" class="col-xs-5 dd-header-picture" />
+                <img src="../../../images/logout-big.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
                   MÖCHTEST DU<br>CHECK!<br>VERLASSEN?
                 </p>

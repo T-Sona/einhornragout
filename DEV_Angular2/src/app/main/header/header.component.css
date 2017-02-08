@@ -36,32 +36,6 @@
   background-image: url(../../../images/achievedCompetences-active.png);
 }
 
-#profile {
-  background-image: url(../../../images/student/superhero-robin-inactive.png);
-}
-
-#profile:hover {
-  background-image: url(../../../images/student/superhero-robin-active.png);
-  filter: contrast(100%);
-  filter: brightness(100%);
-}
-
-#school-profile {
-  background-image: url(../../../images/school/school-inactive.png);
-}
-
-#school-profile:hover {
-  background-image: url(../../../images/school/school-rose-active.png);
-}
-
-#study-group-profile {
-  background-image: url(../../../images/studyGroup/studyGroup_2b_inactive.png);
-}
-
-#study-group-profile:hover {
-  background-image: url(../../../images/studyGroup/studyGroup_2b_active.png);
-}
-
 #help {
   background-image: url(../../../images/help-inactive.png);
 }
