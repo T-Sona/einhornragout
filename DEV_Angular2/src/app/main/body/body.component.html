@@ -16,11 +16,15 @@
         </p>
       </section>
 
-      <img (mouseover)="bodyDynamics.changeShowBubbleSidetext(i)" (mouseleave)="bodyDynamics.changeShowBubbleSidetext(i)" id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
+      <img (mouseover)="bodyDynamics.changeShowBubbleSidetext(i)"
+           (mouseleave)="bodyDynamics.changeShowBubbleSidetext(i)" id="pictureInBubble"
+           [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
 
 
       <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow">
         Du hast diese Kompetenz am {{cont.fromDate}} erreicht!
+      </section>
+      <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow-blue">
       </section>
 
       <p id="numberFont">
@@ -29,8 +33,9 @@
   </div>
   <section class="col-xs-4" id="illustrationRight">
     <div *ngFor="let illustration of siteIllustrations; let i=index">
-      <template [ngIf]="i<((bodyDynamics.chapterBubbles.length)/5)"><img [src]="'../../../'+illustration.illustrationRight"
-                                                                         class="illustration-right"/></template>
+      <template [ngIf]="i<((bodyDynamics.chapterBubbles.length)/5)"><img
+        [src]="'../../../'+illustration.illustrationRight"
+        class="illustration-right"/></template>
     </div>
   </section>
 </section>
