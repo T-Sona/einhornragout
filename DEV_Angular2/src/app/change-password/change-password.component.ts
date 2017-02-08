@@ -28,17 +28,16 @@ export class ChangePasswordComponent implements OnInit {
 
 
     if (this.newPW1.length <7){
-      this.errorService.throwError("Das Passwort ist zu kurz, bitte versuchen Sie es erneut!");
     } else if(this.newPW1 !== this.newPW2) {
       this.errorService.throwError("Die Passwörter stimmen nicht überein, bitte versuchen Sie es erneut!");
     } else if (this.oldPW === this.newPW1) {
       this.errorService.throwError("Das alte Passwort darf nicht mit dem neuen übereinstimmen!");
     } else {
-      let oldToken = (!!sessionStorage.getItem("auth_token"))? sessionStorage.getItem("auth_token") : localStorage.getItem("auth_token");
-      let username = (!!sessionStorage.getItem("username"))? sessionStorage.getItem("username") : localStorage.getItem("username");
-      let credentials = {"username": username, "password": this.oldPW};
-      this.apiCommunicatorService.put
-      this.apiCommunicatorService.put(API_DATA.login, credentials).subscribe((res: any) => {
+      let body = {"newpassword": this.newPW1,"password": this.oldPW}
+      this.apiCommunicatorService.putWithHeader(API_DATA.chgPassword, body).subscribe((res: any) => this.errorService.throwSuccess("Passwortänderung erfolgreich!"),(err) => this.errorService.throwError("Passworteingabe falsch, bitte versuchen Sie es erneut!"));
+    /*  let username = (!!sessionStorage.getItem("username"))? sessionStorage.getItem("username") : localStorage.getItem("username");
+        let credentials = {"username": username, "password": this.oldPW};
+        this.apiCommunicatorService.put(API_DATA.login, credentials).subscribe((res: any) => {
             if(oldToken === JSON.stringify(res["token"])){
               console.log("token passt");
               this.errorService.throwSuccess("Passwortänderung erfolgreich!");
@@ -46,8 +45,9 @@ export class ChangePasswordComponent implements OnInit {
               this.errorService.throwError("Passworteingabe falsch, bitte versuchen Sie es erneut!");
             }
           });
+    */
 
-    }
+  }
 
   }
 }

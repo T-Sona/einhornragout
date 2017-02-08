@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter, trigger, state, style, animate, transition } from '@angular/core';
+import { ErrorService } from '../../error.service';
 
 @Component({
   selector: 'app-modal-success',
@@ -22,14 +23,8 @@ export class ModalSuccessComponent implements OnInit {
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private errorService: ErrorService) { }
 
   ngOnInit() { }
 
-  close() {
-    this.visible = false;
-    this.visibleChange.emit(this.visible);
-  }
 }
-
-

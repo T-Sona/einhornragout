@@ -12,7 +12,7 @@
 
 <div class="divCenter">
   <button type="submit" class="cancelButton" [routerLink]="['/main']">ABBRECHEN</button>
-  <button type="submit" class="saveButton" (click)="openModalSuc()">SPEICHERN</button>
+  <button type="submit" class="saveButton" (click)="changePicture()">SPEICHERN</button>
 </div>
 
 <div align="center">
@@ -24,15 +24,17 @@
 
 <div class="divCenter">
   <button type="submit" class="cancelButton" [routerLink]="['/main']">ABBRECHEN</button>
-  <button type="submit" class="saveButton" (click)="openModalSuc()">SPEICHERN</button>
+  <button type="submit" class="saveButton" (click)="changePicture()">SPEICHERN</button>
 </div>
 
-<div *ngIf="showSuc" class="dialogSuc">
+
+<app-modal-error [(visible)]="errorService.error.show"></app-modal-error>
+<app-modal-success [(visible)]="errorService.success.show"></app-modal-success>
+
+<!-- <div *ngIf="showSuc" class="dialogSuc">
   <img src="../../images/confirmation.png" height="70" width="70" class="displayed"/>
   <p class="dialogText">Ihr Profilbild wurde erfolgreich geändert!</p>
   <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog_close-btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-</div>
+</div> -->
 
 <app-footer></app-footer>
-
-

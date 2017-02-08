@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiCommunicatorService} from '../api-communicator.service';
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-change-picture',
@@ -17,7 +18,7 @@ export class ChangePictureComponent implements OnInit {
   public pictureID;
   public index;
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService) {
+  constructor(private apiCommunicatorService: ApiCommunicatorService, private errorService: ErrorService) {
   }
 
   ngOnInit() {
@@ -36,17 +37,15 @@ export class ChangePictureComponent implements OnInit {
     this.pictureID = index;
   }
 
-  public showSuc = false;
-  public closable = true;
-
-  close() {
-    this.showSuc = false;
-  }
-
-  public openModalSuc() {
-    this.apiCommunicatorService.putProfilePicture(this.pictureID);
-    sessionStorage.setItem("avatarId", this.pictureID);
-    this.showSuc = true;
+  public changePicture() {
+    this.apiCommunicatorService.putProfilePicture(this.pictureID).subscribe((res: any) => {
+            this.errorService.throwSuccess("Profilbild erfolgreich geändert!");
+            if(!!sessionStorage.getItem("avatarId")){
+                sessionStorage.setItem("avatarId", this.pictureID);
+            } else {
+              localStorage.setItem("avatarId", this.pictureID);
+            }
+            }, (err) => this.errorService.throwError("Fehler beim ändern des Profilbilds, bitte versuchen Sie es später erneut!"));
   }
 
 }

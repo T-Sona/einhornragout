@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
+import {Headers, Http, Response, RequestOptions} from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {ErrorService} from './error.service';
@@ -8,34 +9,47 @@ const API_DATA = require('./api.json');
 
 @Injectable()
 export class ApiCommunicatorService {
-  private token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZmFyaW4ifQ.JkX7avKZDA52b_A-eg-l8rJCilmBZbkyuYCJS01Zlc4";
-
+  private authHeader;
   constructor(private http: Http, private errorService: ErrorService) {
   }
 
   private getJsonFromApi(url) {
-
-    var authHeader = new Headers();
-    authHeader.append('Authorization', this.token);
+    if(this.authHeader === undefined){
+      this.authHeader = (!!sessionStorage.getItem("authHeader")) ? JSON.parse(sessionStorage.getItem("authHeader")) : JSON.parse(localStorage.getItem("authHeader"));
+    }
     console.log(API_DATA.server + url);
-    return this.http.get(API_DATA["server"] + url, {headers: authHeader})
+    return this.http.get(API_DATA["server"] + url, {headers: this.authHeader})
       .map((res: Response) => res.json());
   }
 
-  put(url, body) {
+  putNoHeader(url, body) {
     return this.http.put(API_DATA.server + url, body)
       .map((res: Response) => {
-        let json = res.json();
-        console.log("Status: " + json);
-        return json;
+      let json = res.status;
+      console.log("Status: " + json);
+      return res.json();
       });
   }
 
+  putWithHeader(url, myBody) {
+    if(this.authHeader === undefined){
+      this.authHeader = (!!sessionStorage.getItem("authHeader")) ? JSON.parse(sessionStorage.getItem("authHeader")) : JSON.parse(localStorage.getItem("authHeader"));
+    }
+     let options = new RequestOptions({ headers: this.authHeader})
+    return this.http.put(API_DATA.server + url,myBody, options)
+      .map((res: Response) => {
+        let json = res.status;
+        console.log("Status: " + json);
+        return res.json();
+      }).catch(e => Observable.throw('Error'));
+  }
+
   deleteStudent() {
-    return this.http.delete(API_DATA.server + API_DATA.student).map((res: Response) => {
-      let json = res.json();
-      console.log("Status: " + json);
-      return json;
+    return this.http.delete(API_DATA.server + API_DATA.student)
+      .map((res: Response) => {
+        let json = res.status;
+        console.log("Status: " + json);
+        return res.json();
     });
   }
 
@@ -77,7 +91,7 @@ export class ApiCommunicatorService {
   }
 
   putProfilePicture(id) {
-    this.put(API_DATA.avatars + "/:" + id, "");
+    return this.putWithHeader(API_DATA.avatars + "/:" + id, "");
   }
 
 }

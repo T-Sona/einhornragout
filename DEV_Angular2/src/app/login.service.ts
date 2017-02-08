@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiCommunicatorService } from './api-communicator.service';
 import { Observable } from 'rxjs/Rx';
+import {Headers, Http, Response} from '@angular/http';
 
 @Injectable()
 export class LoginService {
@@ -8,41 +9,32 @@ export class LoginService {
   private matchPassword = false;
 
   constructor(private apiCommunicatorService:ApiCommunicatorService) {
-    this.loggedIn = !!sessionStorage.getItem('auth_token');
+    this.loggedIn = !!sessionStorage.getItem('authHeader');
     if(!this.loggedIn){
-      this.loggedIn = !!localStorage.getItem('auth_token');
+      this.loggedIn = !!localStorage.getItem('authHeader');
     }
   }
 
   login(username, password, savedLogin) {
     let credentials = {"username": username, "password": password};
 
-    return this.apiCommunicatorService.put("/login", credentials)
+    return this.apiCommunicatorService.putNoHeader("/login", credentials)
       .map((res: Array<Object>) => {
+        let token = res["token"];
+        var authHeader = new Headers();
+        authHeader.append('Authorization', token);
         if (savedLogin) {
-          localStorage.setItem('auth_token', JSON.stringify(res["token"]));
+          localStorage.setItem('authHeader', JSON.stringify(authHeader));
           localStorage.setItem('username', username);
         } else {
-          sessionStorage.setItem('auth_token', JSON.stringify(res["token"]));
+          sessionStorage.setItem('authHeader', JSON.stringify(authHeader));
           sessionStorage.setItem('username', username);
         }
         return this.loggedIn = true;
       }).catch(e => {if (e.status >= 227) {return Observable.throw('Error')}});
   }
 
-  public testPassword (password) {
-    let credentials = {"username": sessionStorage.getItem('username'), "password": password};
-
-    this.apiCommunicatorService.put("/login", credentials).subscribe((res: Array<Object>) => {
-      if(JSON.stringify(res["token"])===localStorage.getItem('auth_token') || (JSON.stringify(res["token"])===sessionStorage.getItem('auth_token'))){
-        this.matchPassword = true;
-      }
-    });
-
-  }
-
   logout() {
-    console.log("loginservice");
     localStorage.clear();
     sessionStorage.clear();
     this.loggedIn = false;
