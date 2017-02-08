@@ -7,6 +7,22 @@
   height: calc(100% - 110px);
   margin-bottom: 50px;
 }
+
+#hoverTextBubbles{
+  width: 250px;
+  font-family: roboto-thin;
+  font-size: 13pt;
+  color: #fff;
+  background-color: #001a3a;
+  border-radius: 5px;
+  position: absolute;
+  border: 2px solid white;
+  margin-left: 345px;
+  z-index: 10;
+  padding: 2px;
+
+}
+
 #pictureInBubble{
   position: absolute;
   margin-top: 10px;

@@ -10,8 +10,17 @@ export class BodyDynamicsService {
   public pictureInBubble = "../../../images/chapter15/competenceDone.png";
   public chapterBubbles = [];
   public loadAllCompetences = true;
+  public showBubbleSidetext = false;
 
   constructor() {
+  }
+
+  changeShowBubbleSidetext() {
+    if (this.showBubbleSidetext) {
+      this.showBubbleSidetext = false;
+    } else {
+      this.showBubbleSidetext = true;
+    }
   }
 
   changeLoadAllCompetences(i) {

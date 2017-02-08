@@ -16,8 +16,10 @@
         </p>
       </section>
 
-      <img id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
-
+      <img (click)="bodyDynamics.changeShowBubbleSidetext()" id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
+      <section *ngIf="bodyDynamics.showBubbleSidetext" id="hoverTextBubbles">
+        Du hast diese Kompetenz am 25. Oktober 2016 erreicht!
+      </section>
       <p id="numberFont">
         {{cont.number}}
 
