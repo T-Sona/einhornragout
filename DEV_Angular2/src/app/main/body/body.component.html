@@ -19,7 +19,7 @@
       <img (mouseover)="bodyDynamics.changeShowBubbleSidetext(i)" (mouseleave)="bodyDynamics.changeShowBubbleSidetext(i)" id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
 
 
-      <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" id="hoverTextBubbles">
+      <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow">
         Du hast diese Kompetenz am {{cont.fromDate}} erreicht!
       </section>
 
