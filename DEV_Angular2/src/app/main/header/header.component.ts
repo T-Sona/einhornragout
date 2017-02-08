@@ -12,6 +12,7 @@ import {LoginService} from '../../login.service';
 export class HeaderComponent implements OnInit {
 
   public headerdaten = {};
+  public educationalArray=[];
 
   constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
   }
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
     this.getStudentData();
+    this.getEducationalPlan();
 
   }
 
@@ -57,6 +59,11 @@ export class HeaderComponent implements OnInit {
     console.log("header");
     this.loginService.logout();
     this.router.navigate(["../home"]);
+  }
+
+  getEducationalPlan() {
+    this.apiCommunicatorService.getEdPlan("All")
+      .subscribe((edPlan: Array<Object>) => this.educationalArray = edPlan);
   }
 
 }

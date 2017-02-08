@@ -80,13 +80,13 @@ export class ApiCommunicatorService {
 
   getChapter(info) {
     let suffix = "";
-    suffix = (info !== "About" ? ("/" + info) : suffix);
+    suffix = (info !== "All" ? ("/" + info) : suffix);
     return this.getJsonFromApi(API_DATA.chapters + suffix);
   }
 
   getEdPlan(info) {
     let suffix = "";
-    suffix = (info !== "About" ? ("/" + info) : suffix);
+    suffix = (info !== "All" ? ("/" + info) : suffix);
     return this.getJsonFromApi(API_DATA.edPlan + suffix);
   }
 
