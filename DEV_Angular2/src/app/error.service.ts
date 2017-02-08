@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from "./login.service";
 
 @Injectable()
 export class ErrorService {
@@ -9,7 +11,8 @@ export class ErrorService {
 
   private success = {
     "show": false,
-    "text": "text"
+    "text": "text",
+    "logout": false
   }
 
   private gear = {
@@ -17,7 +20,11 @@ export class ErrorService {
     "text": "text"
   }
 
-  constructor() { }
+  constructor(private router: Router, private loginService: LoginService) { }
+
+  setSuccessLogout(){
+    this.success.logout = true;
+  }
 
   throwError(text){
     this.error.text = text;
@@ -35,6 +42,10 @@ export class ErrorService {
   resetSuccess(){
     this.success.text = "";
     this.success.show = false;
+    this.router.navigate(["../home"]);
+    if(this.success.logout){
+      this.loginService.logout();
+    }
   }
 
   throwGear(text){

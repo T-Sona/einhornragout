@@ -3,14 +3,13 @@ import {Headers, Http, Response, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {ErrorService} from './error.service';
 
 const API_DATA = require('./api.json');
 
 @Injectable()
 export class ApiCommunicatorService {
   private authHeader;
-  constructor(private http: Http, private errorService: ErrorService) {
+  constructor(private http: Http) {
   }
 
   private getJsonFromApi(url) {
@@ -35,7 +34,7 @@ export class ApiCommunicatorService {
     if(this.authHeader === undefined){
       this.authHeader = (!!sessionStorage.getItem("authHeader")) ? JSON.parse(sessionStorage.getItem("authHeader")) : JSON.parse(localStorage.getItem("authHeader"));
     }
-     let options = new RequestOptions({ headers: this.authHeader})
+    let options = new RequestOptions({ headers: this.authHeader})
     return this.http.put(API_DATA.server + url,myBody, options)
       .map((res: Response) => {
         let json = res.status;
@@ -45,7 +44,12 @@ export class ApiCommunicatorService {
   }
 
   deleteStudent() {
-    return this.http.delete(API_DATA.server + API_DATA.student)
+    if(this.authHeader === undefined){
+      this.authHeader = (!!sessionStorage.getItem("authHeader")) ? JSON.parse(sessionStorage.getItem("authHeader")) : JSON.parse(localStorage.getItem("authHeader"));
+    }
+console.log("deleteStudent");
+    let options = new RequestOptions({ headers: this.authHeader})
+    return this.http.delete(API_DATA.server + API_DATA.student ,options)
       .map((res: Response) => {
         let json = res.status;
         console.log("Status: " + json);

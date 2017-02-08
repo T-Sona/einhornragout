@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiCommunicatorService} from "../api-communicator.service";
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-delete-account',
@@ -8,21 +9,20 @@ import {ApiCommunicatorService} from "../api-communicator.service";
 })
 export class DeleteAccountComponent implements OnInit {
 
-  constructor(private apiCommunicator: ApiCommunicatorService) { }
+  constructor(private errorService: ErrorService, private apiCommunicatorService:ApiCommunicatorService) {
+  }
 
   ngOnInit() {
   }
 
-  public showSuc = false;
-  public closable = true;
-
-  close() {
-    this.showSuc = false;
-  }
-
-  public openModalSuc () {
-    this.apiCommunicator.deleteStudent();
-    this.showSuc = true;
+  public deleteAccount() {
+    let password = (<HTMLInputElement>document.getElementById('passwordField')).value;
+    console.log("password:"+password);
+    this.apiCommunicatorService.deleteStudent().subscribe((res: any) => {
+        this.errorService.setSuccessLogout();
+        this.errorService.throwSuccess("Ihr Benutzer wurde erfolgreich gelöscht!");
+      },
+    (err) => this.errorService.throwError("Fehler beim Löschen des Accounts, bitte versuchen Sie es erneut!"));
   }
 
 }
