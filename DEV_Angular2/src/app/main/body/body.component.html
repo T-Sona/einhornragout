@@ -3,19 +3,21 @@
   <section class="col-xs-4" id="illustrationLeft">
     <img [src]="bodyDynamics.chapterFlag">
     <div *ngFor="let illustration of siteIllustrations; let i=index">
-      <template [ngIf]="i<((bodyDynamics.ChapterBubbles.length)/5)"><img
+      <template [ngIf]="i<((bodyDynamics.chapterBubbles.length)/5)"><img
         [src]="'../../../'+illustration.illustrationLeft"
         class="illustration-left"/></template>
     </div>
   </section>
   <div class="col-xs-4" align="center">
-    <div class="bubble" *ngFor="let cont of bodyDynamics.ChapterBubbles">
+    <div class="bubble" *ngFor="let cont of bodyDynamics.chapterBubbles; let i=index ">
       <section class="bubble-text col-xs-12">
         <p id="studentText">
           {{cont.studentText}}
         </p>
       </section>
-      <img id="pictureInBubble" src="../../../images/chapter15/competenceDone.png" height="40" width="40"/>
+
+      <img id="pictureInBubble" [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
+
       <p id="numberFont">
         {{cont.number}}
 
@@ -23,8 +25,8 @@
   </div>
   <section class="col-xs-4" id="illustrationRight">
     <div *ngFor="let illustration of siteIllustrations; let i=index">
-      <template [ngIf]="i<((bodyDynamics.ChapterBubbles.length)/5)"><img [src]="'../../../'+illustration.illustrationRight"
-                                  class="illustration-right"/></template>
+      <template [ngIf]="i<((bodyDynamics.chapterBubbles.length)/5)"><img [src]="'../../../'+illustration.illustrationRight"
+                                                                         class="illustration-right"/></template>
     </div>
   </section>
 </section>
