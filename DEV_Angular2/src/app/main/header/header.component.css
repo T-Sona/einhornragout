@@ -6,6 +6,7 @@
   background-position: center;
   background-size: 140px;
 }
+
 .upper-arrow-white {
   display: inline-block;
   position: absolute;
@@ -59,7 +60,6 @@
   border-bottom: 15px solid #001a3a;
   border-left: 10px solid transparent;
 }
-
 
 /*bestimmt Hintergrundfarbe der oberen Leiste*/
 .navbar {
@@ -182,7 +182,6 @@
   margin: 2px 0px;
   border-radius: 2px;
 }
-
 
 /* Effekt der beim Hovern über ein unteres Dropdown-Menu Feld der Buttons eintritt (außer bei "Kompetenzliste" und "Das kann ich")*/
 
@@ -371,4 +370,16 @@
   width: 1px;
   margin: 0px 3px;
   border-left: solid #4565ad 1px;
+}
+
+@media screen and (max-width: 1130px) {
+  .split{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .dd{
+    display: none;
+  }
 }
