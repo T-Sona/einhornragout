@@ -6,11 +6,11 @@
 
 
         <!-- Button Kapitelübersicht + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(0)" (mouseleave)="bodyDynamics.setDdUnvisible(0)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[0]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[0]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(0)" (mouseleave)="setDdUnvisible(0)" class="dd">
+          <section *ngIf="visibleArray[0]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[0]" class="upper-arrow-blue"></section>
           <button type="button" class="nav-button " id="chapter-overview"></button>
-          <div *ngIf=bodyDynamics.visibleArray[0] class="dd-content dd-height" id="dd-chapter-overview">
+          <div *ngIf=visibleArray[0] class="dd-content dd-height" id="dd-chapter-overview">
             <section class="dd-header">
               <section class="row">
                 <img src="../../../images/confirmation.png" class="col-xs-5 dd-header-picture"/>
@@ -43,11 +43,11 @@
         </div>
 
         <!-- Button Förderplan + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(1)" (mouseleave)="bodyDynamics.setDdUnvisible(1)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[1]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[1]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(1)" (mouseleave)="setDdUnvisible(1)" class="dd">
+          <section *ngIf="visibleArray[1]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[1]" class="upper-arrow-blue"></section>
           <button (click)="getEdPlanData()" type="button" class="nav-button" id="educational-plan"></button>
-          <div *ngIf=bodyDynamics.visibleArray[1] class="dd-content" id="dd-educational-plan">
+          <div *ngIf=visibleArray[1] class="dd-content" id="dd-educational-plan">
             <section class="dd-header">
               <section class="row">
                 <img src="../../../images/educationalPlan-big.png" class="col-xs-5 dd-header-picture"/>
@@ -61,11 +61,11 @@
         </div>
 
         <!-- Button Das kann ich + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(2)" (mouseleave)="bodyDynamics.setDdUnvisible(2)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[2]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[2]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(2)" (mouseleave)="setDdUnvisible(2)" class="dd">
+          <section *ngIf="visibleArray[2]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[2]" class="upper-arrow-blue"></section>
           <button type="button" class="nav-button " id="achieved-competences"></button>
-          <div *ngIf=bodyDynamics.visibleArray[2] class="dd-content dd-height" id="dd-achieved-competences">
+          <div *ngIf=visibleArray[2] class="dd-content dd-height" id="dd-achieved-competences">
             <section class="dd-header">
               <section class="row">
                 <img src="../../../images/achievedCompetences-big.png" class="col-xs-5 dd-header-picture"/>
@@ -101,14 +101,14 @@
       <section class="col-xs-3 float-xs-right text-xs-right">
 
         <!-- Button Profil + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(3)" (mouseleave)="bodyDynamics.setDdUnvisible(3)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[3]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[3]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(3)" (mouseleave)="setDdUnvisible(3)" class="dd">
+          <section *ngIf="visibleArray[3]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[3]" class="upper-arrow-blue"></section>
           <button (mouseover)="changeProfileBackgroundImage(avatarPictures?.avatarID, true)"
                   (mouseleave)="changeProfileBackgroundImage(avatarPictures?.avatarID, false)"
                   [style.backgroundImage]="profileBackgroundImage" type="button" class="nav-button "
                   id="profile"></button>
-          <div *ngIf=bodyDynamics.visibleArray[3] class="dd-content" id="dd-profile">
+          <div *ngIf=visibleArray[3] class="dd-content" id="dd-profile">
             <section class="dd-header">
               <section class="row">
                 <img [src]="'../../..'+profileHeaderImage" class="col-xs-5 dd-header-picture"/>
@@ -127,13 +127,13 @@
         </div>
 
         <!-- Button Schule + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(4)" (mouseleave)="bodyDynamics.setDdUnvisible(4)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[4]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[4]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(4)" (mouseleave)="setDdUnvisible(4)" class="dd">
+          <section *ngIf="visibleArray[4]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[4]" class="upper-arrow-blue"></section>
           <button (mouseover)="changeSchoolImage(headerdaten?.school, true)"
                   (mouseleave)="changeSchoolImage(headerdaten?.school, false)"
                   [style.backgroundImage]="schoolBackgroundImage" type="button" class="nav-button"></button>
-          <div *ngIf=bodyDynamics.visibleArray[4] class="dd-content" id="dd-school-profile">
+          <div *ngIf=visibleArray[4] class="dd-content" id="dd-school-profile">
             <section class="dd-header">
               <section class="row">
                 <img [src]="'../../..'+headerdaten?.school?.imageUrlBig" class="col-xs-5 dd-header-picture"/>
@@ -153,13 +153,13 @@
         </div>
 
         <!-- Button Klasse + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(5)" (mouseleave)="bodyDynamics.setDdUnvisible(5)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[5]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[5]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(5)" (mouseleave)="setDdUnvisible(5)" class="dd">
+          <section *ngIf="visibleArray[5]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[5]" class="upper-arrow-blue"></section>
           <button (mouseover)="changeGroupBackgroundImage(headerdaten?.studyGroups, true)"
                   (mouseleave)="changeGroupBackgroundImage(headerdaten?.studyGroups, false)"
                   [style.backgroundImage]="groupBackgroundImage" type="button" class="nav-button"></button>
-          <div *ngIf=bodyDynamics.visibleArray[5] class="dd-content" id="dd-study-group-profile">
+          <div *ngIf=visibleArray[5] class="dd-content" id="dd-study-group-profile">
             <section class="dd-header">
               <section class="row">
                 <img [src]='"../../../"+headerdaten?.studyGroups?.imageUrlBig' class="col-xs-5 dd-header-picture"/>
@@ -180,11 +180,11 @@
 
         <!-- Buttons rechts 2 -->
         <!-- Button Help + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(6)" (mouseleave)="bodyDynamics.setDdUnvisible(6)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[6]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[6]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(6)" (mouseleave)="setDdUnvisible(6)" class="dd">
+          <section *ngIf="visibleArray[6]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[6]" class="upper-arrow-blue"></section>
           <button type="button" class="nav-button" id="help"></button>
-          <div *ngIf=bodyDynamics.visibleArray[6] class="dd-content" id="dd-help">
+          <div *ngIf=visibleArray[6] class="dd-content" id="dd-help">
             <section class="dd-header">
               <section class="row">
                 <img src="../../../images/help-big.png" class="col-xs-5 dd-header-picture"/>
@@ -201,11 +201,11 @@
         </div>
 
         <!-- Button Logout + Dropdown-Menu -->
-        <div (mouseover)="bodyDynamics.setDdVisible(7)" (mouseleave)="bodyDynamics.setDdUnvisible(7)" class="dd">
-          <section *ngIf="bodyDynamics.visibleArray[7]" class="upper-arrow-white"></section>
-          <section *ngIf="bodyDynamics.visibleArray[7]" class="upper-arrow-blue"></section>
+        <div (mouseover)="setDdVisible(7)" (mouseleave)="setDdUnvisible(7)" class="dd">
+          <section *ngIf="visibleArray[7]" class="upper-arrow-white"></section>
+          <section *ngIf="visibleArray[7]" class="upper-arrow-blue"></section>
           <button type="button" class="nav-button" id="logout"></button>
-          <div *ngIf=bodyDynamics.visibleArray[7] class="dd-content" id="dd-logout">
+          <div *ngIf=visibleArray[7] class="dd-content" id="dd-logout">
             <section class="dd-header">
               <section class="row">
                 <img src="../../../images/logout-big.png" class="col-xs-5 dd-header-picture"/>

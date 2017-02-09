@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   public avatarPictures = [];
   public edPlanData = {};
   public edPlanCompetences = [];
+  public visibleArray = [false, false, false, false, false, false, false, false];
 
 
 
@@ -31,6 +32,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  setDdVisible(numberOfDd) {
+    this.visibleArray[numberOfDd] = true;
+  }
+
+  setDdUnvisible(numberOfDd) {
+    this.visibleArray[numberOfDd]=false;
   }
 
   async getStudentData() {
