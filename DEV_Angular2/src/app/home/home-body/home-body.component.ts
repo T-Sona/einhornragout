@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LoginService } from '../../login.service';
 import { ErrorService } from '../../error.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-body',
@@ -12,10 +13,11 @@ import { Router } from '@angular/router';
 export class HomeBodyComponent implements OnInit {
 
 
-  constructor(private loginService: LoginService, private router: Router, private errorService: ErrorService) {
+  constructor(private loginService: LoginService, private router: Router, private errorService: ErrorService,private titleService: Title) {
   }
 
   ngOnInit() {
+    this.titleService.setTitle( "CHECK! - Login" );
     console.log("LoggedIn:"+this.loginService.isLoggedIn());
     if(this.loginService.isLoggedIn()){
       this.router.navigate(["../main"]);
