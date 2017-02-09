@@ -21,7 +21,7 @@
 
 
       <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow">
-        Du hast diese Kompetenz am {{cont.fromDate}} erreicht!
+        {{bodyDynamics.formatDate(cont.fromDate)}}
       </section>
       <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow-blue">
       </section>
@@ -38,7 +38,6 @@
     </div>
   </section>
 </section>
-
 
 
 <input type="submit" [style.background-image]="'url('+bodyDynamics.buttonUp+')'" id="scrollButtonTop"
