@@ -104,8 +104,8 @@
         <div (mouseover)="setDdVisible(3)" (mouseleave)="setDdUnvisible(3)" class="dd">
           <section *ngIf="visibleArray[3]" class="upper-arrow-white"></section>
           <section *ngIf="visibleArray[3]" class="upper-arrow-blue"></section>
-          <button (mouseover)="changeProfileBackgroundImage(avatarPictures?.avatarID, true)"
-                  (mouseleave)="changeProfileBackgroundImage(avatarPictures?.avatarID, false)"
+          <button (mouseover)="changeProfileBackgroundImage(avatarPictures[avatarID], true)"
+                  (mouseleave)="changeProfileBackgroundImage(avatarPictures[avatarID], false)"
                   [style.backgroundImage]="profileBackgroundImage" type="button" class="nav-button "
                   id="profile"></button>
           <div *ngIf=visibleArray[3] class="dd-content" id="dd-profile">
@@ -130,8 +130,8 @@
         <div (mouseover)="setDdVisible(4)" (mouseleave)="setDdUnvisible(4)" class="dd">
           <section *ngIf="visibleArray[4]" class="upper-arrow-white"></section>
           <section *ngIf="visibleArray[4]" class="upper-arrow-blue"></section>
-          <button (mouseover)="changeSchoolImage(headerdaten?.school, true)"
-                  (mouseleave)="changeSchoolImage(headerdaten?.school, false)"
+          <button (mouseover)="changeSchoolBackgroundImage(headerdaten?.school, true)"
+                  (mouseleave)="changeSchoolBackgroundImage(headerdaten?.school, false)"
                   [style.backgroundImage]="schoolBackgroundImage" type="button" class="nav-button"></button>
           <div *ngIf=visibleArray[4] class="dd-content" id="dd-school-profile">
             <section class="dd-header">
