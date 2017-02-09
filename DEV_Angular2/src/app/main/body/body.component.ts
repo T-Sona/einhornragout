@@ -4,7 +4,7 @@ import {Http, Headers} from '@angular/http';
 import {Router} from "@angular/router";
 import {LoginService} from "../../login.service";
 import {BodyDynamicsService} from "../../body-dynamics.service";
-import { Title }     from '@angular/platform-browser';
+import {Title}     from '@angular/platform-browser';
 
 @Component({
   selector: 'app-body',
@@ -18,11 +18,11 @@ export class BodyComponent implements OnInit {
   public siteIllustrations = [];
 
   constructor(private apiCommunicatorService: ApiCommunicatorService, private loginService: LoginService, private router: Router,
-              private bodyDynamics: BodyDynamicsService,private titleService: Title) {
+              private bodyDynamics: BodyDynamicsService, private titleService: Title) {
   }
 
   ngOnInit() {
-    this.titleService.setTitle( "CHECK!" );
+    this.titleService.setTitle("CHECK!");
     console.log("LoggedIn:" + this.loginService.isLoggedIn());
     if (!this.loginService.isLoggedIn()) {
       this.router.navigate(["../home"]);
@@ -48,6 +48,5 @@ export class BodyComponent implements OnInit {
     this.apiCommunicatorService.getChapterIllustrations("All")
       .subscribe((illustration: Array<Object>) => this.siteIllustrations = illustration);
   }
-
 
 }
