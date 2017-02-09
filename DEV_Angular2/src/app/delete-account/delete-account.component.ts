@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiCommunicatorService} from "../api-communicator.service";
 import { ErrorService } from '../error.service';
+import {Router} from '@angular/router';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-delete-account',
@@ -9,10 +11,13 @@ import { ErrorService } from '../error.service';
 })
 export class DeleteAccountComponent implements OnInit {
 
-  constructor(private errorService: ErrorService, private apiCommunicatorService:ApiCommunicatorService) {
+  constructor(private errorService: ErrorService, private apiCommunicatorService:ApiCommunicatorService,private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
+  if (!this.loginService.isLoggedIn()) {
+    this.router.navigate(["../home"]);
+  }
   }
 
   public deleteAccount() {

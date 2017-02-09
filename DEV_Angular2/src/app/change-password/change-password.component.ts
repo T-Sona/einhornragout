@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { ErrorService } from '../error.service';
 import { ApiCommunicatorService } from '../api-communicator.service';
 import { Title } from '@angular/platform-browser';
+import {Router} from '@angular/router';
+import {LoginService} from '../login.service';
 
 const API_DATA = require('../api.json')
 
@@ -15,11 +17,14 @@ export class ChangePasswordComponent implements OnInit {
   private newPW1;
   private newPW2;
 
-  constructor(private errorService: ErrorService, private apiCommunicatorService:ApiCommunicatorService, private titleService: Title) {
+  constructor(private errorService: ErrorService, private apiCommunicatorService:ApiCommunicatorService, private titleService: Title,private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
     this.titleService.setTitle( "CHECK! - Passwort ändern" );
+    if (!this.loginService.isLoggedIn()) {
+      this.router.navigate(["../home"]);
+    }
   }
 
   public checkPassword() {

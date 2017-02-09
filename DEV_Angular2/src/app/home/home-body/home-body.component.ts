@@ -18,7 +18,6 @@ export class HomeBodyComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("CHECK! - Login");
-    console.log("LoggedIn:" + this.loginService.isLoggedIn());
     if (this.loginService.isLoggedIn()) {
       this.router.navigate(["../main"]);
     }
@@ -35,8 +34,3 @@ export class HomeBodyComponent implements OnInit {
 
 
 }
-
-
-
-
-

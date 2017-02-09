@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiCommunicatorService} from '../api-communicator.service';
 import { ErrorService } from '../error.service';
-import { Title }     from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
+import {Router} from '@angular/router';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-change-picture',
@@ -19,10 +21,13 @@ export class ChangePictureComponent implements OnInit {
   public pictureID;
   public index;
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService, private errorService: ErrorService,private titleService: Title) {
+  constructor(private apiCommunicatorService: ApiCommunicatorService, private errorService: ErrorService,private titleService: Title,private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
+    if (!this.loginService.isLoggedIn()) {
+      this.router.navigate(["../home"]);
+    }
     this.titleService.setTitle( "CHECK! - Profilbild ändern" );
     this.getAvatars();
   }
