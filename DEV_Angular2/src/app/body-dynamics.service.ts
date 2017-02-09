@@ -15,6 +15,19 @@ export class BodyDynamicsService {
   constructor() {
   }
 
+  calcContentHeigth () {
+
+    let i = this.chapterBubbles.length*130+110;
+
+    if(i>1080) {
+      return i+"px";
+    } else {
+      return "1080px";
+    }
+
+
+  }
+
   fillBooleanArray(j) {
 
     for (let i = 0; i <= j; i++) {
@@ -87,6 +100,8 @@ export class BodyDynamicsService {
     }
 
   }
+
+
 }
 
 

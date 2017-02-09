@@ -30,6 +30,7 @@ export class BodyComponent implements OnInit {
       this.getFirstCompetences();
       this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
       this.bodyDynamics.changeLoadAllCompetences(false);
+      this.bodyDynamics.calcContentHeigth();
     }
 
     this.getAllIllustrations();

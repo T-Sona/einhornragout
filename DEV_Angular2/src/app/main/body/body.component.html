@@ -1,5 +1,4 @@
 <section class="row" [style.background]="bodyDynamics.chapterColor" id="content">
-
   <section class="col-xs-4" id="illustrationLeft">
     <img [src]="bodyDynamics.chapterFlag">
     <div *ngFor="let illustration of siteIllustrations; let i=index">
@@ -40,11 +39,12 @@
   </section>
 </section>
 
+
+
 <input type="submit" [style.background-image]="'url('+bodyDynamics.buttonUp+')'" id="scrollButtonTop"
        onclick="scrollBy(0, -100)">
 <input type="submit" [style.background-image]="'url('+bodyDynamics.buttonDown+')'" id="scrollButtonBottom"
        onclick="scrollBy(0, 100)">
-
 
 
 
