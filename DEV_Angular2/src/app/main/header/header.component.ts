@@ -26,10 +26,12 @@ export class HeaderComponent implements OnInit {
   public edPlanCompetences = [];
 
 
+
   constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
     this.getStudentData();
     this.getEducationalPlan();
     this.getEdPlanData();
+
   }
 
   ngOnInit() {
@@ -51,14 +53,14 @@ export class HeaderComponent implements OnInit {
 
   async getEdPlanData() {
     await this.apiCommunicatorService.getEdPlan(1)
-      .map((edplan: Array<Object>) => this.edPlanData = edplan)
-      .subscribe(() => this.apiCommunicatorService.getEdPlan(1).map(res => {
-          this.edPlanData = res;
-          this.edPlanCompetences = res["competences"];
-        }
-      ));
-    console.log(this.edPlanData);
-    console.log(this.edPlanCompetences);
+      .subscribe(res => { this.edPlanData = res[0];
+          this.edPlanData = res[0];
+            console.log("Edplan: "+JSON.stringify(res));
+          this.edPlanCompetences = res[0]["competences"];
+            console.log(JSON.stringify(this.edPlanData));
+            console.log(JSON.stringify(this.edPlanCompetences));
+            console.log(JSON.stringify(this.edPlanData["id"]));
+        });
   }
 
   loadChapter(i) {
