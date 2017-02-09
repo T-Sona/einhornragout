@@ -41,9 +41,9 @@
 
 
 <input type="submit" [style.background-image]="'url('+bodyDynamics.buttonUp+')'" id="scrollButtonTop"
-       onclick="scrollBy(0, -100)">
+       onclick="window.scrollBy({top: -300, left: 0,  behavior: 'smooth'});">
 <input type="submit" [style.background-image]="'url('+bodyDynamics.buttonDown+')'" id="scrollButtonBottom"
-       onclick="scrollBy(0, 100)">
+       onclick="window.scrollBy({top: 300, left: 0, behavior: 'smooth' });">
 
 
 
