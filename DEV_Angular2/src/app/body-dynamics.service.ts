@@ -21,11 +21,13 @@ export class BodyDynamicsService {
   constructor() {
   }
 
-  formatDate(dateFromApi) {
+    formatDate(dateFromApi, i) {
 
-    if (dateFromApi == null) {
+    console.log("Edplan: "+this.edPlans.competences[this.chapterBubbles[i].number])
+
+    if (dateFromApi == null && !this.edPlans.competences[this.chapterBubbles[i].number]) {
       return "Du hast diese Kompetenz noch nicht erreicht.";
-    } else {
+    } else if(!this.edPlans.competences[this.chapterBubbles[i].number]) {
       let day = dateFromApi.slice(8, 10);
       let month = dateFromApi.slice(5, 7);
       let year = dateFromApi.slice(0, 4);
@@ -69,6 +71,9 @@ export class BodyDynamicsService {
       }
 
       return "Du hast diese Kompetenz am " + day + ". " + month + " " + year + " erreicht!";
+    } else {
+
+      return "<strong>"+this.edPlans.plans[this.edPlans.competences[this.chapterBubbles[i].number].edPlanId].name +"</strong><br><br>"+ this.edPlans.competences[this.chapterBubbles[i].number].note;
     }
   }
 
@@ -140,20 +145,23 @@ export class BodyDynamicsService {
   assignPictureInBubble(arrayElement) {
 
     var i = arrayElement.chapterId;
+    var imagepath = "../../../images/";
 
     if (arrayElement.checked) {
       if (i < 10) {
-        return "../../../images/chapter0" + i + "/competenceDone.png";
+        return imagepath +"chapter0" + i + "/competenceDone.png";
       } else {
-        return "../../../images/chapter" + i + "/competenceDone.png";
+        return imagepath +"chapter"+ i + "/competenceDone.png";
       }
-    } else {
+    } else if(!this.edPlans.competences[arrayElement.number]) {
       if (i < 10) {
-        return "../../../images/chapter0" + i + "/competenceUndone.png";
+        return imagepath +"chapter0" + i + "/competenceUndone.png";
       } else {
-        return "../../../images/chapter" + i + "/competenceUndone.png";
+        return imagepath +"chapter"+ i + "/competenceUndone.png";
       }
 
+    } else {
+      return imagepath+"isInEducationalPlan.png";
     }
 
   }

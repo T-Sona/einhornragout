@@ -22,8 +22,8 @@
            [src]="bodyDynamics.assignPictureInBubble(bodyDynamics.chapterBubbles[i])" height="40" width="40"/>
 
 
-      <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow">
-        {{bodyDynamics.formatDate(cont.fromDate)}}
+      <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" [innerHTML]="bodyDynamics.formatDate(cont.fromDate, i)" class="left-arrow">
+
       </section>
       <section *ngIf="bodyDynamics.sideTextBooleanArray[i]" class="left-arrow-blue">
       </section>
