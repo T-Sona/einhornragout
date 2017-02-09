@@ -42,13 +42,13 @@
 
         <!-- Button Förderplan + Dropdown-Menu -->
         <div class="dd">
-          <button type="button" class="nav-button " id="educational-plan"></button>
+          <button (click)="getEdPlanData()" type="button" class="nav-button" id="educational-plan"></button>
           <div class="dd-content" id="dd-educational-plan">
             <section class="dd-header">
               <section class="row">
                 <img src="../../../images/educationalPlan-big.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-                  FÖRDERPLAN<br>MATHE ZR BIS 10
+                  {{edPlanData["id"]}}
                 </p>
               </section>
             </section>
