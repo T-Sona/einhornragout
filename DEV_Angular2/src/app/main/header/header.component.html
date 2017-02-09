@@ -48,11 +48,11 @@
               <section class="row">
                 <img src="../../../images/educationalPlan-big.png" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-                  {{edPlanData["id"]}}
+                  FÖRDERPLAN<br/>{{bodyDynamics.edPlans.count}}
                 </p>
               </section>
             </section>
-            <a *ngFor="let cont of educationalArray">{{cont.name}}</a>
+            <a *ngFor="let cont of bodyDynamics.edPlans.plans">{{cont.name}}</a>
           </div>
         </div>
 
@@ -96,7 +96,7 @@
 
         <!-- Button Profil + Dropdown-Menu -->
         <div class="dd">
-          <button (mouseover)="activateProfileBackgroundImage()" (mouseleave)="deactivateProfileBackgroundImage()"
+          <button (mouseover)="changeProfileBackgroundImage(avatarPictures?.avatarID, true)" (mouseleave)="changeProfileBackgroundImage(avatarPictures?.avatarID, false)"
                   [style.backgroundImage]="profileBackgroundImage" type="button" class="nav-button " id="profile"></button>
           <div class="dd-content" id="dd-profile">
             <section class="dd-header">
@@ -118,22 +118,22 @@
 
         <!-- Button Schule + Dropdown-Menu -->
         <div class="dd">
-          <button (mouseover)="activateSchoolBackgroundImage()" (mouseleave)="deactivateSchoolBackgroundImage()"
+          <button (mouseover)="changeSchoolImage(headerdaten?.school, true)" (mouseleave)="changeSchoolImage(headerdaten?.school, false)"
                   [style.backgroundImage]="schoolBackgroundImage" type="button" class="nav-button"></button>
           <div class="dd-content" id="dd-school-profile">
             <section class="dd-header">
               <section class="row">
-                <img [src]="'../../..'+school['imageUrlBig']" class="col-xs-5 dd-header-picture"/>
+                <img [src]="'../../..'+headerdaten?.school?.imageUrlBig" class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-                  {{school["name"]}}
+                  {{headerdaten?.school?.name}}
                 </p>
               </section>
               <section class="dd-header-text-2">
-                <br/>{{school["address"]}}
-                <br/>{{school["country"]}}
+                <br/>{{headerdaten?.school?.address}}
+                <br/>{{headerdaten?.school?.country}}
                 <br/>
-                <br/>{{school["email"]}}
-                <br/>{{school["telefon"]}}
+                <br/>{{headerdaten?.school?.email}}
+                <br/>{{headerdaten?.school?.telefon}}
               </section>
             </section>
           </div>
@@ -141,14 +141,14 @@
 
         <!-- Button Klasse + Dropdown-Menu -->
         <div class="dd">
-          <button (mouseover)="activateGroupBackgroundImage()" (mouseleave)="deactivateGroupBackgroundImage()"
+          <button (mouseover)="changeGroupBackgroundImage(headerdaten?.studyGroups, true)" (mouseleave)="changeGroupBackgroundImage(headerdaten?.studyGroups, false)"
                   [style.backgroundImage]="groupBackgroundImage" type="button" class="nav-button"></button>
           <div class="dd-content" id="dd-study-group-profile">
             <section class="dd-header">
               <section class="row">
-                <img [src]='"../../../"+studyGroup["imageUrlBig"]' class="col-xs-5 dd-header-picture"/>
+                <img [src]='"../../../"+headerdaten?.studyGroups?.imageUrlBig' class="col-xs-5 dd-header-picture"/>
                 <p class="col-xs-7 dd-header-text-1">
-                  KLASSE<br>{{studyGroup["class"]}}
+                  KLASSE<br>{{headerdaten?.studyGroups?.class}}
                 </p>
               </section>
               <section class="dd-header-text-2">

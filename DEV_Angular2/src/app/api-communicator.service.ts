@@ -18,7 +18,11 @@ export class ApiCommunicatorService {
     }
     console.log(API_DATA.server + url);
     return this.http.get(API_DATA["server"] + url, {headers: this.authHeader})
-      .map((res: Response) => res.json());
+      .map((res: Response) => {
+      let json = res.status;
+      console.log("Status: " + json);
+      return res.json();
+      });
   }
 
   putNoHeader(url, body) {

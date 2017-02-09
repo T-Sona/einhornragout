@@ -13,9 +13,6 @@ import {Observable} from 'rxjs/Rx';
 export class HeaderComponent implements OnInit {
 
   public headerdaten = {};
-  public studyGroup = {};
-  public school = {};
-  public educationalArray = [];
   public groupBackgroundImage;
   public schoolBackgroundImage;
   public profileBackgroundImage;
@@ -29,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
     this.getStudentData();
-    this.getEducationalPlan();
     this.getEdPlanData();
 
   }
@@ -41,26 +37,33 @@ export class HeaderComponent implements OnInit {
     await Observable.forkJoin(this.apiCommunicatorService.getAvatar("All"), this.apiCommunicatorService.getStudent()).subscribe(res => {
       this.avatarPictures = res[0];
       this.headerdaten = res[1];
-      this.studyGroup = res[1]["studyGroups"];
-      this.school = res[1]["school"];
       this.avatarID = res[1]["avatarId"];
-      this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
-      this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
+      this.groupBackgroundImage = "url(../../.." + res[1].studyGroups["imageUrlInactive"] + ")";
+      this.schoolBackgroundImage = "url(../../.." + res[1].school["imageUrlInactive"] + ")";
       this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarInactiveUrl"] + ")";
       this.profileHeaderImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarBigUrl"];
     });
   }
 
-  async getEdPlanData() {
-    await this.apiCommunicatorService.getEdPlan(1)
-      .subscribe(res => { this.edPlanData = res[0];
-          this.edPlanData = res[0];
-            console.log("Edplan: "+JSON.stringify(res));
-          this.edPlanCompetences = res[0]["competences"];
-            console.log(JSON.stringify(this.edPlanData));
-            console.log(JSON.stringify(this.edPlanCompetences));
-            console.log(JSON.stringify(this.edPlanData["id"]));
-        });
+  getEdPlanData() {
+    console.log("edPlanData");
+    this.apiCommunicatorService.getEdPlan("All")
+      .subscribe(res => {console.log("incall1");
+          this.bodyDynamics.edPlans.plans = res;
+          this.bodyDynamics.edPlans.count = res.length;
+          for(let i=1; i <= res.length; i++){
+              this.apiCommunicatorService.getEdPlan(i).subscribe(res => {
+                for(let j = 0; j < res[0].competences.length; j++){
+                  this.bodyDynamics.edPlans.competences[res[0].competences[j].competenceId] = {
+                        "edPlanId": res[0].educationalPlanId,
+                        "note": res[0].competences[j].note
+                        /*,"order": res[0].competences[j].order*/
+                  }
+                }
+              console.log("///// bodyDynamics.edPlans: "+JSON.stringify(this.headerdaten));
+              })
+            }}
+      );
   }
 
   loadChapter(i) {
@@ -92,34 +95,28 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["../home"]);
   }
 
-  async getEducationalPlan() {
-    await this.apiCommunicatorService.getEdPlan("All")
-      .subscribe((edPlan: Array<Object>) => this.educationalArray = edPlan);
+  changeGroupBackgroundImage(scope, activate) {
+    if(activate){
+      this.groupBackgroundImage = "url(../../.." + scope["imageUrl"] + ")";
+    } else {
+      this.groupBackgroundImage = "url(../../.." + scope["imageUrlInactive"] + ")";
+    }
   }
 
-  activateGroupBackgroundImage() {
-    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrl"] + ")";
+  changeSchoolBackgroundImage(scope, activate) {
+    if(activate){
+      this.schoolBackgroundImage = "url(../../.." + scope["imageUrl"] + ")";
+    } else {
+      this.schoolBackgroundImage = "url(../../.." + scope["imageUrlInactive"] + ")";
+    }
   }
 
-  deactivateGroupBackgroundImage() {
-    this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
+  changeProfileBackgroundImage(scope, activate) {
+    if(activate){
+      this.profileBackgroundImage = "url(../../.." + scope["avatarUrl"] + ")";
+    } else {
+      this.profileBackgroundImage = "url(../../.." + scope["avatarInactiveUrl"] + ")";
+    }
   }
-
-  activateSchoolBackgroundImage() {
-    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrl"] + ")";
-  }
-
-  deactivateSchoolBackgroundImage() {
-    this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
-  }
-
-  activateProfileBackgroundImage() {
-    this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarUrl"] + ")";
-  }
-
-  deactivateProfileBackgroundImage() {
-    this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarInactiveUrl"] + ")";
-  }
-
 
 }

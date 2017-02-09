@@ -11,6 +11,12 @@ export class BodyDynamicsService {
   public chapterBubbles = [];
   public loadAllCompetences = true;
   public sideTextBooleanArray = [];
+  public edPlans = {
+              "this": "",
+              "count": 0,
+              "plans": [],
+              "competences" : {}
+          };
 
   constructor() {
   }
@@ -155,6 +161,3 @@ export class BodyDynamicsService {
 
 
 }
-
-
-
