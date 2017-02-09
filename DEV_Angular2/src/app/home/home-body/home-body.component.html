@@ -1,24 +1,32 @@
-
 <img src="../../../images/login/header.png" height="247" width="559" class="displayed" id="bild"/><br>
 
 <!--Eingabefeld Benutzername-->
 <div id="divCenterLogin">
-  <input type="text" placeholder="BENUTZERNAME" [(ngModel)]="username" class="field-border inputLogin" id="LoginInputUser"><br>
 
-  <input type="password" placeholder="PASSWORT" [(ngModel)]="password" class="field-border inputLogin" id="LoginInputPassword"><br>
+  <form>
 
-  <label>
-    <input type="checkbox" name="angemeldetBleiben" [(ngModel)]="savedLogin">
-    Angemeldet bleiben?
-  </label><br/>
-  <button type="submit" (click)="login(username, password, savedLogin)" class="buttonLogin" style="color: white">LOS!</button><br>
+    <input type="text" placeholder="BENUTZERNAME" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" class="field-border inputLogin"
+           id="LoginInputUser"><br>
 
+    <input type="password" placeholder="PASSWORT" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="field-border inputLogin"
+           id="LoginInputPassword"><br>
+
+    <label>
+      <input type="checkbox" name="angemeldetBleiben" [(ngModel)]="savedLogin" [ngModelOptions]="{standalone: true}">
+      Angemeldet bleiben?
+    </label><br/>
+
+    <button id="loginButton" type="submit" (click)="login(username, password, savedLogin)" class="buttonLogin"
+            style="color: white">LOS!
+    </button>
+    <br>
+
+  </form>
 
   <app-modal-error [(visible)]="errorService.error.show"></app-modal-error>
 
   <app-modal-success [(visible)]="errorService.success.show"></app-modal-success>
 
   <app-modal-gear [(visible)]="errorService.gear.show"></app-modal-gear>
-
 
 </div>
