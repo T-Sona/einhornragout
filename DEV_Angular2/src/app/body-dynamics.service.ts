@@ -11,16 +11,24 @@ export class BodyDynamicsService {
   public chapterBubbles = [];
   public loadAllCompetences = true;
   public sideTextBooleanArray = [];
+  public visibleArray = [false, false, false, false, false, false, false, false]
   public edPlans = {
-              "this": "",
-              "count": 0,
-              "plans": [],
-              "competences" : {}
-          };
+    "this": "",
+    "count": 0,
+    "plans": [],
+    "competences": {}
+  };
 
   constructor() {
   }
 
+  setDdVisible(numberOfDd) {
+    this.visibleArray[numberOfDd] = true;
+  }
+
+  setDdUnvisible(numberOfDd) {
+    this.visibleArray[numberOfDd]=false;
+  }
 
   formatDate(dateFromApi) {
 

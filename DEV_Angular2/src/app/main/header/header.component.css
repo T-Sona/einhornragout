@@ -6,6 +6,61 @@
   background-position: center;
   background-size: 140px;
 }
+.upper-arrow-white {
+  display: inline-block;
+  position: absolute;
+  color: transparent;
+  background-color: transparent;;
+  width: 250px;
+  border: 2px transparent;
+  margin-left: 40px;
+  z-index: 10;
+  padding: 2px;
+}
+
+.upper-arrow-white:after {
+  content: '';
+  display: block;
+  z-index: 1;
+  position: absolute;
+  right: 260px;
+  top: 33px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid white;
+  border-left: 10px solid transparent;
+}
+
+.upper-arrow-blue {
+  display: inline-block;
+  position: absolute;
+  color: transparent;
+  background-color: transparent;;
+  width: 250px;
+  border: 2px transparent;
+  margin-left: 40px;
+  z-index: 10;
+  padding: 2px;
+}
+
+.upper-arrow-blue:after {
+  content: '';
+  display: block;
+  z-index: 2;
+  position: absolute;
+  right: 260px;
+  top: 35px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid #001a3a;
+  border-left: 10px solid transparent;
+}
+
+
 /*bestimmt Hintergrundfarbe der oberen Leiste*/
 .navbar {
   background-color: #001a3a;
@@ -60,13 +115,14 @@
 
 /* definiert gesamtes Dropdown Menu der Buttons */
 .dd-content {
-  display: none;
+  display: block;
   position: fixed;
   background-color: white;
   min-width: 160px;
   border: solid white 2px;
   border-radius: 2px;
   width: 250px;
+  top: 65px;
   overflow: hidden; /* Versteckt die Scrollbar der inneren Section der Dropdown Menüs */
 }
 
@@ -127,11 +183,6 @@
   border-radius: 2px;
 }
 
-/* bewirkt dass die Dropdown-Menu der Buttons erst beim Hovern sichtbar wird */
-
-.dd:hover .dd-content {
-  display: block !important;
-}
 
 /* Effekt der beim Hovern über ein unteres Dropdown-Menu Feld der Buttons eintritt (außer bei "Kompetenzliste" und "Das kann ich")*/
 
