@@ -60,6 +60,22 @@
   width: 45px;
 }
 
+@media screen and (max-width: 1130px) {
+  .illustrationResponsive {
+    display: none;
+  }
+
+  .flagResponsiveScreen {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1130px) {
+  .flagResponsiveHandy {
+    display: none;
+  }
+}
+
 #illustrationRight {
   text-align: left;
   margin-top: 44px;
