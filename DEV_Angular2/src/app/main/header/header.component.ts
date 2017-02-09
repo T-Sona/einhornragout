@@ -3,6 +3,7 @@ import {ApiCommunicatorService} from "../../api-communicator.service";
 import {BodyDynamicsService} from "../../body-dynamics.service";
 import {Router} from '@angular/router';
 import {LoginService} from '../../login.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-header',
@@ -24,17 +25,30 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
+    this.getStudentData();
+    this.getEducationalPlan();
   }
 
   ngOnInit() {
-    this.getEducationalPlan();
-    this.getStudentData();
   }
 
-  getStudentData() {
-    this.apiCommunicatorService.getAvatar("All")
-          .map((avatar: Array<Object>) => this.avatarPictures = avatar )
-          .subscribe(() => this.apiCommunicatorService.getStudent().map(res => {
+  async getStudentData() {
+  await Observable.forkJoin(this.apiCommunicatorService.getAvatar("All"), this.apiCommunicatorService.getStudent()).subscribe(res =>{
+        this.avatarPictures = res[0];
+        this.headerdaten = res[1];
+        this.studyGroup = res[1]["studyGroups"];
+        this.school = res[1]["school"];
+        this.avatarID = res[1]["avatarId"];
+        this.groupBackgroundImage = "url(../../.." + this.studyGroup["imageUrlInactive"] + ")";
+        this.schoolBackgroundImage = "url(../../.." + this.school["imageUrlInactive"] + ")";
+        this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarInactiveUrl"]+ ")";
+        this.profileHeaderImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarBigUrl"];
+        console.log("profileHeaderImage: "+this.profileBackgroundImage);
+  });
+
+        /*  .map((avatar: Array<Object>) => this.avatarPictures = avatar )
+          .subscribe(() => .map(res => {
+                          console.log("1.1")
                           this.headerdaten = res;
                           this.studyGroup = res["studyGroups"];
                           this.school = res["school"];
@@ -46,7 +60,7 @@ export class HeaderComponent implements OnInit {
                               this.profileHeaderImage = this.avatarPictures[this.avatarID]["avatarBigUrl"];
                               console.log("Avatars: "+this.profileHeaderImage);
                         })
-          );
+          ); */
   }
 
   loadChapter(i) {
@@ -74,13 +88,12 @@ export class HeaderComponent implements OnInit {
 
 
   logout() {
-    console.log("header");
     this.loginService.logout();
     this.router.navigate(["../home"]);
   }
 
-  getEducationalPlan() {
-    this.apiCommunicatorService.getEdPlan("All")
+  async getEducationalPlan() {
+    await this.apiCommunicatorService.getEdPlan("All")
       .subscribe((edPlan: Array<Object>) => this.educationalArray = edPlan);
   }
 
