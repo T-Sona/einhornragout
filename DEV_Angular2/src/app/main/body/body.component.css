@@ -73,13 +73,24 @@
 @media screen and (max-width: 700px) {
   .flagResponsiveHandy {
     position: absolute;
-    top:-45px;
-    left:-5px;
+    top: -45px;
+    left: -5px;
 
   }
-  .responsiveBubbles{
+
+  .responsiveBubbles {
     position: absolute;
-margin-top: 50px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #scrollButtonTop {
+    display: none;
+  }
+
+  #scrollButtonBottom {
+    display: none;
   }
 }
 
