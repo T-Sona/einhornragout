@@ -114,10 +114,8 @@ export class HeaderComponent implements OnInit {
   changeProfileBackgroundImage(scope, activate) {
     if(activate){
       this.profileBackgroundImage = "url(../../.." + scope["avatarUrl"] + ")";
-      this.bodyDynamics.setDdVisible(3)
     } else {
       this.profileBackgroundImage = "url(../../.." + scope["avatarInactiveUrl"] + ")";
-      this.bodyDynamics.setDdUnvisible(3)
     }
   }
 
