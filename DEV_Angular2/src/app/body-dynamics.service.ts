@@ -15,12 +15,64 @@ export class BodyDynamicsService {
   constructor() {
   }
 
-  calcContentHeigth () {
 
-    let i = this.chapterBubbles.length*130+110;
+  formatDate(dateFromApi) {
 
-    if(i>1080) {
-      return i+"px";
+    if (dateFromApi == null) {
+      return "Du hast diese Kompetenz noch nicht erreicht.";
+    } else {
+      let day = dateFromApi.slice(8, 10);
+      let month = dateFromApi.slice(5, 7);
+      let year = dateFromApi.slice(0, 4);
+
+      switch (month) {
+        case "01":
+          month = "Januar";
+          break;
+        case "02":
+          month = "Februar";
+          break;
+        case "03":
+          month = "Maerz";
+          break;
+        case "04":
+          month = "April";
+          break;
+        case "05":
+          month = "Mai";
+          break;
+        case "06":
+          month = "Juni";
+          break;
+        case "07":
+          month = "Juli";
+          break;
+        case "08":
+          month = "August";
+          break;
+        case "09":
+          month = "September";
+          break;
+        case "10":
+          month = "Oktober";
+          break;
+        case "11":
+          month = "November";
+          break;
+        default:
+          month = "Dezember";
+      }
+
+      return "Du hast diese Kompetenz am " + day + ". " + month + " " + year + " erreicht!";
+    }
+  }
+
+  calcContentHeigth() {
+
+    let i = this.chapterBubbles.length * 130 + 110;
+
+    if (i > 1080) {
+      return i + "px";
     } else {
       return "1080px";
     }
