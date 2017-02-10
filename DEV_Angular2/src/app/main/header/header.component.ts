@@ -61,7 +61,12 @@ export class HeaderComponent implements OnInit {
       .subscribe(res => {console.log("incall1");
           this.bodyDynamics.edPlans.plans = res;
           this.bodyDynamics.edPlans.count = res.length;
-          for(let i=1; i <= res.length; i++){
+            for(let i=1; i <= res.length; i++){
+              this.bodyDynamics.edPlans.hashMapPlans[res[i]._id]= {
+                "name": res[i].name,
+                "thema": res[i].thema
+              };
+              console.log("HashMapPlans: "+JSON.stringify(this.bodyDynamics.edPlans.hashMapPlans));
               this.apiCommunicatorService.getEdPlan(i).subscribe(res => {
                 for(let j = 0; j < res[0].competences.length; j++){
                   this.bodyDynamics.edPlans.competences[res[0].competences[j].competenceId] = {
@@ -110,7 +115,6 @@ export class HeaderComponent implements OnInit {
                               }
                             }
                           }
-                          console.log("IF - "+JSON.stringify(competenceAll));
                           this.bodyDynamics.chapterBubbles = competenceAll;
                       })
 

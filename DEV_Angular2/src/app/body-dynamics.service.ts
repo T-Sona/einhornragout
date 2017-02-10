@@ -12,20 +12,20 @@ export class BodyDynamicsService {
   public loadAllCompetences = true;
   public sideTextBooleanArray = [];
   public edPlans = {
-    "this": "",
     "count": 0,
     "plans": [],
-    "competences": {}
+    "competences": {},
+    "hashMapPlans": {}
   };
 
   constructor() {
   }
 
     formatDate(dateFromApi, i) {
-
-    if (dateFromApi == null && !this.edPlans.competences[this.chapterBubbles[i+1].id]) {
+    console.log(JSON.stringify(this.edPlans.competences));
+    if (dateFromApi == null && !this.edPlans.competences[this.chapterBubbles[i].id]) {
       return "Du hast diese Kompetenz noch nicht erreicht.";
-    } else if(!this.edPlans.competences[this.chapterBubbles[i+1].id]) {
+    } else if(!this.edPlans.competences[this.chapterBubbles[i].id]) {
       let day = dateFromApi.slice(8, 10);
       let month = dateFromApi.slice(5, 7);
       let year = dateFromApi.slice(0, 4);
@@ -71,7 +71,13 @@ export class BodyDynamicsService {
       return "Du hast diese Kompetenz am " + day + ". " + month + " " + year + " erreicht!";
     } else {
 
-      return "<strong>"+this.edPlans.plans[this.edPlans.competences[this.chapterBubbles[i+1].id].edPlanId].name +"</strong><br><br>"+ this.edPlans.competences[this.chapterBubbles[i+1].id].note;
+      console.log("Bubbles: "+JSON.stringify(this.chapterBubbles[i]));
+      console.log("EdplanID: "+JSON.stringify([this.edPlans.competences[this.chapterBubbles[i].id].edPlanId]));
+      console.log("Name: "+JSON.stringify(this.edPlans.hashMapPlans[this.edPlans.competences[this.chapterBubbles[i].id].edPlanId]));
+      console.log("Name: "+this.edPlans.hashMapPlans[this.edPlans.competences[this.chapterBubbles[i].id].edPlanId].name);
+      console.log("Note "+JSON.stringify(this.edPlans.competences[this.chapterBubbles[i].id]));
+      console.log("Note "+this.edPlans.competences[this.chapterBubbles[i].id].note);
+      return "<strong>"+this.edPlans.hashMapPlans[this.edPlans.competences[this.chapterBubbles[i].id].edPlanId].name +"</strong><br><br>"+ this.edPlans.competences[this.chapterBubbles[i].id].note;
     }
   }
 

@@ -56,7 +56,7 @@
                 </p>
               </section>
             </section>
-            <a *ngFor="let cont of bodyDynamics.edPlans.plans" (click)="loadEducationPlan(cont._id)">{{cont.name}}</a>
+            <a *ngFor="let cont of bodyDynamics.edPlans.plans" (click)="loadEducationPlan(cont['_id'])">{{cont.name}}</a>
           </div>
         </div>
 
