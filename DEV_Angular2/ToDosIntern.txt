@@ -1,0 +1,14 @@
+To-Do-Liste:
+Errorhandling (Timo)
+Change-Picture fixen (Timo)
+Scrollbar rausschieben (wer möchte)
+Sobald Antwort da, Förderplan Hintergrund/ Flag anpassen und Routerlinks im Header (wer möchte)
+
+Nice-To-Have-Features:
+Firefoxkorrekturen 1 Buttons oben (Timo)
+Firefoxkorrekturen 2 Modals (Martin)
+Farben der Dropdowns aus der Api laden (Timo)
+
+Fragen für Mittwoch (15.02.2017):
+Bubbles nach Datum sortieren
+Umfang-Errorhandling
