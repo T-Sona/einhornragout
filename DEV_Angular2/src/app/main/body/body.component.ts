@@ -23,7 +23,6 @@ export class BodyComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("CHECK!");
-    console.log("LoggedIn:" + this.loginService.isLoggedIn());
     if (!this.loginService.isLoggedIn()) {
       this.router.navigate(["../home"]);
     }

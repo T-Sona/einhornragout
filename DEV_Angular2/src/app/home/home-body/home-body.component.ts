@@ -24,7 +24,6 @@ export class HomeBodyComponent implements OnInit {
   }
 
   private login(username, password, savedLogin) {
-    console.log("username: " + username + " | password: " + password + " | savedLogin:" + !!savedLogin);
     this.loginService.login(username, password, !!savedLogin).subscribe(res => this.router.navigate(["../main"]), (err) => {
       this.errorService.throwError("Ihre Eingaben sind nicht korrekt, bitte versuchen sie es erneut!");
     });

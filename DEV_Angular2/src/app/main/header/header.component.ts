@@ -56,18 +56,17 @@ export class HeaderComponent implements OnInit {
   }
 
   getEdPlanData() {
-    console.log("edPlanData");
     this.apiCommunicatorService.getEdPlan("All")
-      .subscribe(res => {console.log("incall1");
+      .subscribe(res => {
           this.bodyDynamics.edPlans.plans = res;
           this.bodyDynamics.edPlans.count = res.length;
-            for(let i=1; i <= res.length; i++){
+            for(let i=0; i < res.length; i++){
               this.bodyDynamics.edPlans.hashMapPlans[res[i]._id]= {
                 "name": res[i].name,
                 "thema": res[i].thema
               };
-              console.log("HashMapPlans: "+JSON.stringify(this.bodyDynamics.edPlans.hashMapPlans));
-              this.apiCommunicatorService.getEdPlan(i).subscribe(res => {
+
+              this.apiCommunicatorService.getEdPlan(i+1).subscribe(res => {
                 for(let j = 0; j < res[0].competences.length; j++){
                   this.bodyDynamics.edPlans.competences[res[0].competences[j].competenceId] = {
                         "edPlanId": res[0].educationalPlanId,
@@ -104,12 +103,11 @@ export class HeaderComponent implements OnInit {
   }
 
   loadEducationPlan(i) {
-    console.log("Parameter: "+i);
 
     this.apiCommunicatorService.getCompetences("All", "All").subscribe(res => {
                           let competenceAll = [];
                           for (let j = 0; j < res.length; j++) {
-                            if(!!this.bodyDynamics.edPlans.competences[res[j].id]) {
+                            if(!!this.bodyDynamics.edPlans.competences[res[j].id]){
                               if(this.bodyDynamics.edPlans.competences[res[j].id].edPlanId === i){
                                 competenceAll.push(res[j]);
                               }
