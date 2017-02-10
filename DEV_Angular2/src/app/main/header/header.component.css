@@ -373,13 +373,88 @@
 }
 
 @media screen and (max-width: 1130px) {
-  .split{
+  #header {
+    background-size: 0px
+  }
+
+  .upper-arrow-blue {
     display: none;
+  }
+
+  .upper-arrow-white {
+    display: none;
+  }
+
+  .dd-content {
+    position: fixed;
+    top: 52px;
+    left: 10px !important;
+    width: 370px;
+
+  }
+
+  .split{
+    position: fixed;
+    left: 143px;
+    top:17px;
+
+  }
+
+  #split2{
+    left: 285px !important;
+  }
+
+  #chapter-overview {
+    position: fixed;
+    top: 12px;
+    left: 10px;
+  }
+
+  #educational-plan {
+    position: fixed;
+    top: 12px;
+    left: 55px;
+  }
+
+  #achieved-competences {
+    position: fixed;
+    top: 12px;
+    left:100px;
+  }
+
+  #profile {
+    position: fixed;
+    top: 12px;
+    left:151px;
+  }
+
+  #school {
+    position: fixed;
+    top: 12px;
+    left:196px;
+  }
+
+  #studyGroup {
+    position: fixed;
+    top: 12px;
+    left:241px;
+  }
+
+  #help {
+    position: fixed;
+    top: 12px;
+    left:292px;
+  }
+
+  #logout {
+    position: fixed;
+    top: 12px;
+    left:337px;
   }
 }
 
-@media screen and (max-width: 1130px) {
-  .dd{
+@media screen and (min-width: 1130px) {
+  #split2 {
     display: none;
   }
 }

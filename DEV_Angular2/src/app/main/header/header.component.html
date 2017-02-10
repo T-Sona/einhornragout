@@ -132,7 +132,7 @@
           <section *ngIf="visibleArray[4]" class="upper-arrow-blue"></section>
           <button (mouseover)="changeSchoolBackgroundImage(headerdaten?.school, true)"
                   (mouseleave)="changeSchoolBackgroundImage(headerdaten?.school, false)"
-                  [style.backgroundImage]="schoolBackgroundImage" type="button" class="nav-button"></button>
+                  [style.backgroundImage]="schoolBackgroundImage" type="button" class="nav-button" id="school"></button>
           <div *ngIf=visibleArray[4] class="dd-content" id="dd-school-profile">
             <section class="dd-header">
               <section class="row">
@@ -158,7 +158,7 @@
           <section *ngIf="visibleArray[5]" class="upper-arrow-blue"></section>
           <button (mouseover)="changeGroupBackgroundImage(headerdaten?.studyGroups, true)"
                   (mouseleave)="changeGroupBackgroundImage(headerdaten?.studyGroups, false)"
-                  [style.backgroundImage]="groupBackgroundImage" type="button" class="nav-button"></button>
+                  [style.backgroundImage]="groupBackgroundImage" type="button" class="nav-button" id="studyGroup"></button>
           <div *ngIf=visibleArray[5] class="dd-content" id="dd-study-group-profile">
             <section class="dd-header">
               <section class="row">
@@ -176,6 +176,9 @@
 
         <!-- Trennung der rechten Buttons -->
         <div class="split">
+        </div>
+
+        <div class="split" id="split2">
         </div>
 
         <!-- Buttons rechts 2 -->
