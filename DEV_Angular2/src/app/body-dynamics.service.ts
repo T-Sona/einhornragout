@@ -23,11 +23,9 @@ export class BodyDynamicsService {
 
     formatDate(dateFromApi, i) {
 
-    console.log("Edplan: "+this.edPlans.competences[this.chapterBubbles[i].number])
-
-    if (dateFromApi == null && !this.edPlans.competences[this.chapterBubbles[i].number]) {
+    if (dateFromApi == null && !this.edPlans.competences[this.chapterBubbles[i+1].id]) {
       return "Du hast diese Kompetenz noch nicht erreicht.";
-    } else if(!this.edPlans.competences[this.chapterBubbles[i].number]) {
+    } else if(!this.edPlans.competences[this.chapterBubbles[i+1].id]) {
       let day = dateFromApi.slice(8, 10);
       let month = dateFromApi.slice(5, 7);
       let year = dateFromApi.slice(0, 4);
@@ -73,7 +71,7 @@ export class BodyDynamicsService {
       return "Du hast diese Kompetenz am " + day + ". " + month + " " + year + " erreicht!";
     } else {
 
-      return "<strong>"+this.edPlans.plans[this.edPlans.competences[this.chapterBubbles[i].number].edPlanId].name +"</strong><br><br>"+ this.edPlans.competences[this.chapterBubbles[i].number].note;
+      return "<strong>"+this.edPlans.plans[this.edPlans.competences[this.chapterBubbles[i+1].id].edPlanId].name +"</strong><br><br>"+ this.edPlans.competences[this.chapterBubbles[i+1].id].note;
     }
   }
 

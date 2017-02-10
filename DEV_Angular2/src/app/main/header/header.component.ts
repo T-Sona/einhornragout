@@ -4,6 +4,7 @@ import {BodyDynamicsService} from "../../body-dynamics.service";
 import {Router} from '@angular/router';
 import {LoginService} from '../../login.service';
 import {Observable} from 'rxjs/Rx';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-header',
@@ -69,7 +70,6 @@ export class HeaderComponent implements OnInit {
                         /*,"order": res[0].competences[j].order*/
                   }
                 }
-              console.log("///// bodyDynamics.edPlans: "+JSON.stringify(this.headerdaten));
               })
             }}
       );
@@ -97,6 +97,26 @@ export class HeaderComponent implements OnInit {
     this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"]);
   }
+
+  loadEducationPlan(i) {
+    console.log("Parameter: "+i);
+
+    this.apiCommunicatorService.getCompetences("All", "All").subscribe(res => {
+                          let competenceAll = [];
+                          for (let j = 0; j < res.length; j++) {
+                            if(!!this.bodyDynamics.edPlans.competences[res[j].id]) {
+                              if(this.bodyDynamics.edPlans.competences[res[j].id].edPlanId === i){
+                                competenceAll.push(res[j]);
+                              }
+                            }
+                          }
+                          console.log("IF - "+JSON.stringify(competenceAll));
+                          this.bodyDynamics.chapterBubbles = competenceAll;
+                      })
+
+
+    }
+
 
 
   logout() {
