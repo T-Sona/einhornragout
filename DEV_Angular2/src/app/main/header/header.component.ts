@@ -48,6 +48,11 @@ export class HeaderComponent implements OnInit {
       this.avatarPictures = res[0];
       this.headerdaten = res[1];
       this.avatarID = res[1]["avatarId"];
+      if(!!localStorage.getItem("authHeader")){
+          localStorage.setItem("avatarId", this.avatarID);
+      } else{
+          sessionStorage.setItem("avatarId", this.avatarID);
+      }
       this.groupBackgroundImage = "url(../../.." + res[1].studyGroups["imageUrlInactive"] + ")";
       this.schoolBackgroundImage = "url(../../.." + res[1].school["imageUrlInactive"] + ")";
       this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarInactiveUrl"] + ")";

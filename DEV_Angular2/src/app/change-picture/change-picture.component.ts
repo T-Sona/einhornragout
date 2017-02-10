@@ -15,7 +15,7 @@ export class ChangePictureComponent implements OnInit {
 
   public avatarPictures = [];
   public pictureCurrentUrl = this.avatarPictures[this.currentPicture];
-  public currentPicture = sessionStorage.getItem("avatarId");
+  public currentPicture = (!!sessionStorage.getItem("avatarId")) ? sessionStorage.getItem("avatarId") : localStorage.getItem("avatarId");
   public picTopOld = true;
   public picTopNew = false;
   public pictureID;
