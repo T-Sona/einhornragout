@@ -121,7 +121,7 @@ export class HeaderComponent implements OnInit {
                           this.bodyDynamics.chapterBubbles = competenceAll;
                       })
 
-
+    this.bodyDynamics.changeBackground("#8da6d6");
     }
 
 
