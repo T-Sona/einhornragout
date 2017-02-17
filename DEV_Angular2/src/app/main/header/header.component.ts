@@ -94,6 +94,7 @@ export class HeaderComponent implements OnInit {
       .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
     this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"])
+    this.bodyDynamics.changeEdPlanFlagText("");
   }
 
   loadCompetences(i) {
@@ -105,6 +106,7 @@ export class HeaderComponent implements OnInit {
       .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
     this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"]);
+    this.bodyDynamics.changeEdPlanFlagText("");
   }
 
   loadEducationPlan(i) {
@@ -125,6 +127,7 @@ export class HeaderComponent implements OnInit {
     this.bodyDynamics.changeFlag(-1);
     this.bodyDynamics.changeButtonUp(-1);
     this.bodyDynamics.changeButtonDown(-1);
+    this.bodyDynamics.changeEdPlanFlagText(this.bodyDynamics.edPlans.plans[i-1].name);
     }
 
 

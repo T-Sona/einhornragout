@@ -1,7 +1,10 @@
 <section class="row" [style.background]="bodyDynamics.chapterColor" id="content">
 
   <section class="col-xs-4" id="illustrationLeft">
-    <img [src]="bodyDynamics.chapterFlag" class="flagResponsiveScreen">
+    <div class="imageFlag">
+      <img [src]="bodyDynamics.chapterFlag" class="flagResponsiveScreen">
+      <p class="imageFlagText imageFlagTextResponsiveScreen">{{bodyDynamics.edPlansFlagText}}</p>
+    </div>
     <div *ngFor="let illustration of siteIllustrations; let i=index" class="illustrationResponsive">
       <template [ngIf]="i<((bodyDynamics.chapterBubbles.length)/5)"><img
         [src]="'../../../'+illustration.illustrationLeft"
@@ -10,6 +13,7 @@
   </section>
   <div class="responsiveBubbles col-xs-4" align="center">
     <img [src]="bodyDynamics.chapterFlag" class="flagResponsiveHandy">
+    <p class="imageFlagText imageFlagTextResponsiveHandy">{{bodyDynamics.edPlansFlagText}}</p>
     <div class="bubble" *ngFor="let cont of bodyDynamics.chapterBubbles; let i=index">
       <section class="bubble-text col-xs-12">
         <p id="studentText">

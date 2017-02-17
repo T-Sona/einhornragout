@@ -12,7 +12,6 @@
   position: absolute;
   margin-top: 10px;
   margin-left: -15px;
-
 }
 
 .bubble {
@@ -66,12 +65,15 @@
   }
 
   .left-arrow{
-
     left: 20px;
   }
 
   .flagResponsiveScreen {
     display: none;
+  }
+
+  .imageFlagTextResponsiveScreen {
+    visibility: hidden;
   }
 
   .left-arrow-white {
@@ -81,6 +83,7 @@
   .left-arrow-blue {
     display: none !important;
   }
+
 }
 
 @media screen and (max-width: 700px) {
@@ -88,7 +91,12 @@
     position: absolute;
     top: -45px;
     left: -5px;
+  }
 
+
+  .imageFlagTextResponsiveHandy {
+    position: absolute;
+    text-align: right;
   }
 
   .responsiveBubbles {
@@ -110,6 +118,10 @@
 @media screen and (min-width: 1130px) {
   .flagResponsiveHandy {
     display: none;
+  }
+
+  .imageFlagTextResponsiveHandy {
+    visibility: hidden;
   }
 }
 
@@ -207,3 +219,19 @@
   border-bottom: 10px solid transparent;
   border-left: 10px solid transparent;
 }
+
+.imageFlag {
+  position: relative;
+  width: 100%; /* for IE 6 */
+}
+
+.imageFlagText {
+  position: absolute;
+  top: 17px;
+  left: -100px;
+  width: 100%;
+  font-size: 14px;
+  font-family: widolte_regular;
+  font-weight: 900;
+}
+

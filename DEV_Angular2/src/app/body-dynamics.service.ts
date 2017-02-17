@@ -17,6 +17,7 @@ export class BodyDynamicsService {
     "competences": {},
     "hashMapPlans": {}
   };
+  public edPlansFlagText;
 
   constructor() {
   }
@@ -82,8 +83,6 @@ export class BodyDynamicsService {
     } else {
       return "1080px";
     }
-
-
   }
 
   fillBooleanArray(j) {
@@ -91,7 +90,6 @@ export class BodyDynamicsService {
     for (let i = 0; i <= j; i++) {
       this.sideTextBooleanArray[i] = false;
     }
-
   }
 
   changeShowBubbleSidetext(i) {
@@ -166,6 +164,10 @@ export class BodyDynamicsService {
       return imagepath+"isInEducationalPlan.png";
     }
 
+  }
+
+  changeEdPlanFlagText (i) {
+    this.edPlansFlagText = i;
   }
 
 
