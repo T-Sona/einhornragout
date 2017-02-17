@@ -111,7 +111,9 @@ export class BodyDynamicsService {
   }
 
   changeFlag(i) {
-    if (i < 10) {
+    if (i == -1) {
+      this.chapterFlag = "../../../images/educationalPlan/littleChapterFlag.png";
+    } else if (i < 10) {
       this.chapterFlag = "../../../images/chapter0" + i + "/littleChapterFlag.png";
     } else {
       this.chapterFlag = "../../../images/chapter" + i + "/littleChapterFlag.png";
@@ -119,7 +121,9 @@ export class BodyDynamicsService {
   }
 
   changeButtonUp(i) {
-    if (i < 10) {
+    if (i == -1) {
+      this.buttonUp = "../../../images/educationalPlan/scrollUp.png";
+    } else if (i < 10) {
       this.buttonUp = "../../../images/chapter0" + i + "/scrollUp.png"
     } else {
       this.buttonUp = "../../../images/chapter" + i + "/scrollUp.png"
@@ -127,7 +131,9 @@ export class BodyDynamicsService {
   }
 
   changeButtonDown(i) {
-    if (i < 10) {
+    if (i == -1) {
+      this.buttonDown = "../../../images/educationalPlan/scrollDown.png";
+    } else if (i < 10) {
       this.buttonDown = "../../../images/chapter0" + i + "/scrollDown.png"
     } else {
       this.buttonDown = "../../../images/chapter" + i + "/scrollDown.png"

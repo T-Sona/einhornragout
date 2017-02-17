@@ -122,6 +122,9 @@ export class HeaderComponent implements OnInit {
                       })
 
     this.bodyDynamics.changeBackground("#8da6d6");
+    this.bodyDynamics.changeFlag(-1);
+    this.bodyDynamics.changeButtonUp(-1);
+    this.bodyDynamics.changeButtonDown(-1);
     }
 
 
