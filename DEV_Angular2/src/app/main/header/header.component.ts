@@ -128,6 +128,7 @@ export class HeaderComponent implements OnInit {
     this.bodyDynamics.changeButtonUp(-1);
     this.bodyDynamics.changeButtonDown(-1);
     this.bodyDynamics.changeEdPlanFlagText(this.bodyDynamics.edPlans.plans[i-1].name);
+    this.router.navigate(["../main"]);
     }
 
 

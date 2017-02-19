@@ -125,6 +125,15 @@
   }
 }
 
+@media screen and (min-width: 1400px) {
+  #imageFlagtext1 {
+    position: absolute;
+    top: 17px;
+    left: calc(45%);
+    text-align: left;
+  }
+}
+
 @media screen and (min-width: 700px) {
   #imageFlagtext3 {
     display: none;
@@ -238,11 +247,14 @@
   font-weight: 900;
 }
 
-#imageFlagtext1 {
-  position: absolute;
-  top: 17px;
-  left: 141px;
-  text-align: left;
+@media screen and (max-width: 1400px) {
+  #imageFlagtext1 {
+    position: absolute;
+    top: 17px;
+    left: calc(25%);
+    text-align: left;
+  }
+
 }
 
 #imageFlagtext2 {
