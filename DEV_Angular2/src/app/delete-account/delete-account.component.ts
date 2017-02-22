@@ -22,7 +22,6 @@ export class DeleteAccountComponent implements OnInit {
 
   public deleteAccount() {
     let password = (<HTMLInputElement>document.getElementById('passwordField')).value;
-    console.log("password:"+password);
     this.apiCommunicatorService.deleteStudent().subscribe((res: any) => {
         this.errorService.setSuccessLogout();
         this.errorService.throwSuccess("Ihr Benutzer wurde erfolgreich gelöscht!");

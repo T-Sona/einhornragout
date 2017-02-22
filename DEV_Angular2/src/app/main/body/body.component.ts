@@ -3,6 +3,7 @@ import {ApiCommunicatorService} from '../../api-communicator.service';
 import {Http, Headers} from '@angular/http';
 import {Router} from "@angular/router";
 import {LoginService} from "../../login.service";
+import {ErrorService} from "../../error.service";
 import {BodyDynamicsService} from "../../body-dynamics.service";
 import {Title}     from '@angular/platform-browser';
 
@@ -17,7 +18,7 @@ import {Title}     from '@angular/platform-browser';
 export class BodyComponent implements OnInit {
   public siteIllustrations = [];
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService, private loginService: LoginService, private router: Router,
+  constructor(private apiCommunicatorService: ApiCommunicatorService, private loginService: LoginService, private errorService: ErrorService, private router: Router,
               private bodyDynamics: BodyDynamicsService, private titleService: Title) {
   }
 

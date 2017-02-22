@@ -57,7 +57,6 @@
        onclick="window.scrollBy({top: 300, left: 0, behavior: 'smooth' });">
 
 
-
-
-
-
+ <app-modal-error [(visible)]="errorService.error.show"></app-modal-error>
+ <app-modal-success [(visible)]="errorService.success.show"></app-modal-success>
+ <app-modal-gear [(visible)]="errorService.gear.show"></app-modal-gear>

@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {LoginService} from '../../login.service';
 import {Observable} from 'rxjs/Rx';
 import {forEach} from "@angular/router/src/utils/collection";
+import {ErrorService} from '../../error.service'
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-  constructor(private apiCommunicatorService: ApiCommunicatorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
+  constructor(private apiCommunicatorService: ApiCommunicatorService,private errorService: ErrorService, private bodyDynamics: BodyDynamicsService, private router: Router, private loginService: LoginService) {
     this.getStudentData();
     this.getEdPlanData();
 
@@ -57,7 +58,8 @@ export class HeaderComponent implements OnInit {
       this.schoolBackgroundImage = "url(../../.." + res[1].school["imageUrlInactive"] + ")";
       this.profileBackgroundImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarInactiveUrl"] + ")";
       this.profileHeaderImage = "url(../../.." + this.avatarPictures[this.avatarID]["avatarBigUrl"];
-    });
+    },
+      (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"));
   }
 
   getEdPlanData() {
@@ -79,31 +81,38 @@ export class HeaderComponent implements OnInit {
                         /*,"order": res[0].competences[j].order*/
                   }
                 }
-              })
-            }}
+              },
+            (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"));
+            }
+        },
+          (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!")
       );
   }
 
   loadChapter(i) {
 
-    this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => this.bodyDynamics.changeBackground(res["weakcolor"]));
+    this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => {this.bodyDynamics.changeBackground(res["weakcolor"])},
+        (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"));
     this.bodyDynamics.changeFlag(i);
     this.bodyDynamics.changeButtonUp(i);
     this.bodyDynamics.changeButtonDown(i);
     this.apiCommunicatorService.getCompetences("All", i)
-      .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
+      .subscribe((competence: Array<Object>) => {this.bodyDynamics.changeChapterBubbles(competence)},
+        (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"));
     this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"])
     this.bodyDynamics.changeEdPlanFlagText("");
   }
 
   loadCompetences(i) {
-    this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => this.bodyDynamics.changeBackground(res["weakcolor"]));
+    this.apiCommunicatorService.getChapter(i).subscribe((res: Array<Object>) => {this.bodyDynamics.changeBackground(res["weakcolor"])},
+        (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"));
     this.bodyDynamics.changeFlag(i);
     this.bodyDynamics.changeButtonUp(i);
     this.bodyDynamics.changeButtonDown(i);
     this.apiCommunicatorService.getCompetences("true", i)
-      .subscribe((competence: Array<Object>) => this.bodyDynamics.changeChapterBubbles(competence));
+      .subscribe((competence: Array<Object>) => {this.bodyDynamics.changeChapterBubbles(competence)},
+        (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"));
     this.bodyDynamics.fillBooleanArray(this.bodyDynamics.chapterBubbles.length);
     this.router.navigate(["../main"]);
     this.bodyDynamics.changeEdPlanFlagText("");
@@ -121,7 +130,8 @@ export class HeaderComponent implements OnInit {
                             }
                           }
                           this.bodyDynamics.chapterBubbles = competenceAll;
-                      })
+                      },
+                    (err) => this.errorService.throwError("Fehler beim Abrufen der Informationen vom Server, bitte versuchen Sie es erneut!"))
 
     this.bodyDynamics.changeBackground("#8da6d6");
     this.bodyDynamics.changeFlag(-1);

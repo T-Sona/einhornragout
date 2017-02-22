@@ -16,11 +16,8 @@ export class ApiCommunicatorService {
     if(this.authHeader === undefined){
       this.authHeader = (!!sessionStorage.getItem("authHeader")) ? JSON.parse(sessionStorage.getItem("authHeader")) : JSON.parse(localStorage.getItem("authHeader"));
     }
-    console.log(API_DATA.server + url);
     return this.http.get(API_DATA["server"] + url, {headers: this.authHeader})
       .map((res: Response) => {
-      let json = res.status;
-      console.log("Status: " + json);
       return res.json();
       });
   }
@@ -29,7 +26,6 @@ export class ApiCommunicatorService {
     return this.http.put(API_DATA.server + url, body)
       .map((res: Response) => {
       let json = res.status;
-      console.log("Status: " + json);
       return res.json();
       });
   }
@@ -42,7 +38,6 @@ export class ApiCommunicatorService {
     return this.http.put(API_DATA.server + url,myBody, options)
       .map((res: Response) => {
         let json = res.status;
-        console.log("Status: " + json);
         return res.json();
       }).catch(e => Observable.throw('Error'));
   }
@@ -51,12 +46,10 @@ export class ApiCommunicatorService {
     if(this.authHeader === undefined){
       this.authHeader = (!!sessionStorage.getItem("authHeader")) ? JSON.parse(sessionStorage.getItem("authHeader")) : JSON.parse(localStorage.getItem("authHeader"));
     }
-console.log("deleteStudent");
     let options = new RequestOptions({ headers: this.authHeader})
     return this.http.delete(API_DATA.server + API_DATA.student ,options)
       .map((res: Response) => {
         let json = res.status;
-        console.log("Status: " + json);
         return res.json();
     });
   }
